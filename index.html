@@ -1,0 +1,2250 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tzuchia 海報提示詞工坊｜Poster Prompt Studio</title>
+<meta name="description" content="由黃子嘉老師 Tzuchia 設計的海報提示詞工坊，收錄 12 大產業、60 款可直接填空複製的 AI 海報生成提示詞模板。">
+<meta name="author" content="Tzuchia Huang">
+<link rel="canonical" href="https://tzuchia1009.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tzuchia 海報提示詞工坊｜Poster Prompt Studio">
+<meta property="og:description" content="12 大產業、60 款 AI 海報提示詞模板，演講現場可直接使用、複製與改寫。">
+<meta property="og:url" content="https://tzuchia1009.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F5F2; --ink:#16171B; --blue:#2743F0; --red:#FF4A2F;
+  --yellow:#FFCB2E; --gray:#8A8D94; --card:#FFFFFF; --line:#E2E3DF;
+  --radius:14px; --shadow:0 10px 30px rgba(22,23,27,.08);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans TC',sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+::selection{background:var(--yellow);color:var(--ink)}
+
+.calib{display:flex;height:8px;width:100%}
+.calib span{flex:1}
+.calib span:nth-child(1){background:#00A5E3}.calib span:nth-child(2){background:#E5007E}
+.calib span:nth-child(3){background:var(--yellow)}.calib span:nth-child(4){background:var(--ink)}
+.calib span:nth-child(5){background:var(--blue)}.calib span:nth-child(6){background:var(--red)}
+.calib span:nth-child(7){background:#1DA24A}.calib span:nth-child(8){background:#8A8D94}
+
+header{position:sticky;top:0;z-index:50;background:rgba(244,245,242,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.logo{display:flex;align-items:baseline;gap:10px;text-decoration:none;color:var(--ink)}
+.logo .en{font-family:'Archivo Black',sans-serif;font-size:18px;letter-spacing:.5px}
+.logo .en b{color:var(--blue)}
+.logo .zh{font-size:12px;color:var(--gray);font-weight:500}
+.logo .by{font-size:11px;color:var(--red);font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.navnote{margin-left:auto;font-size:12.5px;color:var(--gray)}
+.navnote b{color:var(--ink)}
+
+.hero{max-width:1200px;margin:0 auto;padding:56px 24px 36px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(30px,4.4vw,52px);font-weight:900;line-height:1.22;letter-spacing:.01em}
+.hero h1 .hl{background:linear-gradient(transparent 62%, var(--yellow) 62%, var(--yellow) 92%, transparent 92%)}
+.hero p.sub{margin-top:16px;font-size:16px;color:#4c4e55;max-width:520px}
+.hero .steps{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
+.hero .step{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;background:var(--card);border:1.5px solid var(--line);border-radius:99px;padding:8px 16px}
+.hero .step i{font-style:normal;width:20px;height:20px;border-radius:50%;background:var(--ink);color:#fff;font-size:11px;display:grid;place-items:center;font-weight:900}
+.hero .step:nth-child(1) i{background:var(--blue)}
+.hero .step:nth-child(2) i{background:var(--red)}
+.hero .step:nth-child(3) i{background:var(--ink)}
+.stack{position:relative;height:320px}
+.stack .mini{position:absolute;width:180px;aspect-ratio:3/4;border-radius:10px;overflow:hidden;box-shadow:0 16px 40px rgba(22,23,27,.18);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.stack .mini:nth-child(1){left:4%;top:24px;transform:rotate(-7deg);z-index:1}
+.stack .mini:nth-child(2){left:32%;top:0;transform:rotate(2deg);z-index:2}
+.stack .mini:nth-child(3){left:58%;top:36px;transform:rotate(8deg);z-index:1}
+.stack:hover .mini:nth-child(1){transform:rotate(-10deg) translateY(-8px)}
+.stack:hover .mini:nth-child(2){transform:rotate(0) translateY(-14px)}
+.stack:hover .mini:nth-child(3){transform:rotate(11deg) translateY(-8px)}
+
+.formula{max-width:1200px;margin:0 auto;padding:0 24px 8px}
+.formula .box{background:var(--ink);color:#fff;border-radius:var(--radius);padding:18px 24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.formula .tag{font-family:'Archivo Black',sans-serif;font-size:12px;letter-spacing:1.5px;color:var(--yellow)}
+.formula .chain{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:13.5px;font-weight:700}
+.formula .chain b{background:rgba(255,255,255,.12);padding:4px 12px;border-radius:6px}
+.formula .chain em{font-style:normal;color:var(--gray)}
+
+.filters{max-width:1200px;margin:0 auto;padding:28px 24px 6px;display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1.5px solid var(--line);background:var(--card);border-radius:99px;padding:7px 16px;font-size:13.5px;font-weight:700;color:#4c4e55;cursor:pointer;transition:all .18s;font-family:inherit}
+.chip:hover{border-color:var(--ink);color:var(--ink)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip small{font-weight:400;opacity:.65;margin-left:3px}
+.count{max-width:1200px;margin:0 auto;padding:10px 24px 0;font-size:13px;color:var(--gray)}
+
+.grid{max-width:1200px;margin:0 auto;padding:18px 24px 60px;display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;cursor:pointer}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.card:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.pvwrap{padding:14px 14px 0;background:linear-gradient(#fafaf8,#f1f2ee)}
+.pv{aspect-ratio:3/4;border-radius:8px;overflow:hidden;position:relative;box-shadow:0 6px 18px rgba(22,23,27,.14)}
+.pv svg{display:block;width:100%;height:100%}
+.card .meta{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card h3{font-size:15.5px;font-weight:900;letter-spacing:.02em}
+.card .ind{font-size:11px;font-weight:900;color:var(--blue);letter-spacing:1px}
+.card .tags{display:flex;gap:6px;flex-wrap:wrap}
+.card .tags span{font-size:11px;background:var(--paper);border:1px solid var(--line);border-radius:5px;padding:2px 8px;color:#5a5c63}
+.card .acts{margin-top:auto;display:flex;gap:8px;padding-top:6px}
+.btn{font-family:inherit;font-size:13px;font-weight:700;border-radius:9px;padding:9px 14px;cursor:pointer;transition:all .18s;border:1.5px solid var(--ink)}
+.btn.primary{background:var(--ink);color:#fff;flex:1}
+.btn.primary:hover{background:var(--blue);border-color:var(--blue)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--paper)}
+
+.overlay{position:fixed;inset:0;background:rgba(22,23,27,.55);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+.overlay.show{display:flex}
+.modal{background:var(--paper);border-radius:18px;max-width:980px;width:100%;max-height:92vh;overflow:auto;position:relative}
+.modal .mhead{position:sticky;top:0;background:var(--paper);z-index:2;padding:20px 26px 14px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}
+.modal .mhead h2{font-size:19px;font-weight:900}
+.modal .mhead .ind{font-size:11px;font-weight:900;color:var(--blue);letter-spacing:1px}
+.mclose{margin-left:auto;width:34px;height:34px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);cursor:pointer;font-size:16px;line-height:1}
+.mclose:hover{border-color:var(--ink)}
+.mbody{display:grid;grid-template-columns:300px 1fr;gap:26px;padding:24px 26px 26px}
+.mpv{position:sticky;top:84px;align-self:start}
+.mpv .pv{box-shadow:0 14px 36px rgba(22,23,27,.2)}
+.mpv .note{margin-top:10px;font-size:12px;color:var(--gray);text-align:center}
+.mform h4{font-size:13px;font-weight:900;letter-spacing:1.5px;color:var(--gray);margin:0 0 10px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.field label{display:block;font-size:12.5px;font-weight:700;margin-bottom:4px}
+.field input{width:100%;padding:9px 12px;border:1.5px solid var(--line);border-radius:9px;font-family:inherit;font-size:14px;background:var(--card);outline:none;transition:border-color .2s}
+.field input:focus{border-color:var(--blue)}
+.ratios{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.ratio{border:1.5px solid var(--line);background:var(--card);border-radius:9px;padding:7px 14px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;color:#4c4e55}
+.ratio.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.promptbox{background:var(--ink);color:#EDEEE9;border-radius:12px;padding:18px;font-size:13.5px;line-height:1.75;white-space:pre-wrap;max-height:320px;overflow:auto;margin-bottom:16px}
+.promptbox mark{background:var(--yellow);color:var(--ink);border-radius:3px;padding:0 3px;font-weight:700}
+.mact{display:flex;gap:10px;flex-wrap:wrap}
+.bigcopy{flex:1;background:var(--blue);color:#fff;border:none;border-radius:11px;padding:14px;font-size:15px;font-weight:900;cursor:pointer;font-family:inherit;transition:background .2s;letter-spacing:.05em}
+.bigcopy:hover{background:#1c33cc}
+.mact .btn.ghost{padding:14px 18px;border-radius:11px}
+
+.toast{position:fixed;bottom:28px;left:50%;transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:12px 22px;border-radius:99px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:all .3s;z-index:200;display:flex;gap:8px;align-items:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.toast i{font-style:normal;color:var(--yellow)}
+
+.howto{background:var(--card);border-top:1px solid var(--line)}
+.howto .inner{max-width:1200px;margin:0 auto;padding:56px 24px}
+.howto h2{font-size:24px;font-weight:900;margin-bottom:8px}
+.howto .lead{color:#4c4e55;margin-bottom:28px;max-width:640px}
+.tips{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.tip{border:1.5px solid var(--line);border-radius:var(--radius);padding:20px}
+.tip .k{font-family:'Archivo Black',sans-serif;font-size:12px;letter-spacing:1.5px;color:var(--red);margin-bottom:8px}
+.tip h5{font-size:15px;font-weight:900;margin-bottom:6px}
+.tip p{font-size:13.5px;color:#4c4e55}
+
+footer{border-top:1px solid var(--line);background:var(--paper)}
+footer .finner{max-width:1200px;margin:0 auto;padding:30px 24px;display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center}
+footer .fmain{font-size:14px;font-weight:900;color:var(--ink)}
+footer .fmain b{color:var(--blue)}
+footer .fsub{font-size:12.5px;color:var(--gray)}
+
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;padding-top:36px}
+  .stack{height:260px;max-width:480px}
+  .stack .mini{width:150px}
+  .mbody{grid-template-columns:1fr}
+  .mpv{position:static;max-width:280px;margin:0 auto}
+  .fields{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<div class="calib" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+<header>
+  <div class="nav">
+    <a class="logo" href="#">
+      <span class="en">POSTER<b>PROMPT</b></span>
+      <span class="zh">海報提示詞工坊</span>
+      <span class="by">by Tzuchia</span>
+    </a>
+    <span class="navnote">12 大產業・<b>60</b> 款模板</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>三十秒，做出一張<br><span class="hl">像請了設計師</span>的海報提示詞</h1>
+    <p class="sub">挑一款模板 → 填入你的店名、活動與日期 → 複製提示詞，貼到 ChatGPT、Gemini、Midjourney 等任何 AI 繪圖工具。餐飲、零售、教育、活動、房產⋯⋯各行各業、每類至少五種風格。</p>
+    <div class="steps">
+      <div class="step"><i>1</i>挑模板・看預覽</div>
+      <div class="step"><i>2</i>填空客製化</div>
+      <div class="step"><i>3</i>一鍵複製使用</div>
+    </div>
+  </div>
+  <div class="stack" id="heroStack" aria-hidden="true"></div>
+</section>
+
+<section class="formula">
+  <div class="box">
+    <span class="tag">PROMPT FORMULA</span>
+    <div class="chain">
+      <b>主題目的</b><em>＋</em><b>視覺風格</b><em>＋</em><b>配色</b><em>＋</em><b>版面構圖</b><em>＋</em><b>文字內容</b><em>＋</em><b>質感關鍵字</b><em>＋</em><b>比例</b>
+    </div>
+  </div>
+</section>
+
+<nav class="filters" id="filters" aria-label="產業分類"></nav>
+<div class="count" id="count"></div>
+<main class="grid" id="grid"></main>
+
+<section class="howto">
+  <div class="inner">
+    <h2>怎麼用效果最好？</h2>
+    <p class="lead">這些模板已內建設計師會下的關鍵字（風格、配色、構圖、質感）。你只需要換上自己的資訊，再依下面四招微調。</p>
+    <div class="tips">
+      <div class="tip"><div class="k">TIP 01</div><h5>文字放引號裡最準</h5><p>海報上要「原字出現」的標題、日期、價格，用「」框起來，AI 比較不會改寫或拼錯。中文字多時，可要求「文字清晰可讀、無錯字」。</p></div>
+      <div class="tip"><div class="k">TIP 02</div><h5>不滿意就換一個變因</h5><p>一次只改一件事：先換配色、再換構圖、最後換風格。這樣才知道是哪個關鍵字影響了結果。</p></div>
+      <div class="tip"><div class="k">TIP 03</div><h5>比例跟著用途走</h5><p>IG 貼文用 1:1 或 4:5、限動與手機海報用 9:16、印刷直式海報用 3:4、橫幅與投影用 16:9。模板裡可直接切換。</p></div>
+      <div class="tip"><div class="k">TIP 04</div><h5>加上「負面清單」</h5><p>如果畫面雜亂，補一句：「避免：雜亂構圖、文字模糊、錯字、過度特效、低解析度」，成品乾淨很多。</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="finner">
+    <div class="fmain">Tzuchia｜著作規劃：<b>淡江大學　黃子嘉老師</b></div>
+    <div class="fsub">聯絡信箱：<a href="mailto:fifigirl3@gmail.com" style="color:var(--blue);font-weight:700;text-decoration:none">fifigirl3@gmail.com</a></div>
+    <div class="fsub">© 2026 海報提示詞工坊 Poster Prompt Studio・提示詞可自由複製、修改、商用</div>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="mhead">
+      <div>
+        <div class="ind" id="mInd"></div>
+        <h2 id="mTitle"></h2>
+      </div>
+      <button class="mclose" id="mClose" aria-label="關閉">✕</button>
+    </div>
+    <div class="mbody">
+      <div class="mpv">
+        <div class="pv" id="mPreview"></div>
+        <div class="note">風格示意圖（實際成品由 AI 生成）</div>
+      </div>
+      <div class="mform">
+        <h4>① 填入你的資訊（留空會保留填空提示）</h4>
+        <div class="fields" id="mFields"></div>
+        <h4>② 選擇比例</h4>
+        <div class="ratios" id="mRatios"></div>
+        <h4>③ 完成的提示詞（黃色是你填的內容）</h4>
+        <div class="promptbox" id="mPrompt"></div>
+        <div class="mact">
+          <button class="bigcopy" id="mCopy">複製提示詞</button>
+          <button class="btn ghost" id="mReset">清除重填</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"><i>✓</i><span>已複製到剪貼簿，貼到你的 AI 工具吧！</span></div>
+
+<script>
+/* ============ 基本設定 ============ */
+const INDUSTRIES=["全部","餐飲","零售電商","教育培訓","科技新創","活動展演","健身美容","房產金融","節慶行銷","公益永續","藝文展覽","旅遊觀光","企業徵才"];
+const RATIOS=[
+ {v:"3:4 直式（印刷海報）",label:"3:4 印刷"},
+ {v:"4:5 直式（IG 貼文）",label:"4:5 IG"},
+ {v:"1:1 方形（社群通用）",label:"1:1 方形"},
+ {v:"9:16 直式（限時動態/手機）",label:"9:16 限動"},
+ {v:"16:9 橫式（橫幅/投影）",label:"16:9 橫幅"}
+];
+const SANS="'Noto Sans TC',sans-serif", SERIF="'Noto Serif TC',serif";
+const svgOpen=`<svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" font-family="${SANS}">`;
+
+const T=[];
+
+/* ================= 餐飲（5） ================= */
+T.push({
+id:"cafe",industry:"餐飲",name:"文青咖啡・新品上市",tags:["奶油色調","手作插畫","溫暖留白"],desc:"獨立咖啡店、甜點店、早午餐新品宣傳",
+vars:[{k:"shop",label:"店名",ph:"例：日常珈琲"},{k:"item",label:"新品名稱",ph:"例：焙茶拿鐵"},{k:"price",label:"價格",ph:"例：NT$150"},{k:"date",label:"活動期間",ph:"例：10/1–10/31"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#F3EBDD"/>
+<circle cx="240" cy="70" r="46" fill="#EAD9B8"/>
+<text x="34" y="58" font-size="11" letter-spacing="4" fill="#A8814F" font-weight="700">NEW ARRIVAL</text>
+<text x="32" y="98" font-size="30" font-weight="900" fill="#4A3728" font-family="${SERIF}">秋季限定</text>
+<text x="32" y="134" font-size="30" font-weight="900" fill="#4A3728" font-family="${SERIF}">焙茶拿鐵</text>
+<path d="M138 196 q6 -16 0 -28 M158 196 q6 -16 0 -28 M178 196 q6 -16 0 -28" stroke="#C9AE85" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M100 210 h116 v52 a58 58 0 0 1 -116 0 z" fill="#FFFDF8" stroke="#4A3728" stroke-width="5"/>
+<ellipse cx="158" cy="212" rx="52" ry="10" fill="#B98352"/>
+<path d="M216 224 q34 4 0 40" stroke="#4A3728" stroke-width="5" fill="none"/>
+<ellipse cx="158" cy="316" rx="86" ry="9" fill="#E2D2B4"/>
+<text x="34" y="368" font-size="12" fill="#7a6a56">10/1 – 10/31</text>
+<text x="266" y="370" font-size="19" font-weight="900" fill="#4A3728" text-anchor="end" font-family="${SERIF}">NT$150</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張咖啡店新品上市海報。
+
+【主題】「{{shop}}」推出新品「{{item}}」，售價「{{price}}」，供應期間「{{date}}」。
+【視覺風格】日系文青咖啡館風，溫暖手作插畫感，像獨立咖啡店門口的手貼海報。
+【配色】奶油米色背景，焦糖棕、深咖啡與少量霧綠點綴，低飽和、柔和自然光。
+【版面構圖】上方放店名與新品名稱（襯線或手寫感字體），中央是新品飲品的精緻插畫或攝影特寫，杯身冒著蒸氣、有柔和陰影，下方小字放價格與日期，大量自然留白。
+【文字內容】需清楚出現：「{{shop}}」「{{item}}」「{{price}}」「{{date}}」，中文字體乾淨可讀、無錯字。
+【質感關鍵字】soft natural light, hand-crafted illustration, minimal café poster, warm cozy tone, high detail
+【比例】${r}
+【避免】雜亂構圖、過度飽和、文字模糊、廉價促銷感。`
+});
+
+T.push({
+id:"neon",industry:"餐飲",name:"台味餐廳・霓虹週年慶",tags:["復古霓虹","台式招牌","熱鬧煙火氣"],desc:"火鍋、熱炒、小吃店週年或優惠活動",
+vars:[{k:"shop",label:"店名",ph:"例：阿嬤ㄟ火鍋"},{k:"deal",label:"優惠內容",ph:"例：全面8折"},{k:"date",label:"活動期間",ph:"例：11/11–11/17"}],
+preview:svgOpen+`
+<defs><filter id="neon-g" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="6"/></filter></defs>
+<rect width="300" height="400" fill="#14100E"/>
+<circle cx="52" cy="58" r="22" fill="#D9302A"/><rect x="46" y="30" width="12" height="8" fill="#8E1414"/><line x1="52" y1="80" x2="52" y2="92" stroke="#E8C56A" stroke-width="3"/>
+<circle cx="250" cy="70" r="16" fill="#D9302A"/><rect x="245" y="48" width="10" height="7" fill="#8E1414"/>
+<rect x="40" y="120" width="220" height="130" rx="14" fill="none" stroke="#FF7A45" stroke-width="3" filter="url(#neon-g)"/>
+<rect x="40" y="120" width="220" height="130" rx="14" fill="none" stroke="#FF9F70" stroke-width="2"/>
+<text x="150" y="176" font-size="36" font-weight="900" fill="#FFD338" text-anchor="middle" filter="url(#neon-g)" font-family="${SERIF}">週年慶</text>
+<text x="150" y="176" font-size="36" font-weight="900" fill="#FFE788" text-anchor="middle" font-family="${SERIF}">週年慶</text>
+<text x="150" y="222" font-size="22" font-weight="900" fill="#FF9F70" text-anchor="middle">全面 8 折</text>
+<path d="M108 306 a42 42 0 0 0 84 0 z" fill="#2B211B" stroke="#E8C56A" stroke-width="3"/>
+<line x1="122" y1="266" x2="176" y2="292" stroke="#C9A96A" stroke-width="4" stroke-linecap="round"/>
+<line x1="132" y1="258" x2="186" y2="284" stroke="#C9A96A" stroke-width="4" stroke-linecap="round"/>
+<path d="M136 296 q5 -14 0 -24 M152 296 q5 -14 0 -24" stroke="#8a7d70" stroke-width="3" fill="none" stroke-linecap="round"/>
+<text x="150" y="376" font-size="13" fill="#8a7d70" text-anchor="middle" letter-spacing="3">11/11 – 11/17・老饕回歸</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張台式餐廳週年慶海報。
+
+【主題】「{{shop}}」週年慶，優惠「{{deal}}」，期間「{{date}}」。
+【視覺風格】台味復古霓虹風，融合老招牌書法字、霓虹燈管、紅燈籠與夜市煙火氣，熱鬧有人情味。
+【配色】深黑夜色背景，霓虹黃與橘紅發光字為主角，點綴紅燈籠與翠綠霓虹細節。
+【版面構圖】中央霓虹燈框內放超大書法感優惠標題，發光效果強烈；上方掛紅燈籠與店名招牌；下方是冒著熱氣的招牌菜（火鍋或熱炒）特寫，收尾放日期與台味標語。
+【文字內容】需清楚出現：「{{shop}}」「{{deal}}」「{{date}}」，繁體中文、字體有力可讀、無錯字。
+【質感關鍵字】neon sign glow, retro Taiwanese signboard, cinematic night street, bold calligraphy, steam and warmth
+【比例】${r}
+【避免】文字模糊、簡體字、日韓風混入、過度雜亂。`
+});
+
+T.push({
+id:"boba",industry:"餐飲",name:"手搖飲・波普活力",tags:["波普撞色","飛濺動感","年輕社群"],desc:"手搖飲、冰品、甜點站的新品與買一送一",
+vars:[{k:"shop",label:"店名",ph:"例：果果茶飲"},{k:"item",label:"品項",ph:"例：芒果冰沙"},{k:"deal",label:"優惠",ph:"例：買一送一"},{k:"date",label:"檔期",ph:"例：本週末限定"}],
+preview:svgOpen+`
+<defs><linearGradient id="boba-c" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB347"/><stop offset="1" stop-color="#FF7B2E"/></linearGradient></defs>
+<rect width="300" height="400" fill="#FFD338"/>
+<circle cx="36" cy="330" r="20" fill="#FF4A2F"/><circle cx="268" cy="120" r="13" fill="#2743F0"/><circle cx="252" cy="352" r="9" fill="#16171B"/>
+<g transform="rotate(-4 150 62)"><rect x="76" y="42" width="148" height="34" fill="#16171B"/><text x="150" y="66" font-size="17" font-weight="900" fill="#FFD338" text-anchor="middle" font-family="'Archivo Black',sans-serif">BUY 1 GET 1</text></g>
+<text x="150" y="122" font-size="27" font-weight="900" fill="#16171B" text-anchor="middle">芒果冰沙・買一送一</text>
+<rect x="106" y="170" width="88" height="150" rx="12" fill="url(#boba-c)"/>
+<rect x="98" y="158" width="104" height="18" rx="9" fill="#fff"/>
+<rect x="158" y="108" width="9" height="70" rx="4" fill="#FF4A2F" transform="rotate(10 162 143)"/>
+<circle cx="128" cy="288" r="8" fill="#B4551E"/><circle cx="152" cy="300" r="8" fill="#B4551E"/><circle cx="174" cy="286" r="8" fill="#B4551E"/>
+<circle cx="90" cy="182" r="7" fill="#FFF1C4"/><circle cx="216" cy="206" r="5" fill="#FFF1C4"/><circle cx="212" cy="170" r="9" fill="#FF8A3D"/>
+<text x="150" y="372" font-size="13" font-weight="700" fill="#5a4a10" text-anchor="middle">果果茶飲・本週末限定</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張手搖飲促銷海報。
+
+【主題】「{{shop}}」的「{{item}}」，優惠「{{deal}}」，檔期「{{date}}」。
+【視覺風格】波普撞色活力風，年輕、有食慾、社群感強，像人氣手搖品牌的新品主視覺。
+【配色】亮黃或亮橘大面積底色，撞正紅、寶藍或亮綠，高彩度但配色乾淨。
+【版面構圖】中央是飲品杯立體特寫，果肉與冰塊飛濺、水珠光澤誘人；優惠字樣做成貼紙或印章風標籤斜放上方；品名以超粗圓體置頂，店名與檔期收在下方；點綴波普圓點。
+【文字內容】需清楚出現：「{{shop}}」「{{item}}」「{{deal}}」「{{date}}」，粗體活潑、無錯字。
+【質感關鍵字】pop art color blocking, juicy splash photography, sticker badge, bold playful typography, mouth-watering detail
+【比例】${r}
+【避免】飲料顏色混濁、飛濺蓋住主體、文字難讀。`
+});
+
+T.push({
+id:"jpfood",industry:"餐飲",name:"日式料理・和風極簡",tags:["和紙質感","朱紅日出","職人感"],desc:"壽司、拉麵、丼飯、居酒屋的品牌形象",
+vars:[{k:"shop",label:"店名",ph:"例：一心壽司"},{k:"item",label:"主打料理",ph:"例：職人握壽司"},{k:"selling",label:"一句賣點",ph:"例：每日漁市直送"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#F6F1E4"/>
+<circle cx="150" cy="140" r="72" fill="#C0272D"/>
+<g stroke="#D8CBAA" stroke-width="2.5" fill="none">
+<path d="M-20 380 a34 34 0 0 1 68 0"/><path d="M48 380 a34 34 0 0 1 68 0"/><path d="M116 380 a34 34 0 0 1 68 0"/><path d="M184 380 a34 34 0 0 1 68 0"/><path d="M252 380 a34 34 0 0 1 68 0"/>
+<path d="M14 380 a34 34 0 0 1 68 0" transform="translate(0 22)"/><path d="M82 380 a34 34 0 0 1 68 0" transform="translate(0 22)"/><path d="M150 380 a34 34 0 0 1 68 0" transform="translate(0 22)"/>
+</g>
+<ellipse cx="150" cy="252" rx="46" ry="17" fill="#FFFDF6" stroke="#3A342B" stroke-width="3"/>
+<path d="M112 240 q38 -20 76 0 l-6 10 q-32 -16 -64 0 z" fill="#F07C54"/>
+<line x1="204" y1="214" x2="252" y2="240" stroke="#3A342B" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="208" y1="204" x2="258" y2="228" stroke="#3A342B" stroke-width="3.5" stroke-linecap="round"/>
+<text x="150" y="118" font-size="30" font-weight="900" fill="#FFF7EC" text-anchor="middle" font-family="${SERIF}">職人</text>
+<text x="150" y="158" font-size="30" font-weight="900" fill="#FFF7EC" text-anchor="middle" font-family="${SERIF}">握壽司</text>
+<text x="150" y="308" font-size="14" fill="#6a6152" text-anchor="middle" letter-spacing="4">每日漁市直送</text>
+<text x="150" y="336" font-size="12" fill="#9a917e" text-anchor="middle" letter-spacing="6">一 心 壽 司</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張日式料理店形象海報。
+
+【主題】「{{shop}}」主打「{{item}}」，賣點「{{selling}}」。
+【視覺風格】和風極簡職人感，融合和紙質感、朱紅日出圓與青海波紋樣，安靜、講究、有儀式感。
+【配色】米白和紙底色，朱紅為主色，墨黑文字，點綴淡金與海波藍灰。
+【版面構圖】上方是大的朱紅圓形（日出意象），料理名稱以直排或置中書法感字體壓在圓上；中央是料理的精緻特寫（壽司、拉麵等），器皿講究、光線柔和；底部以青海波紋收邊，小字放店名與賣點。
+【文字內容】需清楚出現：「{{shop}}」「{{item}}」「{{selling}}」，繁體中文、端正典雅、無錯字。
+【質感關鍵字】japanese washi texture, minimal zen composition, artisan food photography, seigaiha pattern, refined craft
+【比例】${r}
+【避免】花俏裝飾、俗豔配色、簡體字、雜亂元素。`
+});
+
+T.push({
+id:"yakiniku",industry:"餐飲",name:"燒肉排餐・暗黑食慾",tags:["暗黑美食","炭火光影","高級感"],desc:"燒肉、牛排、居酒屋深夜食堂質感",
+vars:[{k:"shop",label:"店名",ph:"例：炙・炭火燒肉"},{k:"item",label:"主打品項",ph:"例:和牛套餐"},{k:"deal",label:"優惠或賣點",ph:"例：雙人套餐 $1,680"}],
+preview:svgOpen+`
+<defs>
+<radialGradient id="yak-f" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#3A2415"/><stop offset="1" stop-color="#0F0C0A"/></radialGradient>
+<linearGradient id="yak-m" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C4452B"/><stop offset=".55" stop-color="#8E2E1B"/><stop offset="1" stop-color="#5A1E12"/></linearGradient>
+</defs>
+<rect width="300" height="400" fill="url(#yak-f)"/>
+<circle cx="150" cy="238" r="86" fill="#1B140F" stroke="#3A2E22" stroke-width="6"/>
+<g stroke="#3A2E22" stroke-width="4"><line x1="76" y1="222" x2="224" y2="222"/><line x1="72" y1="244" x2="228" y2="244"/><line x1="80" y1="266" x2="220" y2="266"/></g>
+<rect x="104" y="206" width="92" height="52" rx="10" fill="url(#yak-m)" transform="rotate(-6 150 232)"/>
+<path d="M116 218 l64 -8 M118 236 l64 -8" stroke="#F2D7C2" stroke-width="3" opacity=".55" transform="rotate(-6 150 232)"/>
+<circle cx="118" cy="292" r="3.5" fill="#FF8A3D"/><circle cx="182" cy="288" r="3" fill="#FFB347"/><circle cx="150" cy="298" r="2.5" fill="#FF6B2E"/>
+<path d="M136 156 q10 -22 0 -40 M164 152 q10 -22 0 -40" stroke="#6a5a4a" stroke-width="4" fill="none" stroke-linecap="round" opacity=".8"/>
+<text x="150" y="74" font-size="30" font-weight="900" fill="#F2E6C9" text-anchor="middle" font-family="${SERIF}" letter-spacing="6">炭火和牛</text>
+<line x1="106" y1="94" x2="194" y2="94" stroke="#C9A96A" stroke-width="2"/>
+<text x="150" y="356" font-size="14" fill="#C9A96A" text-anchor="middle" letter-spacing="2">雙人套餐 $1,680</text>
+<text x="150" y="380" font-size="11" fill="#8a7a66" text-anchor="middle" letter-spacing="4">炙・炭火燒肉</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張燒肉／排餐海報。
+
+【主題】「{{shop}}」主打「{{item}}」，優惠或賣點「{{deal}}」。
+【視覺風格】暗黑美食攝影風（dark food photography），炭火光影、油脂光澤，深夜食堂的高級誘惑感。
+【配色】深黑炭色背景，肉品的緋紅與炭火橘光為視覺焦點，香檳金文字點綴。
+【版面構圖】中央是烤網上炙燒中的肉品特寫，火星飛舞、輕煙上升、油光細節逼真；店名或品項以襯線金字置於上方並以金色細線分隔；優惠資訊收於下方。
+【文字內容】需清楚出現：「{{shop}}」「{{item}}」「{{deal}}」，典雅有力、無錯字。
+【質感關鍵字】dark food photography, charcoal ember glow, sizzling detail, cinematic low-key lighting, premium appetite appeal
+【比例】${r}
+【避免】肉色灰暗不新鮮、過曝、雜亂背景。`
+});
+
+/* ================= 零售電商（5） ================= */
+T.push({
+id:"sale",industry:"零售電商",name:"促銷檔期・大字報",tags:["高對比","大字搶眼","轉換導向"],desc:"雙11、換季出清、快閃特賣的強促銷視覺",
+vars:[{k:"brand",label:"品牌名",ph:"例：好好選物"},{k:"deal",label:"折扣主張",ph:"例：全站5折起"},{k:"time",label:"檔期",ph:"例:限時72小時"},{k:"cta",label:"行動呼籲",ph:"例：立即搶購"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#FF4A2F"/>
+<g fill="#E23A22"><circle cx="262" cy="44" r="5"/><circle cx="278" cy="66" r="5"/><circle cx="246" cy="66" r="5"/><circle cx="262" cy="88" r="5"/><circle cx="278" cy="110" r="5"/><circle cx="246" cy="110" r="5"/></g>
+<rect x="34" y="52" width="118" height="30" fill="#16171B"/>
+<text x="93" y="73" font-size="14" font-weight="900" fill="#fff" text-anchor="middle" letter-spacing="3" font-family="'Archivo Black',sans-serif">FLASH SALE</text>
+<text x="30" y="196" font-size="118" font-weight="900" fill="#fff" font-family="'Archivo Black',sans-serif">5</text>
+<text x="112" y="196" font-size="52" font-weight="900" fill="#fff">折</text>
+<text x="34" y="238" font-size="21" font-weight="900" fill="#FFCB2E" font-family="'Archivo Black',sans-serif">UP TO 50% OFF</text>
+<g transform="rotate(-5 150 296)"><rect x="60" y="278" width="180" height="38" rx="6" fill="#FFCB2E"/><circle cx="60" cy="297" r="7" fill="#FF4A2F"/><circle cx="240" cy="297" r="7" fill="#FF4A2F"/><line x1="150" y1="282" x2="150" y2="312" stroke="#FF4A2F" stroke-width="2" stroke-dasharray="4 4"/><text x="105" y="303" font-size="14" font-weight="900" fill="#16171B" text-anchor="middle">限時72小時</text><text x="196" y="303" font-size="14" font-weight="900" fill="#16171B" text-anchor="middle">COUPON</text></g>
+<rect x="34" y="342" width="112" height="34" rx="7" fill="#fff"/>
+<text x="90" y="365" font-size="14" font-weight="900" fill="#FF4A2F" text-anchor="middle">立即搶購 →</text>
+<text x="290" y="368" font-size="12" font-weight="700" fill="#ffd9d1" text-anchor="end">好好選物</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張電商促銷海報（大字報風格）。
+
+【主題】「{{brand}}」促銷活動，主打「{{deal}}」，檔期「{{time}}」，行動呼籲「{{cta}}」。
+【視覺風格】現代大字報促銷風，高對比、高衝擊，像國際快時尚品牌檔期主視覺，搶眼但不廉價。
+【配色】鮮紅或亮橘為主色，搭配黑、白與一抹亮黃，色塊乾淨俐落。
+【版面構圖】折扣數字做成超大主視覺佔畫面 50% 以上（粗黑無襯線體）；品牌名放上方標籤；檔期做成優惠券或膠帶貼紙元素斜放；行動呼籲按鈕感元素放下方。
+【文字內容】需清楚出現：「{{brand}}」「{{deal}}」「{{time}}」「{{cta}}」，字體粗壯清晰、無錯字。
+【質感關鍵字】bold typography poster, swiss graphic design, high contrast, flat color blocks, crisp edges
+【比例】${r}
+【避免】漸層濫用、細小難讀文字、過多裝飾。`
+});
+
+T.push({
+id:"luxury",industry:"零售電商",name:"精品質感・新品發表",tags:["米白香檳金","精品攝影","極簡"],desc:"保養品、香氛、飾品、高單價商品形象",
+vars:[{k:"brand",label:"品牌名",ph:"例：Maison Lumière"},{k:"product",label:"產品名稱",ph:"例：琥珀晨光淡香精"},{k:"slogan",label:"一句標語",ph:"例：把清晨的光，留在身上"}],
+preview:svgOpen+`
+<defs>
+<linearGradient id="lux-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6F1E8"/><stop offset="1" stop-color="#EBDFC9"/></linearGradient>
+<linearGradient id="lux-b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EFDFBE"/><stop offset="1" stop-color="#C9A96A"/></linearGradient>
+</defs>
+<rect width="300" height="400" fill="url(#lux-bg)"/>
+<polygon points="150,0 236,400 64,400" fill="#FFF8EA" opacity=".55"/>
+<text x="150" y="56" font-size="11" letter-spacing="6" fill="#A98D5F" text-anchor="middle">MAISON LUMIÈRE</text>
+<rect x="132" y="120" width="36" height="22" rx="4" fill="#8A6E3F"/>
+<rect x="112" y="142" width="76" height="118" rx="10" fill="url(#lux-b)"/>
+<rect x="124" y="158" width="24" height="84" rx="6" fill="#FFF6E2" opacity=".5"/>
+<rect x="122" y="188" width="56" height="34" rx="3" fill="#FFFDF7" opacity=".9"/>
+<text x="150" y="209" font-size="8" letter-spacing="2" fill="#8A6E3F" text-anchor="middle">EAU DE PARFUM</text>
+<ellipse cx="150" cy="278" rx="58" ry="8" fill="#D8C6A2" opacity=".7"/>
+<text x="150" y="322" font-size="19" font-weight="900" fill="#3E3428" text-anchor="middle" font-family="${SERIF}">琥珀晨光淡香精</text>
+<text x="150" y="350" font-size="11" fill="#8a7a5e" text-anchor="middle" letter-spacing="2">把清晨的光，留在身上</text>
+<text x="150" y="378" font-size="9" letter-spacing="4" fill="#A98D5F" text-anchor="middle">NEW COLLECTION — 2026</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張精品新品形象海報。
+
+【主題】「{{brand}}」新品「{{product}}」發表，品牌標語「{{slogan}}」。
+【視覺風格】國際精品廣告風，像高端香氛或保養品牌的形象視覺，安靜、高級、有呼吸感。
+【配色】米白與象牙色背景，香檳金與淺棕點綴，一道柔和天光從上方灑落。
+【版面構圖】產品置中，棚拍級柔光與細膩陰影、投影自然；品牌名以細緻襯線字體放上方，產品名與標語放下方，大量留白。
+【文字內容】需優雅呈現：「{{brand}}」「{{product}}」「{{slogan}}」，字距寬鬆、無錯字。
+【質感關鍵字】luxury product photography, soft studio lighting, editorial minimalism, premium texture, 8K detail
+【比例】${r}
+【避免】促銷感元素、鮮豔配色、雜亂背景、塑膠感。`
+});
+
+T.push({
+id:"pet",industry:"零售電商",name:"寵物用品・3D 療癒",tags:["3D黏土感","圓潤可愛","高互動"],desc:"寵物店、寵物美容、飼料用品促銷",
+vars:[{k:"shop",label:"店名",ph:"例：毛好好寵物"},{k:"event",label:"活動名稱",ph:"例：毛孩寵愛日"},{k:"deal",label:"優惠內容",ph:"例：全館85折"},{k:"date",label:"檔期",ph:"例：4/4限定"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#FFF0E0"/>
+<text x="150" y="52" font-size="12" font-weight="900" letter-spacing="4" fill="#E07840" text-anchor="middle">PET LOVER DAY</text>
+<text x="150" y="90" font-size="25" font-weight="900" fill="#6B4226" text-anchor="middle">毛孩寵愛日・全館85折</text>
+<ellipse cx="88" cy="152" rx="26" ry="34" fill="#D89058" transform="rotate(-24 88 152)"/>
+<ellipse cx="212" cy="152" rx="26" ry="34" fill="#D89058" transform="rotate(24 212 152)"/>
+<circle cx="150" cy="212" r="76" fill="#EFB07C"/>
+<circle cx="150" cy="222" r="58" fill="#F7CFA3"/>
+<circle cx="124" cy="198" r="9" fill="#3A2A1C"/><circle cx="176" cy="198" r="9" fill="#3A2A1C"/>
+<circle cx="127" cy="195" r="3" fill="#fff"/><circle cx="179" cy="195" r="3" fill="#fff"/>
+<ellipse cx="150" cy="226" rx="12" ry="9" fill="#7A4A2A"/>
+<path d="M150 235 q0 12 -14 12 M150 235 q0 12 14 12" stroke="#7A4A2A" stroke-width="4" fill="none" stroke-linecap="round"/>
+<ellipse cx="150" cy="252" rx="9" ry="6" fill="#E87F6A"/>
+<circle cx="52" cy="300" r="12" fill="#F5A9B8"/><path d="M40 300 a12 12 0 0 1 24 0" fill="#F5A9B8"/>
+<rect x="228" y="292" width="34" height="12" rx="6" fill="#FFF8EC" stroke="#D89058" stroke-width="3"/><circle cx="228" cy="298" r="8" fill="#FFF8EC" stroke="#D89058" stroke-width="3"/><circle cx="262" cy="298" r="8" fill="#FFF8EC" stroke="#D89058" stroke-width="3"/>
+<text x="150" y="372" font-size="13" fill="#9a7150" text-anchor="middle" font-weight="700">毛好好寵物・4/4 限定</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張寵物店促銷海報。
+
+【主題】「{{shop}}」的「{{event}}」，優惠「{{deal}}」，檔期「{{date}}」。
+【視覺風格】3D 黏土質感（clay render）可愛風，圓潤療癒、讓人想按讚分享。
+【配色】奶油橘或蜜桃色暖底，焦糖棕、奶白與淡粉點綴，柔和高明度。
+【版面構圖】中央是超可愛的 3D 黏土質感小狗或小貓角色，表情開心、眼神看向鏡頭，周圍漂浮骨頭、腳印、愛心小元素；活動名稱與折扣以圓潤字體置於上方，店名與檔期收在下方。
+【文字內容】需清楚出現：「{{shop}}」「{{event}}」「{{deal}}」「{{date}}」，圓潤可愛、無錯字。
+【質感關鍵字】3D clay render, kawaii pet character, soft studio lighting, pastel warm palette, ultra cute high detail
+【比例】${r}
+【避免】恐怖谷寫實動物、比例詭異、髒色調。`
+});
+
+T.push({
+id:"gadget",industry:"零售電商",name:"3C 開箱・懸浮科技",tags:["深藍光暈","產品懸浮","質感科技"],desc:"耳機、手機、鍵盤等 3C 新品或開賣",
+vars:[{k:"brand",label:"品牌名",ph:"例：SONIC LAB"},{k:"product",label:"產品名稱",ph:"例：無線降噪耳機 S3"},{k:"selling",label:"核心賣點",ph:"例：-45dB 深度降噪"},{k:"price",label:"價格",ph:"例：早鳥 $3,990"}],
+preview:svgOpen+`
+<defs>
+<radialGradient id="gad-bg" cx="50%" cy="38%" r="75%"><stop offset="0" stop-color="#1B2A5E"/><stop offset="1" stop-color="#090D1F"/></radialGradient>
+<linearGradient id="gad-p" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EAF0FF"/><stop offset="1" stop-color="#9FB2E8"/></linearGradient>
+</defs>
+<rect width="300" height="400" fill="url(#gad-bg)"/>
+<circle cx="150" cy="190" r="86" fill="none" stroke="#3D5BFF" stroke-width="2" opacity=".8"/>
+<circle cx="150" cy="190" r="112" fill="none" stroke="#3D5BFF" stroke-width="1" opacity=".35"/>
+<path d="M104 176 a46 46 0 0 1 92 0" stroke="url(#gad-p)" stroke-width="13" fill="none" stroke-linecap="round"/>
+<rect x="92" y="172" width="22" height="46" rx="11" fill="url(#gad-p)"/>
+<rect x="186" y="172" width="22" height="46" rx="11" fill="url(#gad-p)"/>
+<ellipse cx="150" cy="286" rx="62" ry="8" fill="#3D5BFF" opacity=".3"/>
+<circle cx="82" cy="120" r="2.5" fill="#8FA5FF"/><circle cx="226" cy="140" r="2" fill="#8FA5FF"/><circle cx="206" cy="96" r="3" fill="#5C77FF"/>
+<text x="150" y="56" font-size="11" letter-spacing="5" fill="#7C90D8" text-anchor="middle">SONIC LAB</text>
+<text x="150" y="330" font-size="21" font-weight="900" fill="#EAF0FF" text-anchor="middle">無線降噪耳機 S3</text>
+<text x="150" y="354" font-size="12" fill="#8FA5FF" text-anchor="middle">-45dB 深度降噪</text>
+<text x="150" y="380" font-size="13" font-weight="900" fill="#FFCB2E" text-anchor="middle">早鳥 $3,990</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張 3C 產品開賣海報。
+
+【主題】「{{brand}}」新品「{{product}}」，核心賣點「{{selling}}」，價格「{{price}}」。
+【視覺風格】質感科技風，產品懸浮在深色光暈中，像旗艦品牌的產品發布主視覺。
+【配色】深藍到近黑的漸層背景，冷白產品主體，電光藍光環點綴，一抹亮黃標示價格。
+【版面構圖】產品懸浮於畫面中央，背後有發光圓環與細微粒子，底部映出柔和反光；品牌名小字置頂，產品名、賣點與價格依層級排列於下方。
+【文字內容】需清楚出現：「{{brand}}」「{{product}}」「{{selling}}」「{{price}}」，現代俐落、無錯字。
+【質感關鍵字】floating product shot, glowing ring light, dark tech aesthetic, ultra detailed render, premium launch visual
+【比例】${r}
+【避免】塑膠感材質、雜亂光效、產品變形。`
+});
+
+T.push({
+id:"eco",industry:"零售電商",name:"環保選物・大地雜貨",tags:["牛皮紙感","手繪植物","永續質感"],desc:"環保商品、選物店、裸裝雜貨、農產品牌",
+vars:[{k:"shop",label:"店名",ph:"例：好土生活"},{k:"theme",label:"主打商品/主題",ph:"例：裸裝日用補充站"},{k:"selling",label:"一句理念",ph:"例：少一個瓶子，多一片海"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#E8DCC3"/>
+<rect x="8" y="8" width="284" height="384" fill="none" stroke="#B8A277" stroke-width="2" stroke-dasharray="7 6"/>
+<path d="M96 168 h108 l-10 130 h-88 z" fill="#D9C49A" stroke="#7A6A45" stroke-width="4"/>
+<path d="M118 168 a32 26 0 0 1 64 0" fill="none" stroke="#7A6A45" stroke-width="5"/>
+<path d="M150 210 q-4 46 0 66 M150 226 q-20 -8 -24 -28 q22 0 24 28 M150 246 q20 -8 24 -28 q-22 0 -24 28" stroke="#5B7A4A" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+<path d="M42 92 q18 -30 44 -34 q-4 30 -34 38 z" fill="#7FA05F"/>
+<path d="M258 108 q-18 -26 -42 -30 q4 26 32 34 z" fill="#9BB578"/>
+<circle cx="62" cy="330" r="4" fill="#B8A277"/><circle cx="240" cy="322" r="4" fill="#B8A277"/>
+<text x="150" y="62" font-size="24" font-weight="900" fill="#4A3F28" text-anchor="middle" font-family="${SERIF}">裸裝日用補充站</text>
+<text x="150" y="94" font-size="12" fill="#7A6A45" text-anchor="middle" letter-spacing="3">REFILL・REUSE・RETHINK</text>
+<text x="150" y="344" font-size="13" fill="#5a5138" text-anchor="middle">少一個瓶子，多一片海</text>
+<text x="150" y="372" font-size="11" fill="#8a7a55" text-anchor="middle" letter-spacing="4">好 土 生 活</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張環保選物店海報。
+
+【主題】「{{shop}}」主打「{{theme}}」，理念「{{selling}}」。
+【視覺風格】大地雜貨風，牛皮紙質感搭配手繪植物插畫，樸實、誠懇、有溫度的永續美學。
+【配色】牛皮紙米棕為底，橄欖綠、苔綠與陶土色點綴，深棕文字。
+【版面構圖】中央是手繪風的主視覺（帆布袋、玻璃罐、植物枝葉），線條質樸；主題名稱以襯線字體置頂，理念一句話與店名收於下方；可用虛線框或蓋章元素增加手作感。
+【文字內容】需清楚出現：「{{shop}}」「{{theme}}」「{{selling}}」，質樸易讀、無錯字。
+【質感關鍵字】kraft paper texture, hand-drawn botanical illustration, earthy sustainable branding, rubber stamp detail, organic warmth
+【比例】${r}
+【避免】塑膠光澤感、螢光色、過度商業促銷感。`
+});
+
+/* ================= 教育培訓（5） ================= */
+T.push({
+id:"kidsart",industry:"教育培訓",name:"兒童課程・繽紛插畫",tags:["扁平插畫","親切活潑","資訊清楚"],desc:"才藝班、安親班、兒童營隊招生",
+vars:[{k:"org",label:"機構名稱",ph:"例：小樹藝術教室"},{k:"course",label:"課程名稱",ph:"例：兒童創意美術課"},{k:"who",label:"適合對象",ph:"例：6–12歲"},{k:"time",label:"上課時間",ph:"例：每週六上午"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#EAF3EE"/>
+<circle cx="252" cy="56" r="30" fill="#FFCB2E"/><g stroke="#FFCB2E" stroke-width="4" stroke-linecap="round"><line x1="252" y1="12" x2="252" y2="22"/><line x1="288" y1="56" x2="298" y2="56"/><line x1="278" y1="30" x2="285" y2="23"/><line x1="278" y1="82" x2="285" y2="89"/></g>
+<rect x="30" y="40" width="112" height="26" rx="13" fill="#2E7D5B"/>
+<text x="86" y="58" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">春季班招生中</text>
+<text x="32" y="112" font-size="30" font-weight="900" fill="#1F3A2E">兒童創意</text>
+<text x="32" y="150" font-size="30" font-weight="900" fill="#1F3A2E">美術課</text>
+<g transform="rotate(-14 74 236)"><rect x="58" y="206" width="18" height="70" rx="6" fill="#FF8A65"/><polygon points="67,196 76,208 58,208" fill="#E56B45"/></g>
+<g transform="rotate(10 128 244)"><rect x="112" y="212" width="18" height="70" rx="6" fill="#4E9BDE"/><polygon points="121,202 130,214 112,214" fill="#3579B8"/></g>
+<circle cx="196" cy="238" r="26" fill="#FFCB2E"/><rect x="228" y="216" width="42" height="42" rx="9" fill="#FF8A65" transform="rotate(12 249 237)"/>
+<path d="M56 306 q36 26 76 6 q40 -18 76 8" stroke="#6BB58E" stroke-width="6" fill="none" stroke-linecap="round"/>
+<text x="32" y="352" font-size="13" fill="#456">適合 6–12 歲・每週六上午</text>
+<text x="32" y="376" font-size="14" font-weight="900" fill="#2E7D5B">小樹藝術教室</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張兒童課程招生海報。
+
+【主題】「{{org}}」開設「{{course}}」，適合對象「{{who}}」，上課時間「{{time}}」。
+【視覺風格】清新扁平插畫風，親切、有活力、值得信賴，像優質教育品牌的社群視覺。
+【配色】淺綠或淺藍為底，鵝黃、珊瑚橘、天藍等明亮但不刺眼的色塊。
+【版面構圖】上方「招生中」標籤與課程名稱大標題；中央是可愛的扁平插畫場景（畫畫的孩子、蠟筆、顏料與幾何圖形飛舞）；下方資訊區清楚列出對象、時間與機構名稱。
+【文字內容】需清楚出現：「{{org}}」「{{course}}」「{{who}}」「{{time}}」，圓潤易讀、無錯字。
+【質感關鍵字】flat illustration, friendly education poster, playful crayon elements, clean layout, vector style
+【比例】${r}
+【避免】詭異人物表情、資訊擁擠、廉價美編感。`
+});
+
+T.push({
+id:"seminar",industry:"教育培訓",name:"講座論壇・學術簡約",tags:["編輯排版","網格系統","專業感"],desc:"演講、讀書會、研討會、企業內訓",
+vars:[{k:"title",label:"講題",ph:"例：AI 時代的閱讀與思考"},{k:"speaker",label:"講者",ph:"例：林知遠 教授"},{k:"time",label:"時間",ph:"例：3/15（六）14:00"},{k:"place",label:"地點",ph:"例：市立圖書館B1演講廳"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#FBFBF8"/>
+<rect x="0" y="0" width="300" height="10" fill="#2743F0"/>
+<g fill="none" stroke="#2743F0" opacity=".8"><circle cx="228" cy="130" r="44" stroke-width="1.5"/><circle cx="228" cy="130" r="30" stroke-width="1.5"/><circle cx="228" cy="130" r="16" stroke-width="1.5"/></g>
+<g fill="#D8DAD2"><circle cx="40" cy="250" r="2"/><circle cx="60" cy="250" r="2"/><circle cx="80" cy="250" r="2"/><circle cx="100" cy="250" r="2"/><circle cx="40" cy="268" r="2"/><circle cx="60" cy="268" r="2"/><circle cx="80" cy="268" r="2"/></g>
+<text x="34" y="60" font-size="11" letter-spacing="4" fill="#2743F0" font-weight="900">OPEN LECTURE</text>
+<text x="34" y="118" font-size="27" font-weight="900" fill="#16171B" font-family="${SERIF}">AI 時代的</text>
+<text x="34" y="152" font-size="27" font-weight="900" fill="#16171B" font-family="${SERIF}">閱讀與思考</text>
+<rect x="34" y="176" width="46" height="4" fill="#16171B"/>
+<text x="34" y="308" font-size="13" fill="#555">主講｜林知遠 教授</text>
+<text x="34" y="330" font-size="13" fill="#555">3/15（六）14:00</text>
+<text x="34" y="352" font-size="13" fill="#555">市立圖書館 B1 演講廳</text>
+<rect x="34" y="372" width="10" height="10" fill="#2743F0"/><rect x="48" y="372" width="10" height="10" fill="#FFCB2E"/><rect x="62" y="372" width="10" height="10" fill="#16171B"/>
+</svg>`,
+prompt:(v,r)=>`請設計一張講座海報。
+
+【主題】講題「{{title}}」，主講人「{{speaker}}」，時間「{{time}}」，地點「{{place}}」。
+【視覺風格】學術編輯排版風，像大學出版社或國際論壇視覺，理性、克制、有知識感。
+【配色】米白或淺灰紙感背景，深藍或黑色文字，單一亮色（寶藍或亮黃）做重點線條與色塊。
+【版面構圖】嚴謹網格排版：講題為大號襯線字體佔上半部，分隔線之下依序排列講者、時間、地點；搭配抽象幾何細線圖形（同心圓、點陣）呼應講題，大量留白。
+【文字內容】需清楚出現：「{{title}}」「{{speaker}}」「{{time}}」「{{place}}」，層級分明、無錯字。
+【質感關鍵字】editorial grid layout, academic poster, refined typography, paper texture, minimal geometry
+【比例】${r}
+【避免】花俏裝飾、漸層、擁擠排版。`
+});
+
+T.push({
+id:"camp",industry:"教育培訓",name:"夏令營・冒險探索",tags:["山林插畫","旗幟元素","冒險感"],desc:"冬夏令營、戶外教育、童軍體驗營",
+vars:[{k:"org",label:"主辦單位",ph:"例：山野學堂"},{k:"campname",label:"營隊名稱",ph:"例：小小探險家夏令營"},{k:"who",label:"對象與梯次",ph:"例：國小生・7月共四梯"},{k:"selling",label:"活動亮點",ph:"例：溯溪×野炊×星空夜觀"}],
+preview:svgOpen+`
+<defs><linearGradient id="camp-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFE3E8"/><stop offset="1" stop-color="#EFF7EC"/></linearGradient></defs>
+<rect width="300" height="400" fill="url(#camp-sky)"/>
+<circle cx="236" cy="82" r="26" fill="#FFCB2E"/>
+<polygon points="0,250 90,120 180,250" fill="#7FA98C"/>
+<polygon points="90,120 118,162 62,162" fill="#F4F8F2"/>
+<polygon points="120,250 210,150 300,250" fill="#5F8A70"/>
+<rect x="0" y="248" width="300" height="152" fill="#DCEBD6"/>
+<polygon points="112,332 152,262 192,332" fill="#E8734A"/>
+<polygon points="152,262 152,332 178,332" fill="#C95A34"/>
+<rect x="146" y="304" width="14" height="28" fill="#7A4A2A"/>
+<polygon points="236,300 236,332 224,332 236,300" fill="#3E5C48"/><polygon points="222,332 250,332 236,296" fill="#3E5C48"/>
+<path d="M30 44 l40 14 l-40 14 z" fill="#E8734A"/><line x1="30" y1="40" x2="30" y2="76" stroke="#7A4A2A" stroke-width="4"/>
+<path d="M20 96 q66 34 130 8 q64 -24 130 12" stroke="#7A4A2A" stroke-width="2.5" fill="none"/>
+<polygon points="60,104 74,104 67,118" fill="#FF8A65"/><polygon points="120,102 134,102 127,116" fill="#4E9BDE"/><polygon points="186,96 200,96 193,110" fill="#FFCB2E"/><polygon points="244,104 258,104 251,118" fill="#6BB58E"/>
+<text x="150" y="368" font-size="20" font-weight="900" fill="#2E4A38" text-anchor="middle">小小探險家夏令營</text>
+<text x="150" y="390" font-size="11" fill="#5a7a64" text-anchor="middle">溯溪 × 野炊 × 星空夜觀｜山野學堂</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張兒童營隊招生海報。
+
+【主題】「{{org}}」的「{{campname}}」，對象與梯次「{{who}}」，亮點「{{selling}}」。
+【視覺風格】山林冒險插畫風，清新戶外感，像戶外品牌與繪本的結合，讓孩子與家長都心動。
+【配色】天空藍到草地綠的清爽漸層，帳篷橘與旗幟繽紛色點綴。
+【版面構圖】畫面是層疊的山脈與森林插畫場景：橘色帳篷、營火、彩色三角旗橫跨畫面上方；營隊名稱以厚實圓體置於下方或天空處；對象、梯次與亮點以清楚小字排列。
+【文字內容】需清楚出現：「{{org}}」「{{campname}}」「{{who}}」「{{selling}}」，活潑易讀、無錯字。
+【質感關鍵字】layered mountain illustration, summer camp badge style, bunting flags, adventurous and fresh, storybook detail
+【比例】${r}
+【避免】陰暗色調、危險畫面暗示、資訊擁擠。`
+});
+
+T.push({
+id:"lang",industry:"教育培訓",name:"語言學習・便利貼拼貼",tags:["便利貼","對話框","輕鬆日常"],desc:"美語、日語、韓語等語言課程與家教",
+vars:[{k:"org",label:"機構/老師",ph:"例：Emma 美語"},{k:"course",label:"課程名稱",ph:"例：生活英語會話班"},{k:"selling",label:"課程亮點",ph:"例：小班制・敢開口"},{k:"time",label:"開課資訊",ph:"例：9月新班・週三晚上"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#FDFCF7"/>
+<g transform="rotate(-6 84 120)"><rect x="40" y="84" width="88" height="72" fill="#FFE28A"/><rect x="66" y="78" width="36" height="12" fill="#E8D9A0" opacity=".8"/><text x="84" y="128" font-size="22" font-weight="900" fill="#7A5A10" text-anchor="middle">Hi!</text></g>
+<g transform="rotate(5 216 110)"><rect x="172" y="72" width="88" height="72" fill="#BFE3F2"/><rect x="198" y="66" width="36" height="12" fill="#9AC4D8" opacity=".8"/><text x="216" y="116" font-size="20" font-weight="900" fill="#1F4A66" text-anchor="middle">你好</text></g>
+<g transform="rotate(4 92 236)"><rect x="48" y="200" width="88" height="72" fill="#CDEBC9"/><text x="92" y="244" font-size="19" font-weight="900" fill="#2E5C34" text-anchor="middle">Hola</text></g>
+<g transform="rotate(-5 212 244)"><rect x="168" y="208" width="88" height="72" fill="#F6C9D8"/><text x="212" y="250" font-size="16" font-weight="900" fill="#7A2E4A" text-anchor="middle">Bonjour</text></g>
+<path d="M118 314 h64 a12 12 0 0 1 12 12 v18 a12 12 0 0 1 -12 12 h-40 l-14 14 v-14 h-10 a12 12 0 0 1 -12 -12 v-18 a12 12 0 0 1 12 -12 z" fill="#2743F0"/>
+<text x="150" y="342" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">敢開口！</text>
+<text x="150" y="44" font-size="22" font-weight="900" fill="#16171B" text-anchor="middle">生活英語會話班</text>
+<text x="150" y="392" font-size="11" fill="#8a8d94" text-anchor="middle">Emma 美語・9月新班・週三晚上</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張語言課程招生海報。
+
+【主題】「{{org}}」的「{{course}}」，亮點「{{selling}}」，開課資訊「{{time}}」。
+【視覺風格】便利貼拼貼風，輕鬆日常、零壓力，像語言交換社團的活潑視覺。
+【配色】乾淨白底或米白，便利貼的鵝黃、粉藍、粉綠、櫻粉繽紛穿插。
+【版面構圖】畫面貼滿寫著各國問候語（Hi、你好、Hola、Bonjour）的便利貼與對話框，微微傾斜有手貼感；課程名稱以粗體置頂；亮點做成醒目對話框；開課資訊與機構名稱收於下方。
+【文字內容】需清楚出現：「{{org}}」「{{course}}」「{{selling}}」「{{time}}」，中英混排自然、無錯字。
+【質感關鍵字】sticky note collage, speech bubbles, casual handwritten touch, bright friendly layout, approachable design
+【比例】${r}
+【避免】呆板課表感、擁擠、褪色髒感。`
+});
+
+T.push({
+id:"online",industry:"教育培訓",name:"線上課程・直播霓虹",tags:["深色質感","直播元素","數位感"],desc:"線上課程、直播講堂、知識訂閱",
+vars:[{k:"org",label:"品牌/講師",ph:"例：知識好好玩"},{k:"course",label:"課程名稱",ph:"例：零基礎學會簡報設計"},{k:"selling",label:"課程亮點",ph:"例：6週實戰・終身回看"},{k:"cta",label:"行動呼籲",ph:"例：早鳥66折報名中"}],
+preview:svgOpen+`
+<defs><linearGradient id="onl-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#141830"/><stop offset="1" stop-color="#241A44"/></linearGradient>
+<linearGradient id="onl-btn" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#7A5CFF"/><stop offset="1" stop-color="#4E9BDE"/></linearGradient></defs>
+<rect width="300" height="400" fill="url(#onl-bg)"/>
+<rect x="52" y="96" width="196" height="128" rx="12" fill="#0D1022" stroke="#3A3F66" stroke-width="2"/>
+<rect x="52" y="96" width="196" height="24" rx="12" fill="#1A1F3D"/>
+<circle cx="68" cy="108" r="4" fill="#FF5F57"/><circle cx="82" cy="108" r="4" fill="#FFBD2E"/><circle cx="96" cy="108" r="4" fill="#28C840"/>
+<circle cx="150" cy="172" r="27" fill="url(#onl-btn)"/>
+<polygon points="143,160 143,184 165,172" fill="#fff"/>
+<rect x="176" y="130" width="58" height="18" rx="9" fill="#FF4A6E"/><circle cx="188" cy="139" r="4" fill="#fff"/><text x="216" y="143" font-size="10" font-weight="900" fill="#fff" text-anchor="middle">LIVE</text>
+<rect x="66" y="244" width="112" height="20" rx="10" fill="#252B52"/><text x="122" y="258" font-size="10" fill="#9aa4e8" text-anchor="middle">觀眾 1,024 人在線</text>
+<text x="150" y="304" font-size="21" font-weight="900" fill="#F2F3FF" text-anchor="middle">零基礎學會簡報設計</text>
+<text x="150" y="330" font-size="12" fill="#9aa4e8" text-anchor="middle">6 週實戰・終身回看</text>
+<rect x="84" y="348" width="132" height="30" rx="15" fill="url(#onl-btn)"/>
+<text x="150" y="368" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">早鳥 66 折報名</text>
+<text x="150" y="52" font-size="11" letter-spacing="4" fill="#7C86D8" text-anchor="middle">知識好好玩 ONLINE</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張線上課程招生海報。
+
+【主題】「{{org}}」的「{{course}}」，亮點「{{selling}}」，行動呼籲「{{cta}}」。
+【視覺風格】數位直播質感，深色底搭配霓虹漸層，像知識型平台的課程主視覺，專業又有網感。
+【配色】深藍紫漸層背景，紫羅蘭到天藍的霓虹漸層點綴，白色文字清晰。
+【版面構圖】中央是直播視窗或筆電螢幕的擬真介面：播放按鈕、LIVE 標籤、在線人數氣泡；課程名稱以粗體置於視窗下方，亮點小字排列，底部是漸層膠囊按鈕寫上行動呼籲。
+【文字內容】需清楚出現：「{{org}}」「{{course}}」「{{selling}}」「{{cta}}」，數位感俐落、無錯字。
+【質感關鍵字】live streaming UI, neon gradient, dark mode interface, glassy glow, modern e-learning visual
+【比例】${r}
+【避免】過時擬物介面、低解析截圖感、資訊過載。`
+});
+
+/* ================= 科技新創（5） ================= */
+T.push({
+id:"techconf",industry:"科技新創",name:"科技論壇・黑金質感",tags:["黑金配色","未來感","高級商務"],desc:"科技年會、發表會、產業高峰論壇",
+vars:[{k:"event",label:"活動名稱",ph:"例：2026 生成式AI高峰會"},{k:"theme",label:"活動主軸",ph:"例：Keynote×Panel×Expo"},{k:"time",label:"日期",ph:"例：12/8（二）"},{k:"place",label:"地點",ph:"例：台北國際會議中心"}],
+preview:svgOpen+`
+<defs><radialGradient id="tc-bg" cx="70%" cy="18%" r="90%"><stop offset="0" stop-color="#2b2313"/><stop offset=".6" stop-color="#0C0B09"/><stop offset="1" stop-color="#0C0B09"/></radialGradient></defs>
+<rect width="300" height="400" fill="url(#tc-bg)"/>
+<g fill="none" stroke="#C9A96A"><path d="M-20 150 q160 -90 340 -20" stroke-width="1.2" opacity=".7"/><path d="M-20 176 q160 -90 340 -20" stroke-width="1" opacity=".45"/><path d="M-20 202 q160 -90 340 -20" stroke-width=".8" opacity=".3"/></g>
+<circle cx="236" cy="72" r="30" fill="none" stroke="#C9A96A" stroke-width="1" opacity=".6"/><circle cx="252" cy="96" r="12" fill="none" stroke="#C9A96A" stroke-width="1" opacity=".4"/>
+<circle cx="70" cy="96" r="2.5" fill="#E8C56A"/><circle cx="120" cy="66" r="1.8" fill="#E8C56A" opacity=".8"/><circle cx="190" cy="120" r="2" fill="#E8C56A" opacity=".7"/>
+<g fill="#171410"><rect x="0" y="330" width="34" height="70"/><rect x="40" y="306" width="30" height="94"/><rect x="76" y="322" width="26" height="78"/><rect x="108" y="292" width="36" height="108"/><rect x="150" y="316" width="26" height="84"/><rect x="182" y="300" width="34" height="100"/><rect x="222" y="326" width="28" height="74"/><rect x="256" y="308" width="44" height="92"/></g>
+<g fill="#C9A96A" opacity=".8"><rect x="116" y="302" width="4" height="4"/><rect x="126" y="312" width="4" height="4"/><rect x="190" y="310" width="4" height="4"/><rect x="200" y="322" width="4" height="4"/><rect x="48" y="316" width="4" height="4"/></g>
+<text x="150" y="60" font-size="11" letter-spacing="5" fill="#C9A96A" text-anchor="middle">TECH SUMMIT 2026</text>
+<text x="150" y="216" font-size="29" font-weight="900" fill="#F2E6C9" text-anchor="middle">生成式 AI</text>
+<text x="150" y="252" font-size="29" font-weight="900" fill="#F2E6C9" text-anchor="middle">產業高峰會</text>
+<line x1="86" y1="272" x2="214" y2="272" stroke="#C9A96A" stroke-width="1.5"/>
+<text x="150" y="384" font-size="11" fill="#9a8d72" text-anchor="middle" letter-spacing="2">12.08 TUE｜台北國際會議中心</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張科技論壇主視覺海報。
+
+【主題】「{{event}}」，內容主軸「{{theme}}」，日期「{{time}}」，地點「{{place}}」。
+【視覺風格】黑金科技質感，高級、專業、具未來感，像國際級科技年會主視覺。
+【配色】深黑或深炭背景，香檳金光線與粒子為主角，可帶少量深藍冷光對比。
+【版面構圖】活動名稱以現代大字置於視覺中心，背後有金色光弧、粒子流與抽象城市天際線剪影象徵科技脈動；日期地點以細字整齊排列下方；金色細線分隔資訊層級。
+【文字內容】需清楚出現：「{{event}}」「{{theme}}」「{{time}}」「{{place}}」，中英混排精緻、無錯字。
+【質感關鍵字】black and gold, futuristic light particles, city skyline silhouette, premium conference key visual, cinematic lighting
+【比例】${r}
+【避免】廉價電路板貼圖、過亮金色、雜亂光效。`
+});
+
+T.push({
+id:"saas",industry:"科技新創",name:"App／SaaS 產品發布",tags:["漸層玻璃","UI 擬真","現代清爽"],desc:"App 上線、新功能發布、產品官網主圖",
+vars:[{k:"product",label:"產品名稱",ph:"例：QuickLedger"},{k:"value",label:"核心賣點一句話",ph:"例：記帳只要3秒"},{k:"cta",label:"行動呼籲",ph:"例：免費下載"}],
+preview:svgOpen+`
+<defs><linearGradient id="sa-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E8ECFF"/><stop offset=".55" stop-color="#F5F0FF"/><stop offset="1" stop-color="#E6F7F3"/></linearGradient>
+<linearGradient id="sa-btn" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2743F0"/><stop offset="1" stop-color="#7A5CFF"/></linearGradient></defs>
+<rect width="300" height="400" fill="url(#sa-bg)"/>
+<circle cx="54" cy="70" r="34" fill="#fff" opacity=".55"/><circle cx="256" cy="330" r="44" fill="#fff" opacity=".45"/>
+<text x="150" y="52" font-size="12" font-weight="900" letter-spacing="4" fill="#2743F0" text-anchor="middle">NOW AVAILABLE</text>
+<text x="150" y="92" font-size="24" font-weight="900" fill="#1a1c2e" text-anchor="middle">記帳，從此只要 3 秒</text>
+<rect x="96" y="122" width="108" height="220" rx="20" fill="rgba(255,255,255,.75)" stroke="#fff" stroke-width="2"/>
+<rect x="132" y="132" width="36" height="8" rx="4" fill="#D8DEF5"/>
+<rect x="110" y="156" width="60" height="8" rx="4" fill="#2743F0" opacity=".85"/>
+<rect x="110" y="174" width="80" height="8" rx="4" fill="#C9D2F5"/>
+<rect x="110" y="192" width="68" height="8" rx="4" fill="#C9D2F5"/>
+<rect x="110" y="214" width="80" height="52" rx="9" fill="#EEF1FE"/>
+<path d="M116 254 l16 -14 l14 8 l18 -18 l14 10" stroke="#2743F0" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="110" y="292" width="80" height="26" rx="13" fill="url(#sa-btn)"/>
+<text x="150" y="310" font-size="11" font-weight="900" fill="#fff" text-anchor="middle">免費下載</text>
+<ellipse cx="150" cy="360" rx="72" ry="9" fill="#2743F0" opacity=".14"/>
+<text x="150" y="390" font-size="12" font-weight="900" fill="#4a4e6e" text-anchor="middle" letter-spacing="2">QuickLedger</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張 App／SaaS 產品發布海報。
+
+【主題】產品「{{product}}」上線，核心賣點「{{value}}」，行動呼籲「{{cta}}」。
+【視覺風格】現代科技產品風，清爽漸層搭配玻璃擬態（glassmorphism），像一線 SaaS 品牌的發布視覺。
+【配色】淺藍紫到薄荷的柔和漸層背景，寶藍或紫羅蘭主色，介面卡片為半透明白玻璃質感。
+【版面構圖】上方大標題寫出核心賣點；中央是懸浮的手機介面模型（mockup）呈現產品畫面，帶柔和投影與光暈；下方放產品名稱與行動呼籲按鈕。
+【文字內容】需清楚出現：「{{product}}」「{{value}}」「{{cta}}」，介面文字乾淨、無錯字。
+【質感關鍵字】glassmorphism, floating UI mockup, soft gradient, product launch key visual, crisp modern design
+【比例】${r}
+【避免】過時擬物風、雜亂圖示、低解析介面。`
+});
+
+T.push({
+id:"hackathon",industry:"科技新創",name:"黑客松・賽博像素",tags:["像素風","霓虹網格","玩心十足"],desc:"黑客松、程式競賽、開發者聚會",
+vars:[{k:"event",label:"活動名稱",ph:"例：CODE RUSH 48hr 黑客松"},{k:"prize",label:"獎金或亮點",ph:"例：總獎金30萬"},{k:"time",label:"日期",ph:"例：8/22–8/24"},{k:"place",label:"地點/形式",ph:"例：華山文創園區"}],
+preview:svgOpen+`
+<defs><linearGradient id="hk-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#12081F"/><stop offset="1" stop-color="#1E0E38"/></linearGradient></defs>
+<rect width="300" height="400" fill="url(#hk-bg)"/>
+<g stroke="#7A5CFF" stroke-width="1" opacity=".55"><line x1="0" y1="290" x2="300" y2="290"/><line x1="0" y1="312" x2="300" y2="312"/><line x1="0" y1="340" x2="300" y2="340"/><line x1="0" y1="374" x2="300" y2="374"/><line x1="150" y1="284" x2="150" y2="400"/><line x1="150" y1="284" x2="40" y2="400"/><line x1="150" y1="284" x2="260" y2="400"/><line x1="150" y1="284" x2="-40" y2="400"/><line x1="150" y1="284" x2="340" y2="400"/></g>
+<g fill="#00FFB2"><rect x="58" y="70" width="12" height="12"/><rect x="70" y="58" width="12" height="12"/><rect x="82" y="70" width="12" height="12"/></g>
+<g fill="#FF4A6E"><rect x="222" y="110" width="10" height="10"/><rect x="232" y="100" width="10" height="10"/><rect x="242" y="110" width="10" height="10"/><rect x="232" y="120" width="10" height="10"/></g>
+<text x="150" y="176" font-size="34" font-weight="900" fill="#00FFB2" text-anchor="middle" font-family="'Archivo Black',sans-serif">CODE</text>
+<text x="150" y="216" font-size="34" font-weight="900" fill="#E9FF4A" text-anchor="middle" font-family="'Archivo Black',sans-serif">RUSH</text>
+<rect x="96" y="232" width="108" height="22" fill="#FF4A6E"/>
+<text x="150" y="248" font-size="12" font-weight="900" fill="#12081F" text-anchor="middle">48HR 黑客松</text>
+<text x="150" y="76" font-size="11" fill="#9aa4e8" text-anchor="middle" letter-spacing="3">總獎金 30 萬</text>
+<text x="150" y="392" font-size="10" fill="#8a7db8" text-anchor="middle" letter-spacing="2">8/22–8/24・華山文創園區</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張黑客松活動海報。
+
+【主題】「{{event}}」，獎金亮點「{{prize}}」，日期「{{time}}」，地點「{{place}}」。
+【視覺風格】賽博像素風，8-bit 像素元素混搭霓虹透視網格，復古電玩×未來科技，玩心十足。
+【配色】深紫近黑背景，螢光綠、電黃、桃紅霓虹色高對比撞色。
+【版面構圖】活動名稱以像素或粗獷等寬字體做超大主視覺；底部是霓虹透視網格地平線；點綴像素方塊、游標、載入條等元素；獎金亮點與日期地點分層排列。
+【文字內容】需清楚出現：「{{event}}」「{{prize}}」「{{time}}」「{{place}}」，可讀性高、無錯字。
+【質感關鍵字】pixel art elements, neon perspective grid, retro arcade meets cyberpunk, glitch accent, high energy
+【比例】${r}
+【避免】過度 glitch 導致難讀、雜訊蓋過主題。`
+});
+
+T.push({
+id:"cyber",industry:"科技新創",name:"資安講座・暗黑防護",tags:["矩陣代碼","盾牌意象","信任專業"],desc:"資安研討、企業資安服務、防詐宣導",
+vars:[{k:"org",label:"主辦單位",ph:"例：盾芯科技"},{k:"topic",label:"主題",ph:"例：企業資安防護實戰"},{k:"time",label:"時間",ph:"例：9/12（五）14:00"},{k:"cta",label:"行動呼籲",ph:"例：免費報名"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#06110C"/>
+<g fill="#0E3B26" font-size="10" font-family="monospace"><text x="24" y="40">10110</text><text x="24" y="58">01101</text><text x="24" y="76">11010</text><text x="252" y="60">0110</text><text x="252" y="78">1011</text><text x="252" y="96">0101</text><text x="40" y="330">101101</text><text x="230" y="348">011010</text></g>
+<path d="M150 84 l58 22 v52 q0 58 -58 84 q-58 -26 -58 -84 v-52 z" fill="#0A2418" stroke="#00FFB2" stroke-width="3"/>
+<path d="M150 100 l44 17 v41 q0 46 -44 66 q-44 -20 -44 -66 v-41 z" fill="none" stroke="#00FFB2" stroke-width="1" opacity=".5"/>
+<rect x="136" y="164" width="28" height="24" rx="4" fill="#00FFB2"/>
+<path d="M141 164 v-8 a9 9 0 0 1 18 0 v8" stroke="#00FFB2" stroke-width="4" fill="none"/>
+<circle cx="150" cy="175" r="3.5" fill="#06110C"/>
+<text x="150" y="300" font-size="22" font-weight="900" fill="#D9FFE F" text-anchor="middle" fill="#D9FFEF">企業資安防護實戰</text>
+<line x1="96" y1="316" x2="204" y2="316" stroke="#00FFB2" stroke-width="1.5" opacity=".7"/>
+<text x="150" y="342" font-size="12" fill="#6FA88C" text-anchor="middle">9/12（五）14:00・免費報名</text>
+<text x="150" y="372" font-size="10" fill="#3E6B54" text-anchor="middle" letter-spacing="4">盾芯科技 SECURITY</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張資安講座海報。
+
+【主題】「{{org}}」舉辦「{{topic}}」，時間「{{time}}」，行動呼籲「{{cta}}」。
+【視覺風格】暗黑資安風，矩陣代碼雨與發光盾牌意象，冷靜、專業、值得信任。
+【配色】近黑墨綠背景，螢光青綠為主要發光色，白色文字清晰。
+【版面構圖】中央是發光的盾牌與鎖頭圖騰，周圍有稀疏的代碼雨與資料流線條；主題以粗體置於盾牌下方，時間與行動呼籲以細線分隔排列；主辦單位收於底部。
+【文字內容】需清楚出現：「{{org}}」「{{topic}}」「{{time}}」「{{cta}}」，專業俐落、無錯字。
+【質感關鍵字】cybersecurity shield glow, matrix code rain, dark green tech, trustworthy corporate, sharp detail
+【比例】${r}
+【避免】駭客恐嚇畫面、骷髏元素、雜訊過重。`
+});
+
+T.push({
+id:"ailaunch",industry:"科技新創",name:"AI 產品・智慧光核",tags:["光暈球體","星軌","未來優雅"],desc:"AI 工具、模型發布、智慧服務上線",
+vars:[{k:"product",label:"產品名稱",ph:"例：Lumina AI"},{k:"value",label:"一句定位",ph:"例：你的第二大腦"},{k:"cta",label:"行動呼籲",ph:"例：搶先體驗"}],
+preview:svgOpen+`
+<defs>
+<radialGradient id="ai-orb" cx="42%" cy="38%" r="70%"><stop offset="0" stop-color="#CFE0FF"/><stop offset=".5" stop-color="#5C77FF"/><stop offset="1" stop-color="#231A5E"/></radialGradient>
+<radialGradient id="ai-bg" cx="50%" cy="40%" r="80%"><stop offset="0" stop-color="#141A3E"/><stop offset="1" stop-color="#080A1A"/></radialGradient>
+</defs>
+<rect width="300" height="400" fill="url(#ai-bg)"/>
+<circle cx="66" cy="80" r="1.8" fill="#AFC0FF"/><circle cx="240" cy="66" r="2.2" fill="#AFC0FF"/><circle cx="210" cy="120" r="1.5" fill="#AFC0FF" opacity=".8"/><circle cx="52" cy="150" r="1.5" fill="#AFC0FF" opacity=".7"/><circle cx="256" cy="180" r="1.8" fill="#AFC0FF" opacity=".7"/>
+<circle cx="150" cy="180" r="62" fill="url(#ai-orb)"/>
+<circle cx="132" cy="160" r="16" fill="#EAF0FF" opacity=".5"/>
+<ellipse cx="150" cy="184" rx="96" ry="26" fill="none" stroke="#7A8CFF" stroke-width="1.5" opacity=".8" transform="rotate(-16 150 184)"/>
+<ellipse cx="150" cy="184" rx="118" ry="34" fill="none" stroke="#7A8CFF" stroke-width="1" opacity=".4" transform="rotate(-16 150 184)"/>
+<circle cx="238" cy="152" r="4" fill="#E9FF4A"/>
+<text x="150" y="54" font-size="11" letter-spacing="6" fill="#8FA0E8" text-anchor="middle">LUMINA AI</text>
+<text x="150" y="308" font-size="25" font-weight="900" fill="#F2F4FF" text-anchor="middle">你的第二大腦</text>
+<text x="150" y="334" font-size="12" fill="#9AA8E8" text-anchor="middle">思考、整理、創作，一次到位</text>
+<rect x="102" y="352" width="96" height="28" rx="14" fill="none" stroke="#8FA0E8" stroke-width="1.5"/>
+<text x="150" y="371" font-size="12" font-weight="900" fill="#EAF0FF" text-anchor="middle">搶先體驗 →</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張 AI 產品發布海報。
+
+【主題】產品「{{product}}」，定位「{{value}}」，行動呼籲「{{cta}}」。
+【視覺風格】未來優雅風，中央智慧光核球體與環繞星軌，神祕但親和，像頂尖 AI 品牌的形象視覺。
+【配色】深靛藍星空背景，光核由冰藍到深紫的柔和漸層，點綴星點與一枚亮黃光點。
+【版面構圖】中央是發光的智慧球體，表面有柔和光暈與流動紋理，外圈環繞細緻軌道環；產品名以寬字距英文置頂，定位語句以大字置於球體下方，行動呼籲做成細框膠囊按鈕。
+【文字內容】需清楚出現：「{{product}}」「{{value}}」「{{cta}}」，優雅現代、無錯字。
+【質感關鍵字】glowing orb, orbital rings, elegant sci-fi, deep space gradient, premium AI branding
+【比例】${r}
+【避免】機器人陳腔濫調、電路板貼圖、恐怖谷人臉。`
+});
+
+/* ================= 活動展演（5） ================= */
+T.push({
+id:"musicfest",industry:"活動展演",name:"音樂祭・酸性迷幻",tags:["酸性設計","液態光暈","年輕潮流"],desc:"音樂節、Live 演出、DJ 派對、跨年晚會",
+vars:[{k:"event",label:"活動名稱",ph:"例：WAVE FEST 夏日音樂祭"},{k:"lineup",label:"演出陣容/亮點",ph:"例：15組樂團輪番開唱"},{k:"time",label:"日期",ph:"例：7/18–7/19"},{k:"place",label:"地點",ph:"例：大佳河濱公園"}],
+preview:svgOpen+`
+<defs>
+<radialGradient id="mf-a" cx="30%" cy="45%" r="55%"><stop offset="0" stop-color="#7A5CFF" stop-opacity=".85"/><stop offset="1" stop-color="#7A5CFF" stop-opacity="0"/></radialGradient>
+<radialGradient id="mf-b" cx="72%" cy="36%" r="50%"><stop offset="0" stop-color="#00FFB2" stop-opacity=".7"/><stop offset="1" stop-color="#00FFB2" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="300" height="400" fill="#0D0D12"/>
+<rect width="300" height="400" fill="url(#mf-a)"/><rect width="300" height="400" fill="url(#mf-b)"/>
+<path d="M-10 320 q60 -40 150 -10 q90 30 170 -16" stroke="#E9FF4A" stroke-width="2" fill="none" opacity=".8"/>
+<path d="M-10 344 q60 -40 150 -10 q90 30 170 -16" stroke="#7A5CFF" stroke-width="1.5" fill="none" opacity=".6"/>
+<g transform="skewX(-8)"><text x="96" y="150" font-size="42" font-weight="900" fill="#E9FF4A" font-family="'Archivo Black',sans-serif">WAVE</text><text x="110" y="196" font-size="42" font-weight="900" fill="none" stroke="#00FFB2" stroke-width="1.8" font-family="'Archivo Black',sans-serif">FEST</text></g>
+<text x="150" y="238" font-size="14" font-weight="900" fill="#9be8cf" text-anchor="middle" letter-spacing="6">2026 夏日音樂祭</text>
+<text x="150" y="276" font-size="11" fill="#9aa" text-anchor="middle">15 組樂團輪番開唱</text>
+<text x="150" y="380" font-size="11" fill="#777c92" text-anchor="middle" letter-spacing="3">7.18 – 7.19｜大佳河濱公園</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張音樂祭海報。
+
+【主題】「{{event}}」，亮點「{{lineup}}」，日期「{{time}}」，地點「{{place}}」。
+【視覺風格】酸性設計（acid graphics）× 迷幻潮流風，液態金屬與螢光光暈，年輕、有能量、有記憶點。
+【配色】深黑底色，螢光黃綠、電紫、青綠高飽和霓虹交錯，帶鉻金屬反光。
+【版面構圖】活動名稱以扭曲變形或液態鉻字效果做超大主視覺；背景是流動的迷幻光暈與抽象聲波曲線；日期地點與陣容以工業感等寬字體排列下方。
+【文字內容】需清楚出現：「{{event}}」「{{lineup}}」「{{time}}」「{{place}}」，主標搶眼、資訊可讀、無錯字。
+【質感關鍵字】acid graphic design, liquid chrome typography, psychedelic gradient, rave poster, y2k futurism
+【比例】${r}
+【避免】老氣素材拼貼、可讀性過低、版權藝人肖像。`
+});
+
+T.push({
+id:"market",industry:"活動展演",name:"市集園遊會・手繪童趣",tags:["手繪插畫","暖色紙感","熱鬧可愛"],desc:"創意市集、園遊會、社區活動、親子日",
+vars:[{k:"event",label:"市集名稱",ph:"例：日光野餐市集"},{k:"content",label:"活動內容",ph:"例：50攤手作×美食×音樂"},{k:"time",label:"日期時間",ph:"例：4/20（日）11:00–17:00"},{k:"place",label:"地點",ph:"例：華山大草原"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#FFF6E6"/>
+<path d="M0 40 q30 20 60 0 q30 20 60 0 q30 20 60 0 q30 20 60 0 q30 20 60 0" stroke="#F2C879" stroke-width="3" fill="none"/>
+<g><polygon points="20,96 40,84 60,96" fill="#FF8A65"/><polygon points="70,90 90,78 110,90" fill="#6BB58E"/><polygon points="120,96 140,84 160,96" fill="#FFCB2E"/><polygon points="170,90 190,78 210,90" fill="#4E9BDE"/><polygon points="220,96 240,84 260,96" fill="#E85D3F"/></g>
+<text x="150" y="150" font-size="26" font-weight="900" fill="#7A4419" text-anchor="middle" font-family="${SERIF}">日光野餐市集</text>
+<text x="150" y="176" font-size="11" fill="#C87A3D" text-anchor="middle" letter-spacing="3">SUNDAY MARKET</text>
+<g><polygon points="40,296 76,240 112,296" fill="#FF8A65"/><polygon points="76,240 76,296 112,296" fill="#E56B45"/><rect x="70" y="272" width="12" height="24" fill="#B84A2E"/></g>
+<g><polygon points="118,296 154,236 190,296" fill="#6BB58E"/><polygon points="154,236 154,296 190,296" fill="#529972"/><rect x="148" y="270" width="12" height="26" fill="#3E7A56"/></g>
+<g><polygon points="196,296 232,244 268,296" fill="#FFCB2E"/><polygon points="232,244 232,296 268,296" fill="#E8B01E"/></g>
+<circle cx="52" cy="216" r="10" fill="#E85D3F"/><line x1="52" y1="226" x2="52" y2="248" stroke="#B84A2E" stroke-width="2"/>
+<circle cx="252" cy="206" r="9" fill="#4E9BDE"/><line x1="252" y1="215" x2="252" y2="236" stroke="#3579B8" stroke-width="2"/>
+<rect x="0" y="296" width="300" height="104" fill="#EBDFBE"/>
+<circle cx="96" cy="322" r="6" fill="#7A4419"/><circle cx="118" cy="322" r="6" fill="#B8763D"/><circle cx="206" cy="326" r="6" fill="#7A4419"/>
+<text x="150" y="364" font-size="13" fill="#8a6a4a" text-anchor="middle">4/20（日）11:00–17:00・華山大草原</text>
+<text x="150" y="386" font-size="11" fill="#b09068" text-anchor="middle">50 攤手作 × 美食 × 音樂・免費入場</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張市集活動海報。
+
+【主題】「{{event}}」，內容「{{content}}」，時間「{{time}}」，地點「{{place}}」。
+【視覺風格】溫暖手繪插畫風，像繪本一樣可愛熱鬧，充滿生活感與人情味。
+【配色】奶油黃或米白紙感底色，磚橘、草綠、天藍、鵝黃溫暖繽紛。
+【版面構圖】中央是手繪市集場景：一頂頂彩色帳篷、逛市集的小人、氣球、旗幟與小狗；活動名稱以手寫感標題放上方，彩色三角旗串橫跨頂部；時間地點與內容收於下方草地區。
+【文字內容】需清楚出現：「{{event}}」「{{content}}」「{{time}}」「{{place}}」，手寫感但清晰、無錯字。
+【質感關鍵字】hand-drawn illustration, picture book style, warm paper texture, cozy festival scene, charming details
+【比例】${r}
+【避免】3D 渲染感、詭異人物、過度擁擠。`
+});
+
+T.push({
+id:"theater",industry:"活動展演",name:"舞台劇・復古劇院",tags:["紅幕金框","聚光燈","戲劇張力"],desc:"舞台劇、音樂劇、相聲、校園公演",
+vars:[{k:"show",label:"劇名",ph:"例：仲夏夜之夢"},{k:"troupe",label:"劇團/演出者",ph:"例：月光劇團"},{k:"time",label:"場次",ph:"例：10/3–10/5 共五場"},{k:"place",label:"地點",ph:"例：城市舞台"}],
+preview:svgOpen+`
+<defs><linearGradient id="th-cur" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9E1C24"/><stop offset="1" stop-color="#5E0E14"/></linearGradient></defs>
+<rect width="300" height="400" fill="#2A0B0E"/>
+<polygon points="150,60 60,400 240,400" fill="#F5DFA0" opacity=".16"/>
+<path d="M0 0 h74 q-18 90 -6 200 q8 90 -18 200 h-50 z" fill="url(#th-cur)"/>
+<path d="M300 0 h-74 q18 90 6 200 q-8 90 18 200 h50 z" fill="url(#th-cur)"/>
+<path d="M0 0 h300 v46 q-76 26 -150 0 q-74 26 -150 0 z" fill="#7A1219"/>
+<rect x="92" y="120" width="116 " height="150" fill="none" stroke="#C9A96A" stroke-width="2.5" width="116"/>
+<text x="150" y="176" font-size="25" font-weight="900" fill="#F2E6C9" text-anchor="middle" font-family="${SERIF}">仲夏夜</text>
+<text x="150" y="212" font-size="25" font-weight="900" fill="#F2E6C9" text-anchor="middle" font-family="${SERIF}">之夢</text>
+<text x="150" y="246" font-size="10" letter-spacing="4" fill="#C9A96A" text-anchor="middle">MOONLIGHT THEATRE</text>
+<rect x="60" y="322" width="180" height="14" fill="#1B0608"/>
+<circle cx="150" cy="300" r="4" fill="#F5DFA0"/>
+<text x="150" y="362" font-size="12" fill="#D8B98A" text-anchor="middle">10/3–10/5 共五場・城市舞台</text>
+<text x="150" y="384" font-size="10" fill="#8a5a52" text-anchor="middle" letter-spacing="3">月光劇團 年度大戲</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張舞台劇演出海報。
+
+【主題】劇名「{{show}}」，演出「{{troupe}}」，場次「{{time}}」，地點「{{place}}」。
+【視覺風格】復古劇院風，紅色天鵝絨布幕、金色畫框與聚光燈，古典戲劇張力。
+【配色】深酒紅與暗棗紅為主，香檳金框線與字體，一道暖黃聚光燈光束。
+【版面構圖】兩側紅幕向中央拉開，聚光燈打亮舞台中心；劇名以典雅襯線大字置於金色細框中；劇團名以寬字距小字排於劇名下；場次地點收於舞台底部。
+【文字內容】需清楚出現：「{{show}}」「{{troupe}}」「{{time}}」「{{place}}」，典雅有戲、無錯字。
+【質感關鍵字】velvet curtain, golden spotlight, vintage theatre playbill, dramatic chiaroscuro, classic elegance
+【比例】${r}
+【避免】現代扁平風混搭、廉價素材感、昏暗難讀。`
+});
+
+T.push({
+id:"esport",industry:"活動展演",name:"電競賽事・電光對決",tags:["電光藍紫","對戰感","賽事熱血"],desc:"電競比賽、遊戲發表、觀賽派對",
+vars:[{k:"event",label:"賽事名稱",ph:"例：巔峰盃電競錦標賽"},{k:"game",label:"比賽項目",ph:"例：5v5 MOBA 項目"},{k:"prize",label:"獎金",ph:"例：冠軍獎金50萬"},{k:"time",label:"日期",ph:"例：11/28 決賽日"}],
+preview:svgOpen+`
+<defs><linearGradient id="es-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0A0E2A"/><stop offset="1" stop-color="#1A0A2E"/></linearGradient></defs>
+<rect width="300" height="400" fill="url(#es-bg)"/>
+<polygon points="0,0 130,0 60,400 0,400" fill="#101745" opacity=".8"/>
+<polygon points="300,0 190,0 250,400 300,400" fill="#240F3E" opacity=".8"/>
+<path d="M150 70 l-26 74 h22 l-18 66 l52 -86 h-24 l22 -54 z" fill="#E9FF4A" stroke="#fff" stroke-width="2"/>
+<text x="76" y="250" font-size="52" font-weight="900" fill="#4E9BFF" font-family="'Archivo Black',sans-serif">V</text>
+<text x="176" y="250" font-size="52" font-weight="900" fill="#FF4A6E" font-family="'Archivo Black',sans-serif">S</text>
+<line x1="150" y1="196" x2="150" y2="262" stroke="#E9FF4A" stroke-width="3"/>
+<polygon points="42,300 58,290 74,300 74,318 58,328 42,318" fill="none" stroke="#4E9BFF" stroke-width="2"/>
+<polygon points="226,300 242,290 258,300 258,318 242,328 226,318" fill="none" stroke="#FF4A6E" stroke-width="2"/>
+<text x="150" y="302" font-size="17" font-weight="900" fill="#fff" text-anchor="middle">巔峰盃電競錦標賽</text>
+<text x="150" y="326" font-size="11" fill="#9aa4e8" text-anchor="middle">5v5・冠軍獎金 50 萬</text>
+<text x="150" y="378" font-size="11" fill="#6a74a8" text-anchor="middle" letter-spacing="4">11/28 FINAL DAY</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張電競賽事海報。
+
+【主題】「{{event}}」，項目「{{game}}」，獎金「{{prize}}」，日期「{{time}}」。
+【視覺風格】電競賽事風，電光閃電與能量對撞，藍紅雙方對決的張力構圖，熱血高燃。
+【配色】深藍紫夜色背景，電光藍與桃紅對撞，螢光黃閃電做視覺核心。
+【版面構圖】畫面左右以藍、紅雙色斜切象徵兩方對決，中央是「VS」與能量閃電特效；賽事名稱以稜角粗體置於下方，獎金與項目分列，六角形徽章元素點綴。
+【文字內容】需清楚出現：「{{event}}」「{{game}}」「{{prize}}」「{{time}}」，銳利有力、無錯字。
+【質感關鍵字】esports tournament key art, lightning energy clash, hexagon HUD elements, cinematic rim light, high impact
+【比例】${r}
+【避免】特定遊戲版權角色、雜訊過多、字體歪斜難讀。`
+});
+
+T.push({
+id:"run",industry:"活動展演",name:"路跑活動・晨光起跑",tags:["日出漸層","動態剪影","能量感"],desc:"馬拉松、路跑、健走、自行車活動",
+vars:[{k:"event",label:"活動名稱",ph:"例：城市晨光路跑"},{k:"dist",label:"組別/距離",ph:"例：21K／10K／3K親子組"},{k:"time",label:"日期",ph:"例：3/22（日）6:00 起跑"},{k:"place",label:"地點",ph:"例：市民廣場"}],
+preview:svgOpen+`
+<defs><linearGradient id="run-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFB347"/><stop offset=".6" stop-color="#FF7B4A"/><stop offset="1" stop-color="#E85D3F"/></linearGradient></defs>
+<rect width="300" height="400" fill="url(#run-sky)"/>
+<circle cx="150" cy="222" r="66" fill="#FFE9B8"/>
+<g fill="#5E1F14"><rect x="18" y="150" width="20" height="60"/><rect x="44" y="132" width="16" height="78"/><rect x="240" y="142" width="22" height="68"/><rect x="268" y="158" width="16" height="52"/></g>
+<g fill="#3D140D">
+<circle cx="146" cy="176" r="11"/>
+<path d="M140 188 q10 -4 18 6 l14 22 q3 6 -3 9 q-6 3 -10 -3 l-10 -16 l-8 26 l18 20 q4 5 -1 10 l-16 18 q-5 5 -10 0 q-4 -5 0 -10 l12 -14 l-20 -20 q-5 -5 -3 -12 l8 -28 l-12 8 l-4 18 q-2 7 -9 5 q-7 -2 -5 -9 l5 -22 q1 -5 6 -8 z"/>
+</g>
+<rect x="0" y="288" width="300" height="112" fill="#3D140D"/>
+<g stroke="#FFE9B8" stroke-width="5" stroke-dasharray="22 18"><line x1="0" y1="344" x2="300" y2="344"/></g>
+<text x="150" y="70" font-size="26" font-weight="900" fill="#fff" text-anchor="middle">城市晨光路跑</text>
+<text x="150" y="96" font-size="12" font-weight="700" fill="#FFE9B8" text-anchor="middle" letter-spacing="3">SUNRISE CITY RUN</text>
+<text x="150" y="322" font-size="12" font-weight="900" fill="#FFE9B8" text-anchor="middle">21K／10K／3K 親子組</text>
+<text x="150" y="382" font-size="11" fill="#E8B8A0" text-anchor="middle">3/22（日）6:00 起跑・市民廣場</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張路跑活動海報。
+
+【主題】「{{event}}」，組別「{{dist}}」，日期「{{time}}」，地點「{{place}}」。
+【視覺風格】晨光能量風，日出漸層天空下的跑者剪影，正向、健康、有速度感。
+【配色】橘黃到珊瑚紅的日出漸層，深棕剪影，米黃太陽與道路標線。
+【版面構圖】巨大朝陽從地平線升起，跑者剪影迎光奔跑、姿態有動感；城市剪影點綴兩側；活動名稱以粗體置於天空，組別資訊、日期地點依序收於下方道路區。
+【文字內容】需清楚出現：「{{event}}」「{{dist}}」「{{time}}」「{{place}}」，有力清晰、無錯字。
+【質感關鍵字】sunrise gradient, dynamic runner silhouette, motion energy, city marathon key visual, uplifting warmth
+【比例】${r}
+【避免】肢體比例錯誤、疲憊負面氛圍、資訊擁擠。`
+});
+
+/* ================= 健身美容（5） ================= */
+T.push({
+id:"gym",industry:"健身美容",name:"健身房・力量招募",tags:["高對比","斜切色塊","運動品牌感"],desc:"健身房開幕、教練課、體驗方案招募",
+vars:[{k:"gym",label:"場館名稱",ph:"例：IRON GYM"},{k:"plan",label:"方案內容",ph:"例：30天體驗$999"},{k:"hook",label:"熱血標語",ph:"例：改變，從今天開始"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#111318"/>
+<polygon points="190,0 300,0 300,400 260,400" fill="#E9FF4A" />
+<rect x="70" y="196" width="130" height="10" rx="5" fill="#D8DAE2"/>
+<rect x="58" y="178" width="16" height="46" rx="4" fill="#3A3E4A"/><rect x="40" y="170" width="14" height="62" rx="4" fill="#2A2E38"/>
+<rect x="196" y="178" width="16" height="46" rx="4" fill="#3A3E4A"/><rect x="214" y="170" width="14" height="62" rx="4" fill="#2A2E38"/>
+<text x="34" y="66" font-size="13" font-weight="900" fill="#E9FF4A" letter-spacing="3" font-family="'Archivo Black',sans-serif">NO EXCUSES</text>
+<text x="34" y="120" font-size="34" font-weight="900" fill="#fff">新春體驗</text>
+<text x="34" y="160" font-size="34" font-weight="900" fill="#fff">30 天</text>
+<text x="34" y="286" font-size="15" font-weight="900" fill="#c8cbd4">$999 無限次進場</text>
+<rect x="34" y="316" width="104" height="32" fill="none" stroke="#E9FF4A" stroke-width="2.5"/>
+<text x="86" y="338" font-size="13" font-weight="900" fill="#E9FF4A" text-anchor="middle">IRON GYM</text>
+<text x="286" y="380" font-size="11" font-weight="900" fill="#111318" text-anchor="end" transform="rotate(-90 286 380)" letter-spacing="3">TRAIN HARD</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張健身房招募海報。
+
+【主題】「{{gym}}」推出方案「{{plan}}」，標語「{{hook}}」。
+【視覺風格】國際運動品牌廣告風，高對比、有爆發力，像 Nike 或 Under Armour 的形象視覺。
+【配色】深黑或深灰底，螢光黃綠大面積斜切色塊，白色粗體字。
+【版面構圖】畫面主角是充滿張力的健身剪影或槓鈴特寫，搭配斜切色塊製造速度感；標語做超大粗字壓在畫面上；方案與場館名稱放下方或角落標籤框。
+【文字內容】需清楚出現：「{{gym}}」「{{plan}}」「{{hook}}」，字體粗壯有力、無錯字。
+【質感關鍵字】dynamic sports poster, high contrast lighting, diagonal composition, gritty texture, powerful energy
+【比例】${r}
+【避免】臉部扭曲、比例怪異的人體、廉價健身照素材感。`
+});
+
+T.push({
+id:"salon",industry:"健身美容",name:"美容沙龍・柔霧裸色",tags:["柔焦光感","裸粉色系","放鬆療癒"],desc:"美髮、美甲、SPA、皮膚管理優惠宣傳",
+vars:[{k:"salon",label:"店名",ph:"例：BLOOM 沙龍"},{k:"service",label:"服務項目",ph:"例：春日煥膚課程"},{k:"deal",label:"優惠",ph:"例：首次體驗79折"}],
+preview:svgOpen+`
+<defs><linearGradient id="sl-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7E9E4"/><stop offset="1" stop-color="#EFD9D3"/></linearGradient>
+<radialGradient id="sl-orb" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#FFFDFB"/><stop offset="1" stop-color="#E8C9BF"/></radialGradient></defs>
+<rect width="300" height="400" fill="url(#sl-bg)"/>
+<circle cx="150" cy="164" r="66" fill="url(#sl-orb)"/>
+<path d="M64 250 q14 -22 34 -10 q-6 24 -34 10 z" fill="#E8B4A6" opacity=".85"/>
+<path d="M232 120 q-14 -20 -32 -10 q6 22 32 10 z" fill="#EFC5B8" opacity=".85"/>
+<path d="M226 268 q16 -10 28 4 q-12 16 -28 -4 z" fill="#E8B4A6" opacity=".7"/>
+<circle cx="82" cy="96" r="4" fill="#EFC5B8"/><circle cx="240" cy="326" r="5" fill="#EFC5B8"/>
+<text x="150" y="286" font-size="21" font-weight="900" fill="#7A5148" text-anchor="middle" letter-spacing="4" font-family="${SERIF}">春日煥膚禮遇</text>
+<text x="150" y="314" font-size="12" fill="#B08A80" text-anchor="middle" letter-spacing="2">首次體驗 79 折</text>
+<line x1="134" y1="332" x2="166" y2="332" stroke="#C9A69C" stroke-width="1.5"/>
+<text x="150" y="360" font-size="11" letter-spacing="6" fill="#B08A80" text-anchor="middle">BLOOM SALON</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張美容沙龍優惠海報。
+
+【主題】「{{salon}}」推出「{{service}}」，優惠「{{deal}}」。
+【視覺風格】韓系柔霧質感，溫柔、乾淨、療癒，像高質感皮膚管理品牌的社群視覺。
+【配色】裸粉、奶杏、乳白柔和漸層，點綴玫瑰金細節，低飽和霧面。
+【版面構圖】中央是柔焦光感的視覺主體（絲緞質地、水珠、花瓣飄落或保養品特寫），光線柔和如晨光；服務名稱以優雅襯線字體置於中下方，優惠與店名以細字排列，大量留白。
+【文字內容】需清楚出現：「{{salon}}」「{{service}}」「{{deal}}」，纖細優雅、無錯字。
+【質感關鍵字】soft focus glow, dreamy pastel, silky texture, korean beauty aesthetic, clean feminine layout
+【比例】${r}
+【避免】過度銳利對比、螢光色、擁擠資訊。`
+});
+
+T.push({
+id:"yoga",industry:"健身美容",name:"瑜珈課程・日暮靜心",tags:["大地暮色","冥想剪影","寧靜平衡"],desc:"瑜珈、皮拉提斯、冥想課程招生",
+vars:[{k:"studio",label:"教室名稱",ph:"例：山嵐瑜珈"},{k:"course",label:"課程名稱",ph:"例：晨間流動瑜珈"},{k:"time",label:"開課資訊",ph:"例：平日早上 7:00"},{k:"deal",label:"優惠",ph:"例：新生體驗$300"}],
+preview:svgOpen+`
+<defs><linearGradient id="yg-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F2C9A0"/><stop offset=".55" stop-color="#E8A87C"/><stop offset="1" stop-color="#B5766A"/></linearGradient></defs>
+<rect width="300" height="400" fill="url(#yg-bg)"/>
+<circle cx="150" cy="170" r="72" fill="#FBE6C8"/>
+<path d="M0 268 q76 -26 150 0 q74 26 150 0 v132 h-300 z" fill="#8A5A52"/>
+<g fill="#5A342E">
+<circle cx="150" cy="196" r="13"/>
+<path d="M150 210 q22 4 26 30 l4 22 q-14 10 -30 10 q-16 0 -30 -10 l4 -22 q4 -26 26 -30 z"/>
+<path d="M120 258 q-18 8 -24 20 q28 8 54 -4 z M180 258 q18 8 24 20 q-28 8 -54 -4 z"/>
+</g>
+<path d="M60 96 q10 -14 24 -8 M216 84 q12 -10 24 -2" stroke="#C9926A" stroke-width="3" fill="none" stroke-linecap="round" opacity=".7"/>
+<text x="150" y="60" font-size="23" font-weight="900" fill="#5A342E" text-anchor="middle" font-family="${SERIF}" letter-spacing="3">晨間流動瑜珈</text>
+<text x="150" y="344" font-size="12" fill="#F2DCC4" text-anchor="middle">平日早上 7:00・新生體驗 $300</text>
+<text x="150" y="372" font-size="11" fill="#D8B49E" text-anchor="middle" letter-spacing="6">山 嵐 瑜 珈</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張瑜珈課程海報。
+
+【主題】「{{studio}}」的「{{course}}」，開課資訊「{{time}}」，優惠「{{deal}}」。
+【視覺風格】日暮靜心風，大地暮色中的冥想剪影，寧靜、平衡、療癒身心。
+【配色】杏桃到陶土紅的日落大地漸層，米黃夕陽圓，深棕剪影。
+【版面構圖】巨大柔和的夕陽圓置於畫面中央，盤坐冥想的人物剪影安坐其前，地平線曲線柔和；課程名稱以優雅字體置於天空處，開課資訊與優惠、教室名稱依序收於下方。
+【文字內容】需清楚出現：「{{studio}}」「{{course}}」「{{time}}」「{{deal}}」，寧靜優雅、無錯字。
+【質感關鍵字】sunset earth tones, meditation silhouette, serene balance, soft grain texture, calming wellness visual
+【比例】${r}
+【避免】刺眼配色、緊繃運動感、雜亂元素。`
+});
+
+T.push({
+id:"boxing",industry:"健身美容",name:"拳擊格鬥・復古海報",tags:["復古印刷","星形徽章","美式粗獷"],desc:"拳擊、格鬥、泰拳課程或比賽宣傳",
+vars:[{k:"gym",label:"拳館名稱",ph:"例：鐵拳搏擊"},{k:"event",label:"活動/課程",ph:"例：週五之夜對打體驗"},{k:"time",label:"時間",ph:"例：每週五 19:30"},{k:"deal",label:"費用/優惠",ph:"例：單堂體驗$350"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#F2E8D5"/>
+<rect x="14" y="14" width="272" height="372" fill="none" stroke="#B8352A" stroke-width="4"/>
+<rect x="22" y="22" width="256" height="356" fill="none" stroke="#2A2622" stroke-width="1.5"/>
+<path d="M60 40 l6 12 13 2 -9 9 2 13 -12 -6 -12 6 2 -13 -9 -9 13 -2 z" fill="#B8352A"/>
+<path d="M240 40 l6 12 13 2 -9 9 2 13 -12 -6 -12 6 2 -13 -9 -9 13 -2 z" fill="#B8352A"/>
+<text x="150" y="76" font-size="14" font-weight="900" fill="#2A2622" text-anchor="middle" letter-spacing="5">FIGHT NIGHT</text>
+<text x="150" y="130" font-size="37" font-weight="900" fill="#B8352A" text-anchor="middle" font-family="'Archivo Black',sans-serif">週五之夜</text>
+<text x="150" y="170" font-size="23" font-weight="900" fill="#2A2622" text-anchor="middle">對打體驗</text>
+<g transform="rotate(-14 118 262)"><ellipse cx="118" cy="256" rx="30" ry="36" fill="#B8352A"/><rect x="100" y="282" width="36" height="18" rx="8" fill="#8E2318"/><path d="M96 248 q-10 4 -8 16" stroke="#8E2318" stroke-width="7" fill="none" stroke-linecap="round"/></g>
+<g transform="rotate(14 184 262)"><ellipse cx="184" cy="256" rx="30" ry="36" fill="#2A2622"/><rect x="166" y="282" width="36" height="18" rx="8" fill="#141210"/><path d="M206 248 q10 4 8 16" stroke="#141210" stroke-width="7" fill="none" stroke-linecap="round"/></g>
+<line x1="46" y1="330" x2="254" y2="330" stroke="#2A2622" stroke-width="2"/>
+<text x="150" y="354" font-size="12" font-weight="700" fill="#2A2622" text-anchor="middle">每週五 19:30・單堂體驗 $350</text>
+<text x="150" y="372" font-size="10" fill="#8a7a62" text-anchor="middle" letter-spacing="4">鐵拳搏擊 BOXING CLUB</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張拳擊格鬥課程海報。
+
+【主題】「{{gym}}」的「{{event}}」，時間「{{time}}」，費用「{{deal}}」。
+【視覺風格】美式復古拳賽海報風，粗獷印刷質感、星形徽章與雙線邊框，像 50 年代拳賽傳單。
+【配色】米色做舊紙底，磚紅與墨黑雙色印刷，可帶輕微油墨錯位感。
+【版面構圖】雙線復古邊框內：活動名稱以超粗木刻活字風大字置中，上方星形徽章與「FIGHT NIGHT」小標；中央是一對交鋒的拳擊手套插畫；時間與費用以分隔線整齊排列於下方。
+【文字內容】需清楚出現：「{{gym}}」「{{event}}」「{{time}}」「{{deal}}」，粗獷有力、無錯字。
+【質感關鍵字】vintage boxing poster, letterpress texture, two-color print, star badge ornament, worn paper grain
+【比例】${r}
+【避免】血腥暴力畫面、現代漸層混搭、字體單薄。`
+});
+
+T.push({
+id:"nail",industry:"健身美容",name:"美甲美睫・Y2K 甜酷",tags:["Y2K","鉻粉愛心","甜酷閃耀"],desc:"美甲、美睫、飾品彩妝的年輕客群宣傳",
+vars:[{k:"shop",label:"店名",ph:"例：SUGAR NAIL"},{k:"service",label:"服務項目",ph:"例：春季新款凝膠美甲"},{k:"deal",label:"優惠",ph:"例：學生85折"},{k:"ig",label:"IG/預約方式",ph:"例：IG @sugarnail 私訊預約"}],
+preview:svgOpen+`
+<defs><linearGradient id="nl-h" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFE3F0"/><stop offset=".5" stop-color="#F58FBE"/><stop offset="1" stop-color="#C4589A"/></linearGradient></defs>
+<rect width="300" height="400" fill="#FBD5E8"/>
+<g fill="#F2B8D8"><rect x="0" y="0" width="20" height="20"/><rect x="40" y="0" width="20" height="20"/><rect x="80" y="0" width="20" height="20"/><rect x="120" y="0" width="20" height="20"/><rect x="160" y="0" width="20" height="20"/><rect x="200" y="0" width="20" height="20"/><rect x="240" y="0" width="20" height="20"/><rect x="280" y="0" width="20" height="20"/><rect x="20" y="20" width="20" height="20"/><rect x="60" y="20" width="20" height="20"/><rect x="100" y="20" width="20" height="20"/><rect x="140" y="20" width="20" height="20"/><rect x="180" y="20" width="20" height="20"/><rect x="220" y="20" width="20" height="20"/><rect x="260" y="20" width="20" height="20"/></g>
+<path d="M150 250 l-52 -54 a34 34 0 0 1 52 -44 a34 34 0 0 1 52 44 z" fill="url(#nl-h)" stroke="#fff" stroke-width="3"/>
+<ellipse cx="128" cy="168" rx="12" ry="7" fill="#FFF" opacity=".8" transform="rotate(-24 128 168)"/>
+<path d="M56 130 l5 12 12 5 -12 5 -5 12 -5 -12 -12 -5 12 -5 z" fill="#fff"/>
+<path d="M244 210 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4 z" fill="#fff"/>
+<path d="M226 96 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3 z" fill="#C4589A"/>
+<text x="150" y="300" font-size="22" font-weight="900" fill="#8E2E5E" text-anchor="middle">春季新款凝膠美甲</text>
+<text x="150" y="326" font-size="12" font-weight="700" fill="#C4589A" text-anchor="middle">學生 85 折・SUGAR NAIL</text>
+<rect x="70" y="344" width="160" height="26" rx="13" fill="#fff"/>
+<text x="150" y="362" font-size="11" font-weight="900" fill="#C4589A" text-anchor="middle">IG @sugarnail 私訊預約</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張美甲店宣傳海報。
+
+【主題】「{{shop}}」的「{{service}}」，優惠「{{deal}}」，預約方式「{{ig}}」。
+【視覺風格】Y2K 甜酷風，鉻粉愛心、棋盤格與閃亮星星，甜美中帶叛逆，是年輕客群會轉發的視覺。
+【配色】糖果粉為主，鉻銀金屬反光、亮白與莓紫點綴。
+【版面構圖】中央是液態鉻質感的大愛心或美甲手部特寫，指尖亮片閃耀；棋盤格飾邊、四角散落閃光星星貼紙；服務名稱以粗圓體置於下方，優惠與 IG 預約做成膠囊按鈕。
+【文字內容】需清楚出現：「{{shop}}」「{{service}}」「{{deal}}」「{{ig}}」，甜酷有型、無錯字。
+【質感關鍵字】y2k chrome heart, checkerboard trim, glossy sparkle stickers, bubblegum pink, trendy social-ready
+【比例】${r}
+【避免】老氣沙龍感、手部變形、過度雜亂。`
+});
+
+/* ================= 房產金融（5） ================= */
+T.push({
+id:"estate",industry:"房產金融",name:"建案商辦・信任藍",tags:["深藍商務","建築夜景","穩重大器"],desc:"建案銷售、商辦招租、店面招商",
+vars:[{k:"case",label:"案名",ph:"例：城心匯"},{k:"selling",label:"核心賣點",ph:"例：雙捷交匯・3分鐘到站"},{k:"contact",label:"聯絡方式",ph:"例：0800-000-000"}],
+preview:svgOpen+`
+<defs><linearGradient id="es2-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0F2C5D"/><stop offset="1" stop-color="#13396C"/></linearGradient></defs>
+<rect width="300" height="400" fill="url(#es2-bg)"/>
+<circle cx="244" cy="66" r="20" fill="#F2E6C9"/>
+<text x="150" y="72" font-size="10" letter-spacing="5" fill="#9FB6DC" text-anchor="middle">GRAND OPENING</text>
+<text x="150" y="116" font-size="27" font-weight="900" fill="#fff" text-anchor="middle" font-family="${SERIF}">城心匯</text>
+<line x1="118" y1="136" x2="182" y2="136" stroke="#C9A96A" stroke-width="2"/>
+<text x="150" y="162" font-size="12" fill="#C8D6EC" text-anchor="middle">雙捷交匯・3 分鐘到站</text>
+<g><rect x="30" y="252" width="44" height="148" fill="#274b80"/><rect x="82" y="212" width="56" height="188" fill="#31599A"/><rect x="146" y="238" width="46" height="162" fill="#274b80"/><rect x="200" y="192" width="66" height="208" fill="#3A64A8"/></g>
+<g fill="#F2E6C9" opacity=".9"><rect x="90" y="224" width="6" height="6"/><rect x="104" y="224" width="6" height="6"/><rect x="118" y="224" width="6" height="6"/><rect x="90" y="240" width="6" height="6"/><rect x="118" y="240" width="6" height="6"/><rect x="208" y="204" width="6" height="6"/><rect x="222" y="204" width="6" height="6"/><rect x="236" y="204" width="6" height="6"/><rect x="250" y="204" width="6" height="6"/><rect x="208" y="220" width="6" height="6"/><rect x="236" y="220" width="6" height="6"/><rect x="250" y="236" width="6" height="6"/><rect x="38" y="264" width="6" height="6"/><rect x="52" y="264" width="6" height="6"/><rect x="154" y="250" width="6" height="6"/><rect x="168" y="250" width="6" height="6"/></g>
+<rect x="0" y="368" width="300" height="32" fill="#0A1F44"/>
+<text x="150" y="389" font-size="11" fill="#C9A96A" text-anchor="middle" letter-spacing="2">預約賞屋｜0800-000-000</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張建案／商辦形象海報。
+
+【主題】案名「{{case}}」，核心賣點「{{selling}}」，聯絡方式「{{contact}}」。
+【視覺風格】高端房地產廣告風，穩重、大器、值得信賴，像指標建案的形象稿。
+【配色】深海軍藍為主色，香檳金細節與白色文字，建築窗燈暖光點點。
+【版面構圖】主視覺為現代建築群的夜景仰角透視（3D 建築渲染質感），窗燈溫暖；案名以襯線大字置於上方，金色細線分隔賣點；聯絡資訊置於底部色帶；像精裝樓書封面。
+【文字內容】需清楚出現：「{{case}}」「{{selling}}」「{{contact}}」，端正大器、無錯字。
+【質感關鍵字】architectural rendering, luxury real estate ad, navy and gold, cinematic dusk lighting, premium print quality
+【比例】${r}
+【避免】卡通感、歪斜建築結構、俗艷配色。`
+});
+
+T.push({
+id:"finance",industry:"房產金融",name:"理財講座・成長綠",tags:["資訊圖表","專業簡潔","金融墨綠"],desc:"投資理財課、保險說明會、財經直播",
+vars:[{k:"org",label:"主辦單位",ph:"例：豐盛學堂"},{k:"topic",label:"講座主題",ph:"例：小資族的第一堂ETF課"},{k:"time",label:"時間與形式",ph:"例：5/8（三）20:00 線上直播"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#F4F7F6"/>
+<rect x="34" y="42" width="120" height="26" rx="5" fill="#0E6E5C"/>
+<text x="94" y="60" font-size="12" font-weight="900" fill="#fff" text-anchor="middle">免費線上講座</text>
+<text x="34" y="118" font-size="26" font-weight="900" fill="#12332C">小資族的</text>
+<text x="34" y="152" font-size="26" font-weight="900" fill="#12332C">第一堂 ETF 課</text>
+<g><rect x="46" y="272" width="34" height="44" rx="4" fill="#BBD6CE"/><rect x="94" y="248" width="34" height="68" rx="4" fill="#8CBFB0"/><rect x="142" y="222" width="34" height="94" rx="4" fill="#4E9C87"/><rect x="190" y="192" width="34" height="124" rx="4" fill="#0E6E5C"/></g>
+<path d="M56 250 l52 -26 l48 -24 l56 -34" stroke="#E8A23D" stroke-width="4" fill="none" stroke-linecap="round"/>
+<polygon points="212,160 228,158 222,174" fill="#E8A23D"/>
+<circle cx="250" cy="286" r="15" fill="#F2D06B" stroke="#D8A932" stroke-width="3"/><text x="250" y="291" font-size="12" font-weight="900" fill="#8E6E14" text-anchor="middle">$</text>
+<line x1="34" y1="336" x2="266" y2="336" stroke="#D8E2DE" stroke-width="2"/>
+<text x="34" y="362" font-size="12" fill="#4a635c">5/8（三）20:00 線上直播</text>
+<text x="34" y="384" font-size="12" font-weight="900" fill="#0E6E5C">豐盛學堂</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張理財講座海報。
+
+【主題】「{{org}}」舉辦「{{topic}}」，時間與形式「{{time}}」。
+【視覺風格】現代金融資訊風，專業、可信賴、不浮誇，像金融科技品牌的活動視覺。
+【配色】淺灰綠或米白背景，深墨綠主色，成長曲線用暖金橘點亮。
+【版面構圖】講座主題大標題置於上方；中央是簡潔的長條圖與上升箭頭曲線（扁平風格），象徵資產成長，點綴金幣元素；時間、形式與主辦單位排列於下方資訊區。
+【文字內容】需清楚出現：「{{org}}」「{{topic}}」「{{time}}」，正式易讀、無錯字。
+【質感關鍵字】fintech infographic style, clean data visualization, growth chart, trustworthy layout, flat modern design
+【比例】${r}
+【避免】浮誇金錢雨、賭博感、誇大報酬暗示。`
+});
+
+T.push({
+id:"card",industry:"房產金融",name:"信用卡・懸浮權益",tags:["卡面懸浮","清爽藍灰","權益清楚"],desc:"信用卡推廣、支付優惠、銀行數位帳戶",
+vars:[{k:"bank",label:"銀行/品牌",ph:"例：晨星銀行"},{k:"card",label:"卡名/產品",ph:"例：晨星御璽卡"},{k:"benefit",label:"主打權益",ph:"例：國內外3%回饋無上限"},{k:"cta",label:"行動呼籲",ph:"例：線上辦卡送刷卡金"}],
+preview:svgOpen+`
+<defs><linearGradient id="cd-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EEF2F7"/><stop offset="1" stop-color="#DDE6F0"/></linearGradient>
+<linearGradient id="cd-c" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2743F0"/><stop offset="1" stop-color="#12B5C9"/></linearGradient></defs>
+<rect width="300" height="400" fill="url(#cd-bg)"/>
+<text x="150" y="54" font-size="11" letter-spacing="4" fill="#6A7A94" text-anchor="middle">MORNINGSTAR BANK</text>
+<text x="150" y="92" font-size="24" font-weight="900" fill="#16233E" text-anchor="middle">3% 回饋無上限</text>
+<g transform="rotate(-8 150 210)">
+<rect x="66" y="158" width="168" height="104" rx="14" fill="url(#cd-c)"/>
+<rect x="82" y="182" width="30" height="22" rx="5" fill="#F2D06B"/>
+<path d="M196 176 a14 14 0 0 1 14 14 M202 170 a20 20 0 0 1 20 20" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".9"/>
+<text x="84" y="240" font-size="12" font-weight="700" fill="#EAF4FF" letter-spacing="3">**** 2026</text>
+<text x="216" y="246" font-size="10" font-weight="900" fill="#fff" text-anchor="end">御璽卡</text>
+</g>
+<ellipse cx="150" cy="292" rx="82" ry="10" fill="#2743F0" opacity=".14"/>
+<rect x="78" y="322" width="144" height="32" rx="16" fill="#2743F0"/>
+<text x="150" y="343" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">線上辦卡送刷卡金</text>
+<text x="150" y="384" font-size="11" fill="#8a94a8" text-anchor="middle">晨星御璽卡・謹慎理財 信用至上</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張信用卡推廣海報。
+
+【主題】「{{bank}}」的「{{card}}」，主打權益「{{benefit}}」，行動呼籲「{{cta}}」。
+【視覺風格】清爽金融科技風，卡面懸浮主視覺，乾淨、現代、可信賴。
+【配色】淺藍灰漸層背景，卡面用寶藍到青綠的質感漸層，白色文字與一抹金色晶片。
+【版面構圖】信用卡以微傾角度懸浮於畫面中央，卡面細節精緻（晶片、感應符號）、下方柔和投影；權益大標置於卡片上方，行動呼籲做成按鈕，銀行名與必要標語收於底部。
+【文字內容】需清楚出現：「{{bank}}」「{{card}}」「{{benefit}}」「{{cta}}」，並保留「謹慎理財 信用至上」小字，無錯字。
+【質感關鍵字】floating credit card render, clean fintech gradient, soft shadow, premium banking visual, crisp typography
+【比例】${r}
+【避免】浮誇撒錢畫面、卡號真實可讀、雜亂圖示。`
+});
+
+T.push({
+id:"insure",industry:"房產金融",name:"保險保障・暖心守護",tags:["溫暖插畫","雨傘意象","家庭感"],desc:"保險商品、保障規劃、健檢方案",
+vars:[{k:"org",label:"公司/業務團隊",ph:"例：安心保經"},{k:"product",label:"商品/主題",ph:"例：全家人的醫療保障"},{k:"selling",label:"一句訴求",ph:"例：把風險交給我們，把日常還給你"},{k:"contact",label:"聯絡方式",ph:"例：LINE @ancare"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#FBF4E8"/>
+<g stroke="#C9D6E8" stroke-width="3" stroke-linecap="round"><line x1="40" y1="46" x2="34" y2="62"/><line x1="70" y1="36" x2="64" y2="52"/><line x1="240" y1="42" x2="234" y2="58"/><line x1="268" y1="60" x2="262" y2="76"/><line x1="256" y1="98" x2="250" y2="114"/><line x1="46" y1="92" x2="40" y2="108"/></g>
+<path d="M150 96 a92 92 0 0 1 92 74 q-23 -16 -46 0 q-23 -16 -46 0 q-23 -16 -46 0 q-23 -16 -46 0 a92 92 0 0 1 92 -74 z" fill="#E8734A"/>
+<line x1="150" y1="96" x2="150" y2="238" stroke="#8A5A3A" stroke-width="6"/>
+<path d="M150 238 q0 18 -16 18" stroke="#8A5A3A" stroke-width="6" fill="none" stroke-linecap="round"/>
+<rect x="96" y="216" width="66" height="52" fill="#F2D9A8"/>
+<polygon points="86,218 129,186 172,218" fill="#D89058"/>
+<rect x="118" y="238" width="16" height="30" fill="#8A5A3A"/>
+<circle cx="196" cy="232" r="10" fill="#E8A87C"/><path d="M188 244 q8 12 16 0 q6 14 -8 22 q-14 -8 -8 -22 z" fill="#E8734A" opacity="0"/>
+<path d="M186 246 q10 -8 20 0 v18 q-10 8 -20 0 z" fill="#6BB58E"/>
+<circle cx="222" cy="238" r="8" fill="#E8A87C"/><path d="M215 250 q7 -6 14 0 v16 q-7 6 -14 0 z" fill="#4E9BDE"/>
+<text x="150" y="316" font-size="21" font-weight="900" fill="#4A3A28" text-anchor="middle">全家人的醫療保障</text>
+<text x="150" y="342" font-size="11" fill="#8a7a5e" text-anchor="middle">把風險交給我們，把日常還給你</text>
+<text x="150" y="376" font-size="11" font-weight="700" fill="#B86A42" text-anchor="middle">安心保經・LINE @ancare</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張保險保障主題海報。
+
+【主題】「{{org}}」的「{{product}}」，訴求「{{selling}}」，聯絡方式「{{contact}}」。
+【視覺風格】暖心插畫風，大雨傘守護小家與家人的經典意象，溫暖、安心、有人味。
+【配色】米黃暖底，珊瑚橘雨傘為視覺焦點，屋舍與人物用大地暖色，雨絲淡藍。
+【版面構圖】一把大雨傘撐開在畫面上方，傘下是溫馨的小屋與依偎的家人插畫，傘外飄著細雨；商品主題以圓潤粗體置於下方，訴求一句話與聯絡方式收尾。
+【文字內容】需清楚出現：「{{org}}」「{{product}}」「{{selling}}」「{{contact}}」，溫暖易讀、無錯字。
+【質感關鍵字】warm family illustration, umbrella protection metaphor, cozy flat style, gentle rain, trustworthy warmth
+【比例】${r}
+【避免】恐嚇式病痛畫面、悲情氛圍、複雜條款文字。`
+});
+
+T.push({
+id:"stock",industry:"房產金融",name:"投資研討・暗黑數據",tags:["K線圖","深色數據","專業銳利"],desc:"投資研討會、券商活動、財經高峰會",
+vars:[{k:"org",label:"主辦單位",ph:"例：先鋒證券"},{k:"event",label:"活動名稱",ph:"例：2026 全球市場展望論壇"},{k:"speaker",label:"講者亮點",ph:"例：三位首席分析師同台"},{k:"time",label:"時間地點",ph:"例：1/16 台北文創"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#0D1117"/>
+<g stroke="#1E2733" stroke-width="1"><line x1="0" y1="120" x2="300" y2="120"/><line x1="0" y1="180" x2="300" y2="180"/><line x1="0" y1="240" x2="300" y2="240"/><line x1="0" y1="300" x2="300" y2="300"/></g>
+<g><line x1="60" y1="210" x2="60" y2="290" stroke="#2EBD85" stroke-width="2"/><rect x="53" y="228" width="14" height="42" fill="#2EBD85"/>
+<line x1="96" y1="190" x2="96" y2="262" stroke="#2EBD85" stroke-width="2"/><rect x="89" y="202" width="14" height="40" fill="#2EBD85"/>
+<line x1="132" y1="206" x2="132" y2="272" stroke="#E85D5D" stroke-width="2"/><rect x="125" y="218" width="14" height="36" fill="#E85D5D"/>
+<line x1="168" y1="160" x2="168" y2="240" stroke="#2EBD85" stroke-width="2"/><rect x="161" y="172" width="14" height="48" fill="#2EBD85"/>
+<line x1="204" y1="140" x2="204" y2="208" stroke="#2EBD85" stroke-width="2"/><rect x="197" y="150" width="14" height="40" fill="#2EBD85"/>
+<line x1="240" y1="120" x2="240" y2="184" stroke="#E85D5D" stroke-width="2"/><rect x="233" y="132" width="14" height="34" fill="#E85D5D"/></g>
+<path d="M48 268 q60 -30 110 -66 q50 -34 106 -78" stroke="#F2D06B" stroke-width="2.5" fill="none" opacity=".9"/>
+<text x="150" y="60" font-size="21" font-weight="900" fill="#EDEFF2" text-anchor="middle">2026 全球市場展望論壇</text>
+<line x1="88" y1="78" x2="212" y2="78" stroke="#F2D06B" stroke-width="1.5"/>
+<text x="150" y="100" font-size="11" fill="#8A96A8" text-anchor="middle">三位首席分析師同台</text>
+<rect x="0" y="336" width="300" height="64" fill="#111826"/>
+<text x="150" y="364" font-size="12" fill="#C8D2E0" text-anchor="middle">1/16・台北文創</text>
+<text x="150" y="386" font-size="10" fill="#5A6678" text-anchor="middle" letter-spacing="3">先鋒證券 PIONEER SECURITIES</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張投資研討會海報。
+
+【主題】「{{org}}」的「{{event}}」，講者亮點「{{speaker}}」，時間地點「{{time}}」。
+【視覺風格】暗黑數據風，深色底上的 K 線圖與趨勢曲線，銳利、專業、華爾街質感。
+【配色】近黑深灰底，K 線紅綠雙色，金色趨勢線與標題分隔線，白字清晰。
+【版面構圖】活動名稱以俐落粗體置頂並以金線分隔；中央是精緻的 K 線圖與上揚趨勢曲線，帶淡淡網格；講者亮點小字置於標題下，時間地點與主辦收於底部色帶。
+【文字內容】需清楚出現：「{{org}}」「{{event}}」「{{speaker}}」「{{time}}」，專業銳利、無錯字。
+【質感關鍵字】dark financial dashboard, candlestick chart, golden trend line, sharp corporate design, wall street tone
+【比例】${r}
+【避免】保證獲利暗示、賭博氛圍、數據雜亂。`
+});
+
+/* ================= 節慶行銷（5） ================= */
+T.push({
+id:"cny",industry:"節慶行銷",name:"新春賀歲・紅金東方",tags:["新中式","紅金配色","燈籠紋樣"],desc:"新年、春節檔期促銷與品牌祝賀",
+vars:[{k:"brand",label:"品牌/店名",ph:"例：金禾禮坊"},{k:"greet",label:"祝賀語",ph:"例：新春獻禮"},{k:"deal",label:"活動內容",ph:"例：全館滿千送百"},{k:"date",label:"檔期",ph:"例：1/25 起"}],
+preview:svgOpen+`
+<defs><radialGradient id="cny-bg" cx="50%" cy="32%" r="80%"><stop offset="0" stop-color="#C0272D"/><stop offset="1" stop-color="#8E1418"/></radialGradient></defs>
+<rect width="300" height="400" fill="url(#cny-bg)"/>
+<g><ellipse cx="52" cy="86" rx="24" ry="28" fill="#D9302A" stroke="#E8C56A" stroke-width="2.5"/><rect x="44" y="52" width="16" height="8" fill="#E8C56A"/><line x1="52" y1="114" x2="52" y2="130" stroke="#E8C56A" stroke-width="3"/><line x1="52" y1="30" x2="52" y2="52" stroke="#E8C56A" stroke-width="2"/></g>
+<g><ellipse cx="248" cy="70" rx="20" ry="24" fill="#D9302A" stroke="#E8C56A" stroke-width="2.5"/><rect x="241" y="40" width="14" height="7" fill="#E8C56A"/><line x1="248" y1="94" x2="248" y2="108" stroke="#E8C56A" stroke-width="3"/></g>
+<path d="M28 160 q14 -12 28 0 q-14 12 -28 0 z M244 178 q14 -12 28 0 q-14 12 -28 0 z" fill="none" stroke="#E8C56A" stroke-width="2"/>
+<circle cx="150" cy="180" r="62" fill="none" stroke="#E8C56A" stroke-width="3"/>
+<circle cx="150" cy="180" r="54" fill="#A31B20"/>
+<text x="150" y="204" font-size="60" font-weight="900" fill="#F5DFA0" text-anchor="middle" font-family="${SERIF}">福</text>
+<text x="150" y="290" font-size="24" font-weight="900" fill="#F5DFA0" text-anchor="middle" letter-spacing="8" font-family="${SERIF}">新春獻禮</text>
+<text x="150" y="322" font-size="13" fill="#E8B8B0" text-anchor="middle">全館滿千送百・1/25 起</text>
+<g fill="#E8C56A"><rect x="126" y="342" width="8" height="8" transform="rotate(45 130 346)"/><rect x="146" y="342" width="8" height="8" transform="rotate(45 150 346)"/><rect x="166" y="342" width="8" height="8" transform="rotate(45 170 346)"/></g>
+<text x="150" y="380" font-size="11" fill="#D89A94" text-anchor="middle" letter-spacing="4">金 禾 禮 坊</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張新春節慶行銷海報。
+
+【主題】「{{brand}}」的新春活動，祝賀語「{{greet}}」，內容「{{deal}}」，檔期「{{date}}」。
+【視覺風格】新中式賀歲風，融合剪紙、紅燈籠、雲紋與現代排版，喜氣但有質感、不俗氣。
+【配色】正紅或朱紅為主色，燙金與米金點綴，可帶少量墨黑穩定畫面。
+【版面構圖】中央金框圓中置大字「福」或生肖剪紙圖騰；上方懸掛紅燈籠、四周雲紋環繞；祝賀語以直排或寬字距書法感字體置於下方，活動內容與檔期以小字收尾。
+【文字內容】需清楚出現：「{{brand}}」「{{greet}}」「{{deal}}」「{{date}}」，繁體中文、無錯字。
+【質感關鍵字】modern chinese new year poster, gold foil texture, paper-cut art, red lantern, elegant oriental layout
+【比例】${r}
+【避免】廉價喜慶素材堆疊、簡體字、過度飽和橘紅。`
+});
+
+T.push({
+id:"xmas",industry:"節慶行銷",name:"聖誕冬季・雪夜燈飾",tags:["冬夜插畫","溫馨燈光","故事感"],desc:"聖誕檔期、冬季感謝祭、年末回饋",
+vars:[{k:"brand",label:"品牌/店名",ph:"例：暖暖選物店"},{k:"event",label:"活動名稱",ph:"例：冬日感謝祭"},{k:"deal",label:"活動內容",ph:"例：第二件6折"},{k:"date",label:"檔期",ph:"例：12/1–12/25"}],
+preview:svgOpen+`
+<defs><linearGradient id="xm-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16234A"/><stop offset="1" stop-color="#2C3E63"/></linearGradient></defs>
+<rect width="300" height="400" fill="url(#xm-bg)"/>
+<g fill="#F5E6C8"><circle cx="56" cy="70" r="2.5"/><circle cx="120" cy="46" r="2"/><circle cx="196" cy="66" r="2.5"/><circle cx="252" cy="96" r="2"/><circle cx="84" cy="122" r="1.8"/><circle cx="228" cy="140" r="1.8"/><circle cx="160" cy="96" r="1.5"/></g>
+<path d="M20 122 q66 44 130 22 q66 -22 130 12" stroke="#3E5480" stroke-width="2.5" fill="none"/>
+<g><circle cx="66" cy="140" r="5" fill="#FFCB2E"/><circle cx="118" cy="150" r="5" fill="#E85D3F"/><circle cx="172" cy="146" r="5" fill="#6BB58E"/><circle cx="228" cy="140" r="5" fill="#FFCB2E"/></g>
+<polygon points="80,318 122,236 164,318" fill="#2F6B4F"/>
+<polygon points="88,270 122,206 156,270" fill="#398160"/>
+<rect x="116" y="318" width="12" height="18" fill="#5A3A28"/>
+<circle cx="122" cy="238" r="4" fill="#FFCB2E"/><circle cx="106" cy="278" r="3.5" fill="#E85D3F"/><circle cx="138" cy="286" r="3.5" fill="#F5E6C8"/>
+<g><rect x="196" y="286" width="52" height="50" fill="#E8D9BE"/><polygon points="188,288 222,258 256,288" fill="#B85A42"/><rect x="214" y="306" width="16" height="30" fill="#8A5A3A"/><rect x="204" y="296" width="10" height="10" fill="#FFCB2E"/><rect x="232" y="296" width="10" height="10" fill="#FFCB2E"/></g>
+<rect x="0" y="336" width="300" height="64" fill="#F0F3F8"/>
+<text x="150" y="60" font-size="24" font-weight="900" fill="#F5E6C8" text-anchor="middle" font-family="${SERIF}">冬日感謝祭</text>
+<text x="150" y="86" font-size="10" letter-spacing="4" fill="#A8B6D4" text-anchor="middle">WINTER THANKS 12/1–12/25</text>
+<text x="150" y="364" font-size="13" font-weight="900" fill="#2C3E63" text-anchor="middle">第二件 6 折</text>
+<text x="150" y="386" font-size="10" fill="#7a86a0" text-anchor="middle" letter-spacing="3">暖暖選物店</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張聖誕／冬季檔期海報。
+
+【主題】「{{brand}}」的「{{event}}」，內容「{{deal}}」，檔期「{{date}}」。
+【視覺風格】溫暖冬夜插畫風，北歐繪本感：雪夜、暖燈小屋、聖誕樹與燈串，安靜浪漫有故事。
+【配色】深靛藍夜空為底，暖鵝黃燈光、松綠與莓紅點綴，米白雪花。
+【版面構圖】畫面是溫馨冬夜場景：亮著燈的小屋、掛滿燈飾的聖誕樹、串燈橫過夜空、雪花飄落；活動名稱以優雅字體置於星空處，內容與檔期收於下方雪地留白區。
+【文字內容】需清楚出現：「{{brand}}」「{{event}}」「{{deal}}」「{{date}}」，溫暖易讀、無錯字。
+【質感關鍵字】cozy winter illustration, nordic storybook style, warm glowing lights, gentle snowfall, heartwarming scene
+【比例】${r}
+【避免】塑膠感 3D 聖誕老人、俗豔紅綠撞色、擁擠元素。`
+});
+
+T.push({
+id:"moon",industry:"節慶行銷",name:"中秋月夜・藍金雅緻",tags:["滿月玉兔","藍金配色","東方雅緻"],desc:"中秋禮盒、月餅預購、節慶問候",
+vars:[{k:"brand",label:"品牌/店名",ph:"例：月華餅家"},{k:"product",label:"主打商品",ph:"例：流心奶黃禮盒"},{k:"deal",label:"優惠",ph:"例：早鳥預購85折"},{k:"date",label:"檔期",ph:"例：即日起至9/15"}],
+preview:svgOpen+`
+<defs><linearGradient id="mn-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E1A3E"/><stop offset="1" stop-color="#1C2C5A"/></linearGradient></defs>
+<rect width="300" height="400" fill="url(#mn-bg)"/>
+<circle cx="150" cy="150" r="80" fill="#F2D06B"/>
+<circle cx="126" cy="126" r="12" fill="#E8BE4E" opacity=".7"/><circle cx="176" cy="168" r="9" fill="#E8BE4E" opacity=".6"/><circle cx="146" cy="184" r="6" fill="#E8BE4E" opacity=".6"/>
+<g fill="#0E1A3E"><ellipse cx="150" cy="176" rx="17" ry="14"/><ellipse cx="141" cy="152" rx="6" ry="16" transform="rotate(-12 141 152)"/><ellipse cx="159" cy="152" rx="6" ry="16" transform="rotate(12 159 152)"/></g>
+<path d="M0 236 q40 -14 80 0 q40 14 80 0 q40 -14 80 0 q30 10 60 0 v20 q-40 12 -80 0 q-40 -12 -80 0 q-40 12 -80 0 q-30 -10 -60 0 z" fill="#26386A" opacity=".9"/>
+<path d="M20 276 q40 -12 80 0 q40 12 80 0 q40 -12 80 0" stroke="#C9A96A" stroke-width="1.5" fill="none" opacity=".7"/>
+<g fill="#F2D06B"><circle cx="52" cy="60" r="2"/><circle cx="240" cy="48" r="2.4"/><circle cx="264" cy="110" r="1.8"/><circle cx="36" cy="130" r="1.8"/></g>
+<text x="262" y="96" font-size="26" font-weight="900" fill="#F2D06B" font-family="${SERIF}" writing-mode="tb" letter-spacing="6">中秋月圓</text>
+<text x="150" y="322" font-size="20" font-weight="900" fill="#F2E6C9" text-anchor="middle" font-family="${SERIF}">流心奶黃禮盒</text>
+<text x="150" y="348" font-size="12" fill="#A8B6D8" text-anchor="middle">早鳥預購 85 折・即日起至 9/15</text>
+<text x="150" y="380" font-size="10" fill="#7a88b0" text-anchor="middle" letter-spacing="5">月 華 餅 家</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張中秋節行銷海報。
+
+【主題】「{{brand}}」的「{{product}}」，優惠「{{deal}}」，檔期「{{date}}」。
+【視覺風格】東方雅緻月夜風，滿月、玉兔剪影與流雲紋，詩意、高級、有節氣氛圍。
+【配色】深靛藍夜空為底，金黃滿月為視覺中心，香檳金雲紋與文字。
+【版面構圖】巨大滿月置於畫面上半部，月中或月前有玉兔剪影，下方層疊流雲紋；「中秋」祝語以直排襯線字體置於月旁；商品名、優惠與檔期依序收於下方，品牌名寬字距收尾。
+【文字內容】需清楚出現：「{{brand}}」「{{product}}」「{{deal}}」「{{date}}」，典雅端正、無錯字。
+【質感關鍵字】mid-autumn full moon, jade rabbit silhouette, flowing cloud pattern, navy and gold elegance, poetic oriental
+【比例】${r}
+【避免】俗氣素材月餅堆疊、簡體字、螢光色。`
+});
+
+T.push({
+id:"halloween",industry:"節慶行銷",name:"萬聖節・搗蛋紫夜",tags:["南瓜蝙蝠","紫橘撞色","趣味不嚇人"],desc:"萬聖節派對、變裝活動、限定商品",
+vars:[{k:"brand",label:"品牌/主辦",ph:"例：怪奇甜點店"},{k:"event",label:"活動名稱",ph:"例：不給糖就搗蛋派對"},{k:"deal",label:"活動內容",ph:"例：變裝來店送甜點"},{k:"date",label:"日期",ph:"例：10/31 晚上"}],
+preview:svgOpen+`
+<defs><linearGradient id="hw-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A1440"/><stop offset="1" stop-color="#3E1E5E"/></linearGradient></defs>
+<rect width="300" height="400" fill="url(#hw-bg)"/>
+<circle cx="222" cy="92" r="46" fill="#F2E6C9"/>
+<path d="M60 70 q8 -12 16 0 q4 -8 10 -4 q-2 12 -13 14 q-11 2 -13 -10 z" fill="#16101F"/>
+<path d="M120 110 q7 -10 14 0 q4 -7 9 -3 q-2 10 -11 12 q-10 1 -12 -9 z" fill="#16101F"/>
+<path d="M250 160 q6 -9 12 0 q3 -6 8 -3 q-2 9 -10 10 q-8 1 -10 -7 z" fill="#16101F"/>
+<ellipse cx="130" cy="272" rx="62" ry="52" fill="#E8742E"/>
+<ellipse cx="102" cy="272" rx="22" ry="50" fill="#D8641E" opacity=".7"/>
+<ellipse cx="158" cy="272" rx="22" ry="50" fill="#D8641E" opacity=".7"/>
+<rect x="122" y="212" width="14" height="16" rx="4" fill="#4A7A3E"/>
+<polygon points="104,254 120,262 104,268" fill="#2A1440"/><polygon points="156,254 140,262 156,268" fill="#2A1440"/>
+<path d="M100 288 q30 20 60 0 l-8 10 l-10 -6 l-12 8 l-12 -8 l-10 6 z" fill="#2A1440"/>
+<ellipse cx="216" cy="300" rx="30" ry="26" fill="#F5EBDC"/>
+<circle cx="208" cy="296" r="4 " fill="#2A1440" r="4"/><circle cx="226" cy="296" r="4" fill="#2A1440"/>
+<path d="M192 318 q6 8 12 0 q6 8 12 0 q6 8 12 0" stroke="#F5EBDC" stroke-width="6" fill="none"/>
+<text x="150" y="54" font-size="22" font-weight="900" fill="#F2A93D" text-anchor="middle">不給糖就搗蛋派對</text>
+<text x="150" y="78" font-size="10" letter-spacing="4" fill="#B08AD8" text-anchor="middle">TRICK OR TREAT</text>
+<text x="150" y="368" font-size="12" fill="#D8C4EE" text-anchor="middle">變裝來店送甜點・10/31 晚上</text>
+<text x="150" y="390" font-size="10" fill="#8a6ab0" text-anchor="middle" letter-spacing="3">怪奇甜點店</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張萬聖節活動海報。
+
+【主題】「{{brand}}」的「{{event}}」，內容「{{deal}}」，日期「{{date}}」。
+【視覺風格】趣味萬聖節插畫風，可愛不嚇人：笑臉南瓜、小幽靈與蝙蝠，適合全客群的節慶氛圍。
+【配色】暗紫夜空為底，南瓜橘為主角，米白月亮與幽靈，螢光橘標題。
+【版面構圖】大南瓜燈與小幽靈是畫面主角，表情俏皮；滿月高掛、蝙蝠剪影點綴夜空；活動名稱以趣味粗體置頂，「TRICK OR TREAT」小標；內容與日期收於下方。
+【文字內容】需清楚出現：「{{brand}}」「{{event}}」「{{deal}}」「{{date}}」，俏皮清晰、無錯字。
+【質感關鍵字】cute halloween illustration, smiling jack-o-lantern, playful ghost, purple and orange palette, festive fun
+【比例】${r}
+【避免】血腥恐怖元素、驚悚寫實、兒童不宜畫面。`
+});
+
+T.push({
+id:"mother",industry:"節慶行銷",name:"母親節・花卉柔美",tags:["康乃馨","柔粉花藝","感恩溫情"],desc:"母親節檔期、花禮預購、餐廳訂位",
+vars:[{k:"brand",label:"品牌/店名",ph:"例：花見花藝"},{k:"event",label:"活動名稱",ph:"例：母親節花禮預購"},{k:"deal",label:"優惠",ph:"例：5/1前預購9折"},{k:"slogan",label:"感恩語",ph:"例：謝謝妳，一直都在"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#FBEFF0"/>
+<circle cx="252" cy="58" r="34" fill="#F5DCE2"/>
+<g transform="translate(150 210)">
+<path d="M-6 90 q6 -60 6 -110 M0 -20 q-26 10 -42 44 M0 -20 q26 10 42 44" stroke="#7FA05F" stroke-width="4" fill="none" stroke-linecap="round"/>
+<g fill="#E8607E"><circle cx="0" cy="-48" r="24"/><circle cx="-16" cy="-34" r="17"/><circle cx="16" cy="-34" r="17"/><circle cx="0" cy="-28" r="16"/></g>
+<g fill="#F2909E"><circle cx="0" cy="-52" r="14"/><circle cx="-11" cy="-38" r="9"/><circle cx="11" cy="-38" r="9"/></g>
+<g fill="#F2B8C4"><circle cx="-44" cy="18" r="15"/><circle cx="-54" cy="30" r="10"/></g>
+<g fill="#E88AA0"><circle cx="46" cy="14" r="13"/><circle cx="56" cy="26" r="9"/></g>
+<path d="M-24 66 h48 l-6 10 h-36 z" fill="#D8B98A"/>
+<path d="M-14 76 h28 v10 q-14 8 -28 0 z" fill="#C9A470"/>
+</g>
+<path d="M62 96 q6 -10 14 -4 q8 -6 12 4 q2 10 -13 18 q-15 -8 -13 -18 z" fill="#E8607E" opacity=".85"/>
+<text x="150" y="60" font-size="24" font-weight="900" fill="#8E4456" text-anchor="middle" font-family="${SERIF}">母親節花禮預購</text>
+<text x="150" y="88" font-size="12" fill="#C48A98" text-anchor="middle" letter-spacing="2">謝謝妳，一直都在</text>
+<text x="150" y="352" font-size="13" font-weight="700" fill="#8E4456" text-anchor="middle">5/1 前預購 9 折</text>
+<text x="150" y="378" font-size="11" fill="#B896A0" text-anchor="middle" letter-spacing="4">花 見 花 藝</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張母親節行銷海報。
+
+【主題】「{{brand}}」的「{{event}}」，優惠「{{deal}}」，感恩語「{{slogan}}」。
+【視覺風格】柔美花藝風，康乃馨花束為主角的水彩或細膩插畫，溫情、優雅、感恩。
+【配色】柔粉米白底，康乃馨的玫紅與粉色層次，葉綠與牛皮紙棕點綴。
+【版面構圖】中央是一束精緻的康乃馨花束（水彩質感、花瓣層次細膩），活動名稱以襯線字體置頂，感恩語一句話輕放其下；優惠與品牌名收於下方，整體留白優雅。
+【文字內容】需清楚出現：「{{brand}}」「{{event}}」「{{deal}}」「{{slogan}}」，溫柔端莊、無錯字。
+【質感關鍵字】watercolor carnation bouquet, soft blush palette, elegant floral illustration, heartfelt warmth, delicate detail
+【比例】${r}
+【避免】俗豔桃紅、塑膠花感、擁擠促銷元素。`
+});
+
+/* ================= 公益永續（5） ================= */
+T.push({
+id:"ocean",industry:"公益永續",name:"海洋行動・淨灘藍",tags:["海洋插畫","鯨魚意象","行動號召"],desc:"淨灘、海洋保育、減塑倡議活動",
+vars:[{k:"org",label:"組織名稱",ph:"例：藍海行動協會"},{k:"event",label:"活動名稱",ph:"例：春季淨灘日"},{k:"time",label:"日期地點",ph:"例：4/22 白沙灣"},{k:"cta",label:"行動呼籲",ph:"例：掃碼報名，捲起袖子"}],
+preview:svgOpen+`
+<defs><linearGradient id="oc-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D8EEF2"/><stop offset="1" stop-color="#7FC4D8"/></linearGradient></defs>
+<rect width="300" height="400" fill="url(#oc-bg)"/>
+<path d="M0 210 q38 -18 75 0 q37 18 75 0 q37 -18 75 0 q37 18 75 0 v190 h-300 z" fill="#3E8FB0"/>
+<path d="M0 240 q38 -16 75 0 q37 16 75 0 q37 -16 75 0 q37 16 75 0" stroke="#BFE3EC" stroke-width="3" fill="none" opacity=".7"/>
+<path d="M0 280 q38 -16 75 0 q37 16 75 0 q37 -16 75 0 q37 16 75 0" stroke="#BFE3EC" stroke-width="2.5" fill="none" opacity=".5"/>
+<path d="M150 262 q-16 -34 8 -44 q-2 18 10 24 q12 -6 10 -24 q24 10 8 44 q-18 10 -36 0 z" fill="#1E5A74"/>
+<g transform="rotate(14 220 176)"><rect x="210" y="150" width="20" height="46" rx="9" fill="#EAF6F8" stroke="#8FB8C4" stroke-width="2.5"/><rect x="215" y="140" width="10" height="12" fill="#8FB8C4"/></g>
+<circle cx="70" cy="176" r="3" fill="#fff" opacity=".8"/><circle cx="94" cy="188" r="2.2" fill="#fff" opacity=".7"/>
+<text x="150" y="60" font-size="26" font-weight="900" fill="#134A60" text-anchor="middle">春季淨灘日</text>
+<text x="150" y="88" font-size="11" letter-spacing="4" fill="#3E7A90" text-anchor="middle">SAVE OUR OCEAN</text>
+<text x="150" y="122" font-size="12" fill="#2A6478" text-anchor="middle">海洋垃圾，比你想的更近</text>
+<rect x="72" y="330" width="156" height="30" rx="15" fill="#134A60"/>
+<text x="150" y="350" font-size="12" font-weight="900" fill="#EAF6F8" text-anchor="middle">掃碼報名，捲起袖子</text>
+<text x="150" y="386" font-size="10" fill="#EAF6F8" text-anchor="middle" letter-spacing="2">4/22 白沙灣・藍海行動協會</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張海洋保育活動海報。
+
+【主題】「{{org}}」的「{{event}}」，日期地點「{{time}}」，行動呼籲「{{cta}}」。
+【視覺風格】清新海洋插畫風，鯨魚尾與層疊海浪的詩意畫面中藏著一個塑膠瓶的提醒，溫柔而有力。
+【配色】天空淺藍到海洋湛藍的漸層，深海藍鯨尾剪影，白色浪花線條。
+【版面構圖】層疊波浪佔畫面下半部，鯨魚尾躍出海面，一個漂浮的塑膠瓶形成視覺對比；活動名稱以粗體置頂，倡議一句話其下；行動呼籲做成深藍膠囊按鈕，日期地點與組織收尾。
+【文字內容】需清楚出現：「{{org}}」「{{event}}」「{{time}}」「{{cta}}」，清晰有力、無錯字。
+【質感關鍵字】layered ocean waves illustration, whale tail silhouette, gentle environmental message, fresh blue palette, hopeful tone
+【比例】${r}
+【避免】悲情灑狗血、髒污噁心畫面、說教長文。`
+});
+
+T.push({
+id:"blood",industry:"公益永續",name:"捐血活動・熱血紅白",tags:["醫療紅白","可愛血滴","正能量"],desc:"捐血活動、健康篩檢、醫療公益",
+vars:[{k:"org",label:"主辦單位",ph:"例：市民捐血中心"},{k:"event",label:"活動名稱",ph:"例：熱血青年捐血週"},{k:"gift",label:"回饋/贈品",ph:"例：捐血送好禮"},{k:"time",label:"時間地點",ph:"例:6/14 世界捐血日・站前廣場"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#FDF6F4"/>
+<circle cx="54" cy="66" r="16" fill="#F5C9C4" opacity=".8"/><circle cx="252" cy="330" r="20" fill="#F5C9C4" opacity=".7"/>
+<rect x="236" y="52" width="30" height="10" rx="5" fill="#E23A3A"/><rect x="246" y="42" width="10" height="30" rx="5" fill="#E23A3A"/>
+<path d="M150 118 q52 62 52 104 a52 52 0 0 1 -104 0 q0 -42 52 -104 z" fill="#E23A3A"/>
+<ellipse cx="128" cy="216" rx="10" ry="16" fill="#fff" opacity=".55" transform="rotate(18 128 216)"/>
+<circle cx="136" cy="232" r="5" fill="#7A1414"/><circle cx="164" cy="232" r="5" fill="#7A1414"/>
+<path d="M138 252 q12 10 24 0" stroke="#7A1414" stroke-width="4" fill="none" stroke-linecap="round"/>
+<path d="M62 160 q6 -8 12 -3 q6 -5 10 3 q2 8 -11 14 q-13 -6 -11 -14 z" fill="#E23A3A" opacity=".8"/>
+<path d="M228 190 q5 -7 10 -2 q5 -4 8 2 q2 7 -9 12 q-11 -5 -9 -12 z" fill="#E88AA0"/>
+<text x="150" y="58" font-size="25" font-weight="900" fill="#B82424" text-anchor="middle">熱血青年捐血週</text>
+<text x="150" y="84" font-size="11" letter-spacing="3" fill="#D87A7A" text-anchor="middle">GIVE BLOOD, GIVE LIFE</text>
+<text x="150" y="334" font-size="14" font-weight="900" fill="#B82424" text-anchor="middle">捐血一袋・救人一命・捐血送好禮</text>
+<text x="150" y="362" font-size="11" fill="#9a6a6a" text-anchor="middle">6/14 世界捐血日・站前廣場</text>
+<text x="150" y="384" font-size="10" fill="#c09090" text-anchor="middle" letter-spacing="3">市民捐血中心</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張捐血活動海報。
+
+【主題】「{{org}}」的「{{event}}」，回饋「{{gift}}」，時間地點「{{time}}」。
+【視覺風格】溫暖醫療公益風，可愛微笑血滴吉祥物為主角，紅白配色乾淨明快、充滿正能量。
+【配色】乾淨米白底，正紅血滴與醫療十字，粉紅愛心點綴。
+【版面構圖】中央是圓潤可愛、面帶微笑的血滴角色，周圍飄著小愛心與醫療十字；活動名稱以粗體置頂；「捐血一袋救人一命」與贈品資訊置於角色下方，時間地點與主辦收尾。
+【文字內容】需清楚出現：「{{org}}」「{{event}}」「{{gift}}」「{{time}}」，親切明快、無錯字。
+【質感關鍵字】cute blood drop mascot, clean medical red and white, friendly public service, cheerful flat illustration, positive energy
+【比例】${r}
+【避免】針頭血腥畫面、恐懼訴求、暗沉配色。`
+});
+
+T.push({
+id:"adopt",industry:"公益永續",name:"動物領養・掌心暖橘",tags:["腳印愛心","貓狗剪影","溫暖領養"],desc:"動物領養、送養會、動保募款",
+vars:[{k:"org",label:"組織名稱",ph:"例：毛孩之家"},{k:"event",label:"活動名稱",ph:"例:週末領養會"},{k:"slogan",label:"倡議標語",ph:"例：領養代替購買"},{k:"time",label:"時間地點",ph:"例：每週六日・園區廣場"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#FDF3E3"/>
+<circle cx="150" cy="196" r="86" fill="#F5DCB4"/>
+<g fill="#B8763D"><ellipse cx="150" cy="212" rx="30" ry="26"/><circle cx="118" cy="176" r="12"/><circle cx="150" cy="164" r="12"/><circle cx="182" cy="176" r="12"/><circle cx="103" cy="204" r="10"/><circle cx="197" cy="204" r="10"/></g>
+<path d="M132 214 q8 -10 16 -2 q8 -8 16 2 q4 12 -16 22 q-20 -10 -16 -22 z" fill="#E85D3F"/>
+<g fill="#6B4226"><path d="M56 300 q0 -22 20 -22 q8 0 12 6 q4 -6 12 -6 q20 0 20 22 q0 16 -32 30 q-32 -14 -32 -30 z" opacity="0"/></g>
+<g fill="#6B4226"><circle cx="64" cy="118" r="13"/><polygon points="52,112 54,96 64,106"/><polygon points="76,112 74,96 64,106"/></g>
+<g fill="#8A5A3A"><circle cx="238" cy="122" r="13"/><ellipse cx="228" cy="112" rx="5" ry="9" transform="rotate(-24 228 112)"/><ellipse cx="248" cy="112" rx="5" ry="9" transform="rotate(24 248 112)"/></g>
+<text x="150" y="56" font-size="26" font-weight="900" fill="#6B4226" text-anchor="middle">領養代替購買</text>
+<text x="150" y="82" font-size="11" letter-spacing="3" fill="#B8905E" text-anchor="middle">ADOPT, DON'T SHOP</text>
+<text x="150" y="330" font-size="15" font-weight="900" fill="#8A5A3A" text-anchor="middle">週末領養會</text>
+<text x="150" y="356" font-size="11" fill="#9a7a55" text-anchor="middle">每週六日・園區廣場</text>
+<text x="150" y="382" font-size="10" fill="#b89a72" text-anchor="middle" letter-spacing="4">毛 孩 之 家</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張動物領養活動海報。
+
+【主題】「{{org}}」的「{{event}}」，標語「{{slogan}}」，時間地點「{{time}}」。
+【視覺風格】溫暖動保插畫風，大腳印與愛心組成的主視覺，貓狗剪影相伴，療癒有愛。
+【配色】奶油米黃暖底，焦糖棕腳印，珊瑚紅愛心點綴，貓狗用大地棕色系。
+【版面構圖】畫面中央是一枚大大的動物腳印，掌心藏著一顆愛心；兩側是可愛的貓與狗剪影抬頭望向腳印；標語以粗體置頂，活動名稱、時間地點與組織依序收於下方。
+【文字內容】需清楚出現：「{{org}}」「{{event}}」「{{slogan}}」「{{time}}」，溫暖清晰、無錯字。
+【質感關鍵字】paw print with heart, warm adoption poster, cozy earth tones, cat and dog silhouettes, gentle compassion
+【比例】${r}
+【避免】受虐悲慘畫面、悲情勒索、陰暗色調。`
+});
+
+T.push({
+id:"greencity",industry:"公益永續",name:"綠色永續・城市之森",tags:["城市綠化","清新插畫","ESG 感"],desc:"植樹、環境教育、企業 ESG 活動",
+vars:[{k:"org",label:"主辦單位",ph:"例：綠光基金會"},{k:"event",label:"活動名稱",ph:"例：一人一樹計畫"},{k:"goal",label:"目標/訴求",ph:"例：今年一起種下一萬棵樹"},{k:"cta",label:"行動呼籲",ph:"例：認養一棵樹"}],
+preview:svgOpen+`
+<defs><linearGradient id="gc-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EAF6EC"/><stop offset="1" stop-color="#D2ECD6"/></linearGradient></defs>
+<rect width="300" height="400" fill="url(#gc-bg)"/>
+<g fill="#BBDCC2"><rect x="28" y="180" width="40" height="130"/><rect x="76" y="150" width="34" height="160"/><rect x="196" y="164" width="38" height="146"/><rect x="242" y="190" width="34" height="120"/></g>
+<g fill="#8FC49A"><rect x="34" y="188" width="8" height="8"/><rect x="50" y="188" width="8" height="8"/><rect x="34" y="206" width="8" height="8"/><rect x="84" y="160" width="7" height="7"/><rect x="97" y="160" width="7" height="7"/><rect x="204" y="174" width="8" height="8"/><rect x="220" y="174" width="8" height="8"/><rect x="250" y="200" width="7" height="7"/></g>
+<rect x="140" y="240" width="20" height="70" fill="#8A6242" rx="6"/>
+<circle cx="150" cy="196" r="52" fill="#4E9C6A"/>
+<circle cx="116" cy="216" r="30" fill="#6BB58E"/>
+<circle cx="186" cy="214" r="32" fill="#3E8558"/>
+<circle cx="150" cy="168" r="26" fill="#7FC49A"/>
+<path d="M60 132 q6 6 0 12 M244 120 q6 6 0 12" stroke="#4E9C6A" stroke-width="3" fill="none" stroke-linecap="round"/>
+<rect x="0" y="310" width="300" height="90" fill="#3E8558"/>
+<text x="150" y="52" font-size="25" font-weight="900" fill="#1F4A30" text-anchor="middle">一人一樹計畫</text>
+<text x="150" y="80" font-size="11" fill="#4E7A5C" text-anchor="middle">今年，一起種下一萬棵樹</text>
+<text x="150" y="344" font-size="14" font-weight="900" fill="#EAF6EC" text-anchor="middle">認養一棵樹 →</text>
+<text x="150" y="372" font-size="10" fill="#BBDCC2" text-anchor="middle" letter-spacing="3">綠光基金會 GREEN LIGHT</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張綠色永續活動海報。
+
+【主題】「{{org}}」的「{{event}}」，目標「{{goal}}」，行動呼籲「{{cta}}」。
+【視覺風格】清新城市綠化插畫風，一棵大樹在城市樓群間茁壯，希望感十足，帶 ESG 質感。
+【配色】薄荷綠到嫩綠的清爽底色，層次葉綠的大樹，淡綠城市剪影，深綠色帶收尾。
+【版面構圖】中央是一棵枝葉茂密的大樹插畫，背後是柔和的城市大樓剪影、窗戶透著綠意；活動名稱以粗體置頂，目標一句話其下；行動呼籲置於底部深綠色帶中。
+【文字內容】需清楚出現：「{{org}}」「{{event}}」「{{goal}}」「{{cta}}」，清新有力、無錯字。
+【質感關鍵字】city greening illustration, flourishing tree, fresh eco palette, hopeful sustainability visual, clean flat style
+【比例】${r}
+【避免】末日污染畫面、灰暗色調、企業宣傳味過重。`
+});
+
+T.push({
+id:"iceberg",industry:"公益永續",name:"議題倡議・冰山隱喻",tags:["視覺隱喻","極簡有力","發人深省"],desc:"心理健康、社會議題、公共政策倡議",
+vars:[{k:"org",label:"組織名稱",ph:"例：心晴協會"},{k:"issue",label:"議題標語",ph:"例：看不見的，往往更沉重"},{k:"sub",label:"補充說明",ph:"例：每5人就有1人曾受情緒困擾"},{k:"cta",label:"行動呼籲",ph:"例：傾聽，是第一步"}],
+preview:svgOpen+`
+<defs><linearGradient id="ib-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5A8FB8"/><stop offset="1" stop-color="#1E4A6E"/></linearGradient></defs>
+<rect width="300" height="400" fill="#EAF2F6"/>
+<rect x="0" y="196" width="300" height="204" fill="url(#ib-sea)"/>
+<line x1="0" y1="196" x2="300" y2="196" stroke="#fff" stroke-width="2" opacity=".8"/>
+<polygon points="150,120 118,196 182,196" fill="#FDFEFF"/>
+<polygon points="150,120 136,150 162,168 150,196 118,196" fill="#E2EEF4" opacity=".9"/>
+<polygon points="118,196 182,196 216,290 150,352 88,276" fill="#BFD8E8" opacity=".7"/>
+<polygon points="118,196 150,352 88,276" fill="#A8C8DC" opacity=".55"/>
+<text x="150" y="56" font-size="22" font-weight="900" fill="#1E3A50" text-anchor="middle">看不見的，往往更沉重</text>
+<text x="150" y="84" font-size="11" fill="#5A7A90" text-anchor="middle">每 5 人就有 1 人曾受情緒困擾</text>
+<text x="150" y="378" font-size="12" font-weight="700" fill="#DCEAF2" text-anchor="middle">傾聽，是第一步・心晴協會</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張社會議題倡議海報。
+
+【主題】「{{org}}」的倡議「{{issue}}」，補充說明「{{sub}}」，行動呼籲「{{cta}}」。
+【視覺風格】極簡視覺隱喻風，用冰山「水面上小、水面下大」的意象說故事，克制、有力、發人深省。
+【配色】水面上是清冷的淺灰藍與純白冰山，水面下是漸深的靛藍，對比出隱藏的巨大體積。
+【版面構圖】畫面被水平線一分為二：水面上露出小小的冰山尖，水面下是龐大的冰山主體；議題標語以粗體置於上方留白處，補充數據小字其下；行動呼籲與組織名收於深水底部。
+【文字內容】需清楚出現：「{{org}}」「{{issue}}」「{{sub}}」「{{cta}}」，簡潔有力、無錯字。
+【質感關鍵字】iceberg metaphor, minimal issue poster, above and below waterline, powerful negative space, award-winning concept
+【比例】${r}
+【避免】悲情氾濫、元素堆疊、說教長篇文字。`
+});
+
+/* ================= 藝文展覽（5） ================= */
+T.push({
+id:"expo",industry:"藝文展覽",name:"美術館展覽・留白詩意",tags:["美術館級","大量留白","當代藝術"],desc:"畫展、當代藝術展、雙年展",
+vars:[{k:"expo",label:"展覽名稱",ph:"例：霧的形狀"},{k:"artist",label:"藝術家/單位",ph:"例：陳霧白 個展"},{k:"date",label:"展期",ph:"例：5/10–7/20"},{k:"place",label:"地點",ph:"例:市立美術館2F"}],
+preview:svgOpen+`
+<defs><linearGradient id="ex-a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#D9E2E8"/><stop offset=".5" stop-color="#B7C7D4"/><stop offset="1" stop-color="#8FA8BC"/></linearGradient></defs>
+<rect width="300" height="400" fill="#FCFCFA"/>
+<rect x="120" y="48" width="150" height="150" fill="url(#ex-a)"/>
+<rect x="96" y="164" width="52" height="52" fill="#E8613C"/>
+<line x1="34" y1="238" x2="266" y2="238" stroke="#DDDFD8" stroke-width="1"/>
+<text x="34" y="290" font-size="30" font-weight="900" fill="#1c1d21" font-family="${SERIF}">霧的形狀</text>
+<text x="34" y="314" font-size="10" letter-spacing="3" fill="#8a8d94">SHAPES OF MIST — 陳霧白 個展</text>
+<text x="34" y="356" font-size="10" fill="#a5a8ad">05.10 — 07.20</text>
+<text x="34" y="374" font-size="10" fill="#a5a8ad">市立美術館 2F</text>
+<rect x="240" y="352" width="26" height="26" fill="none" stroke="#1c1d21" stroke-width="1.5"/>
+<text x="253" y="370" font-size="9" fill="#1c1d21" text-anchor="middle">展</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張美術館展覽海報。
+
+【主題】展覽「{{expo}}」，「{{artist}}」，展期「{{date}}」，地點「{{place}}」。
+【視覺風格】美術館級當代設計，詩意、抽象、極度克制，像國際雙年展或 MoMA 展覽視覺。
+【配色】紙白或淺灰為底，抽象視覺主體用低飽和莫蘭迪色，加一個高彩度小色塊做視覺錨點。
+【版面構圖】不對稱構圖：抽象藝術圖像（呼應展名意象）偏置一側，大量留白；展名以精緻襯線中文置於下方，英文展名小型無襯線字對齊網格；展期地點以最小字級整齊收在角落，可加一枚小章。
+【文字內容】需清楚出現：「{{expo}}」「{{artist}}」「{{date}}」「{{place}}」，排版精確、無錯字。
+【質感關鍵字】contemporary art exhibition poster, museum-grade typography, asymmetric composition, poetic abstraction, refined print
+【比例】${r}
+【避免】裝飾邊框、置中呆板構圖、廉價藝術字。`
+});
+
+T.push({
+id:"photo",industry:"藝文展覽",name:"攝影展・黑白光圈",tags:["黑白攝影","光圈意象","銳利純粹"],desc:"攝影展、影像藝術、紀實攝影講座",
+vars:[{k:"expo",label:"展覽名稱",ph:"例：城市呼吸"},{k:"artist",label:"攝影師",ph:"例：李遠青 攝影展"},{k:"date",label:"展期",ph:"例：8/1–8/31"},{k:"place",label:"地點",ph:"例：光年藝廊"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#111214"/>
+<g transform="translate(150 168)">
+<circle r="86" fill="none" stroke="#F2F3F0" stroke-width="3"/>
+<g fill="#2A2C30" stroke="#F2F3F0" stroke-width="2">
+<path d="M0 -78 L38 -66 L14 -20 z"/><path d="M67 -40 L72 0 L22 -8 z" transform="rotate(8)"/>
+<path d="M0 -78 L38 -66 L14 -20 z" transform="rotate(60)"/><path d="M0 -78 L38 -66 L14 -20 z" transform="rotate(120)"/>
+<path d="M0 -78 L38 -66 L14 -20 z" transform="rotate(180)"/><path d="M0 -78 L38 -66 L14 -20 z" transform="rotate(240)"/>
+<path d="M0 -78 L38 -66 L14 -20 z" transform="rotate(300)"/>
+</g>
+<circle r="26" fill="#F2F3F0"/>
+<circle r="26" fill="none" stroke="#111214" stroke-width="2"/>
+</g>
+<rect x="34" y="292" width="30" height="3" fill="#F2F3F0"/>
+<text x="34" y="330" font-size="27" font-weight="900" fill="#F2F3F0" font-family="${SERIF}">城市呼吸</text>
+<text x="34" y="352" font-size="9" letter-spacing="4" fill="#8a8d94">BREATH OF THE CITY・李遠青 攝影展</text>
+<text x="34" y="378" font-size="9" fill="#6a6d74" letter-spacing="2">8/1 – 8/31｜光年藝廊</text>
+<text x="266" y="52" font-size="9" fill="#6a6d74" text-anchor="end" letter-spacing="3">f/1.4</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張攝影展海報。
+
+【主題】展覽「{{expo}}」，「{{artist}}」，展期「{{date}}」，地點「{{place}}」。
+【視覺風格】黑白攝影美學，相機光圈葉片為核心意象，銳利、純粹、有張力。
+【配色】近黑深灰底，純白線條與文字，全畫面黑白灰階，無彩色。
+【版面構圖】中央是精密的光圈葉片圖形（或黑白城市街拍融入光圈中），幾何俐落；展名以襯線大字置於下方左對齊，攝影師與英文展名小字排列，展期地點最小字級收尾。
+【文字內容】需清楚出現：「{{expo}}」「{{artist}}」「{{date}}」「{{place}}」，精確利落、無錯字。
+【質感關鍵字】black and white photography poster, camera aperture blades, sharp geometric, gallery minimalism, high contrast monochrome
+【比例】${r}
+【避免】彩色元素、浮誇特效、模糊失焦。`
+});
+
+T.push({
+id:"bookfair",industry:"藝文展覽",name:"書展閱讀・復古書封",tags:["復古印刷","書堆插畫","文學氣息"],desc:"書展、閱讀節、獨立書店活動",
+vars:[{k:"event",label:"活動名稱",ph:"例：春季閱讀節"},{k:"theme",label:"主題/選書",ph:"例：百家出版社聯合特賣"},{k:"date",label:"日期",ph:"例：3/1–3/10"},{k:"place",label:"地點",ph:"例：世貿一館"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#F2E9D8"/>
+<rect x="16" y="16" width="268" height="368" fill="none" stroke="#8E5A3A" stroke-width="2"/>
+<g>
+<rect x="70" y="238" width="160" height="26" rx="3" fill="#B8352A"/>
+<rect x="84" y="208" width="140" height="26" rx="3" fill="#2E5C8A"/>
+<rect x="76" y="178" width="130" height="26" rx="3" fill="#D8A932"/>
+<rect x="96" y="148" width="118" height="26" rx="3" fill="#3E7A56"/>
+<rect x="106" y="118" width="94" height="26" rx="3" fill="#8E5A3A"/>
+<g fill="#F2E9D8" opacity=".85"><rect x="86" y="248" width="60" height="4"/><rect x="98" y="218" width="50" height="4"/><rect x="90" y="188" width="44" height="4"/><rect x="110" y="158" width="40" height="4"/><rect x="118" y="128" width="34" height="4"/></g>
+</g>
+<path d="M212 96 q10 -22 26 -14 q-4 20 -26 14 z" fill="#3E7A56"/>
+<circle cx="72" cy="104" r="3" fill="#B8352A"/><circle cx="240" cy="300" r="3" fill="#2E5C8A"/>
+<text x="150" y="66" font-size="26" font-weight="900" fill="#5A3A22" text-anchor="middle" font-family="${SERIF}">春季閱讀節</text>
+<text x="150" y="92" font-size="10" letter-spacing="4" fill="#A8845E" text-anchor="middle">READING FESTIVAL</text>
+<line x1="60" y1="296" x2="240" y2="296" stroke="#C9B08A" stroke-width="1.5"/>
+<text x="150" y="322" font-size="12" fill="#6a5238" text-anchor="middle">百家出版社聯合特賣</text>
+<text x="150" y="348" font-size="11" fill="#8a6a48" text-anchor="middle">3/1–3/10・世貿一館</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張書展／閱讀活動海報。
+
+【主題】「{{event}}」，主題「{{theme}}」，日期「{{date}}」，地點「{{place}}」。
+【視覺風格】復古書封印刷風，堆疊的彩色書本插畫與老派活字排版，滿滿文學氣息。
+【配色】米色做舊紙底，書脊用磚紅、靛藍、芥黃、墨綠等復古印刷色，深棕文字。
+【版面構圖】中央是一疊高高堆起的書本插畫，書脊色彩豐富、可見燙字細節，一株小綠枝從書間探出；活動名稱以典雅襯線字體置頂，細框包覆全版；主題、日期地點以分隔線整齊收於下方。
+【文字內容】需清楚出現：「{{event}}」「{{theme}}」「{{date}}」「{{place}}」，典雅耐讀、無錯字。
+【質感關鍵字】vintage book cover style, stacked books illustration, letterpress typography, retro print palette, literary charm
+【比例】${r}
+【避免】數位感漸層、擁擠促銷、廉價貼圖。`
+});
+
+T.push({
+id:"concert",industry:"藝文展覽",name:"古典音樂會・墨綠金韻",tags:["琴鍵五線譜","墨綠燙金","典雅樂章"],desc:"音樂會、獨奏會、樂團公演",
+vars:[{k:"show",label:"音樂會名稱",ph:"例：春之聲 鋼琴之夜"},{k:"performer",label:"演出者",ph:"例：鋼琴家 沈亦凡"},{k:"time",label:"時間",ph:"例：4/12（六）19:30"},{k:"place",label:"地點",ph:"例：國家音樂廳"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#122A22"/>
+<g stroke="#2A4A3E" stroke-width="1.5"><line x1="0" y1="120" x2="300" y2="106"/><line x1="0" y1="140" x2="300" y2="126"/><line x1="0" y1="160" x2="300" y2="146"/><line x1="0" y1="180" x2="300" y2="166"/><line x1="0" y1="200" x2="300" y2="186"/></g>
+<circle cx="86" cy="152" r="8" fill="#C9A96A"/><line x1="94" y1="152" x2="94" y2="112" stroke="#C9A96A" stroke-width="2.5"/>
+<circle cx="170" cy="132" r="8" fill="#C9A96A"/><line x1="178" y1="132" x2="178" y2="92" stroke="#C9A96A" stroke-width="2.5"/><line x1="94" y1="112" x2="178" y2="92" stroke="#C9A96A" stroke-width="4"/>
+<circle cx="240" cy="168" r="7" fill="#E8C56A" opacity=".8"/><line x1="247" y1="168" x2="247" y2="132" stroke="#E8C56A" stroke-width="2" opacity=".8"/>
+<g transform="translate(40 268)">
+<rect x="0" y="0" width="220" height="54" fill="#F5F1E6"/>
+<g fill="#12241C"><rect x="18" y="0" width="13" height="32"/><rect x="47" y="0" width="13" height="32"/><rect x="92" y="0" width="13" height="32"/><rect x="120" y="0" width="13" height="32"/><rect x="148" y="0" width="13" height="32"/><rect x="192" y="0" width="13" height="32"/></g>
+<g stroke="#C8C2B0" stroke-width="1.5"><line x1="36" y1="0" x2="36" y2="54"/><line x1="66" y1="0" x2="66" y2="54"/><line x1="110" y1="0" x2="110" y2="54"/><line x1="140" y1="0" x2="140" y2="54"/><line x1="168" y1="0" x2="168" y2="54"/><line x1="198" y1="0" x2="198" y2="54"/></g>
+</g>
+<text x="150" y="60" font-size="25" font-weight="900" fill="#F2E6C9" text-anchor="middle" font-family="${SERIF}" letter-spacing="3">春之聲・鋼琴之夜</text>
+<line x1="96" y1="80" x2="204" y2="80" stroke="#C9A96A" stroke-width="1.5"/>
+<text x="150" y="240" font-size="12" fill="#C9A96A" text-anchor="middle" letter-spacing="2">鋼琴家 沈亦凡</text>
+<text x="150" y="356" font-size="11" fill="#8FA89A" text-anchor="middle">4/12（六）19:30・國家音樂廳</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張古典音樂會海報。
+
+【主題】「{{show}}」，演出者「{{performer}}」，時間「{{time}}」，地點「{{place}}」。
+【視覺風格】典雅樂章風，墨綠底色搭配燙金五線譜與琴鍵，古典、沉靜、有格調。
+【配色】深墨綠為底，香檳金音符與線條，米白琴鍵，整體如絨布上的燙金節目冊。
+【版面構圖】音樂會名稱以襯線金字置頂並以金線分隔；中央是流動的五線譜與金色音符斜貫畫面；下方是一排鋼琴琴鍵特寫；演出者、時間地點依層級收尾。
+【文字內容】需清楚出現：「{{show}}」「{{performer}}」「{{time}}」「{{place}}」，典雅精緻、無錯字。
+【質感關鍵字】classical concert poster, gold foil music notes, piano keys detail, deep green velvet tone, elegant program design
+【比例】${r}
+【避免】流行演唱會風、霓虹色、雜亂音符堆疊。`
+});
+
+T.push({
+id:"bauhaus",industry:"藝文展覽",name:"設計展・包浩斯幾何",tags:["包浩斯","三原色","構成主義"],desc:"設計週、畢業展、創意論壇",
+vars:[{k:"event",label:"展覽/活動名稱",ph:"例：新銳設計週"},{k:"theme",label:"策展主題",ph:"例：日常的再設計"},{k:"date",label:"展期",ph:"例：6/6–6/15"},{k:"place",label:"地點",ph:"例：松山文創園區"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#F4F1EA"/>
+<circle cx="196" cy="120" r="66" fill="#E8B31E"/>
+<rect x="52" y="88" width="64" height="64" fill="#2743F0" transform="rotate(14 84 120)"/>
+<polygon points="70,268 130,180 190,268" fill="#D8302A"/>
+<line x1="20" y1="330" x2="280" y2="220" stroke="#16171B" stroke-width="7"/>
+<circle cx="238" cy="252" r="12" fill="#16171B"/>
+<rect x="34" y="34" width="14" height="14" fill="#16171B"/>
+<text x="34" y="322" font-size="27" font-weight="900" fill="#16171B" font-family="'Archivo Black',sans-serif" letter-spacing="1">DESIGN</text>
+<text x="34" y="352" font-size="27" font-weight="900" fill="#16171B" font-family="'Archivo Black',sans-serif" letter-spacing="1">WEEK</text>
+<text x="150" y="378" font-size="11" font-weight="900" fill="#16171B">新銳設計週・日常的再設計</text>
+<text x="266" y="322" font-size="9" fill="#6a6d64" text-anchor="end" transform="rotate(-90 266 322)" letter-spacing="2">6/6–6/15 松山文創園區</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張設計展海報。
+
+【主題】「{{event}}」，策展主題「{{theme}}」，展期「{{date}}」，地點「{{place}}」。
+【視覺風格】包浩斯構成主義風，三原色幾何形的精密構成，理性中帶玩心，設計圈的經典語彙。
+【配色】米白紙底，紅、黃、藍三原色幾何形，粗黑線條與文字。
+【版面構圖】圓形、方形、三角形以不對稱平衡構成畫面主體，一條粗斜線貫穿製造動勢；活動名稱以幾何無襯線超粗字體置於下方，中文主題橫排，展期地點以縱排小字收在邊緣。
+【文字內容】需清楚出現：「{{event}}」「{{theme}}」「{{date}}」「{{place}}」，構成精準、無錯字。
+【質感關鍵字】bauhaus composition, primary colors geometry, constructivist layout, bold grotesque type, precise balance
+【比例】${r}
+【避免】漸層與陰影、裝飾細節、元素過多失衡。`
+});
+
+/* ================= 旅遊觀光（5） ================= */
+T.push({
+id:"collage",industry:"旅遊觀光",name:"旅遊行程・雜誌拼貼",tags:["雜誌編排","拼貼票根","旅行感"],desc:"旅行社行程、觀光景點、飯店住宿方案",
+vars:[{k:"org",label:"品牌/旅行社",ph:"例：藍鯨旅遊"},{k:"dest",label:"目的地/行程名",ph:"例：澎湖跳島3天2夜"},{k:"selling",label:"行程亮點",ph:"例：機＋酒＋船票一次搞定"},{k:"price",label:"價格",ph:"例：$8,990起"}],
+preview:svgOpen+`
+<defs>
+<linearGradient id="cl-1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7FC4E8"/><stop offset="1" stop-color="#2E7CA6"/></linearGradient>
+<linearGradient id="cl-2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FBD786"/><stop offset="1" stop-color="#F7797D"/></linearGradient>
+<linearGradient id="cl-3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B9E4C9"/><stop offset="1" stop-color="#5FA88F"/></linearGradient>
+</defs>
+<rect width="300" height="400" fill="#F2F6F8"/>
+<path d="M30 60 q80 40 120 10 q60 -40 120 20" stroke="#8FB8CC" stroke-width="2" stroke-dasharray="6 6" fill="none"/>
+<polygon points="262,84 280,92 266,100 268,90" fill="#2E7CA6"/>
+<g transform="rotate(-4 96 208)"><rect x="36" y="140" width="120" height="140" rx="8" fill="#fff"/><rect x="44" y="148" width="104" height="100" fill="url(#cl-1)"/><circle cx="76" cy="176" r="12" fill="#FFE9A8"/><path d="M44 226 q26 -18 52 0 q26 18 52 0 v22 h-104 z" fill="#2E6A94"/><text x="96" y="268" font-size="10" fill="#5a7684" text-anchor="middle">跳島・南方四島</text></g>
+<g transform="rotate(6 216 176)"><rect x="164" y="120" width="104 " height="112" rx="8" fill="#fff" width="104"/><rect x="172" y="128" width="88" height="76" fill="url(#cl-2)"/><circle cx="216" cy="152" r="14" fill="#FFF3D6"/><text x="216" y="220" font-size="9" fill="#8a6a5a" text-anchor="middle">夕陽花火</text></g>
+<g transform="rotate(-7 210 300)"><rect x="164" y="252" width="96" height="96" rx="8" fill="#fff"/><rect x="171" y="259" width="82" height="64" fill="url(#cl-3)"/><text x="212" y="336" font-size="9" fill="#4a7a64" text-anchor="middle">海味小吃</text></g>
+<rect x="150" y="128" width="34" height="14" fill="#F2D9A8" opacity=".9" transform="rotate(-4 167 135)"/>
+<text x="36" y="52" font-size="10" letter-spacing="3" fill="#2E7CA6" font-weight="900">TRAVEL GUIDE</text>
+<text x="36" y="86" font-size="24" font-weight="900" fill="#1B3A4B" font-family="${SERIF}">澎湖跳島 3天2夜</text>
+<rect x="36" y="332" width="150 " height="40" rx="8" fill="#1B3A4B" width="150"/>
+<text x="111" y="349" font-size="10" fill="#BFDCE8" text-anchor="middle">機＋酒＋船票 一次搞定</text>
+<text x="111" y="365" font-size="12" font-weight="900" fill="#FFCB2E" text-anchor="middle">$8,990 起・藍鯨旅遊</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張旅遊行程海報。
+
+【主題】「{{org}}」推出「{{dest}}」，亮點「{{selling}}」，價格「{{price}}」。
+【視覺風格】高級旅遊雜誌拼貼風，照片卡片、票根、郵戳與手寫註記層層疊出旅行期待感。
+【配色】清爽白底或淺藍天空色，照片卡片色彩明亮（海洋藍、夕陽橘、草地綠），珊瑚色標籤。
+【版面構圖】行程名稱以雜誌標題風置於上方；中央是多張圓角旅行照片卡片微傾拼貼（地標、美食、海景），穿插機票票根、紙膠帶與飛機虛線航跡；亮點與價格放進下方色塊標籤。
+【文字內容】需清楚出現：「{{org}}」「{{dest}}」「{{selling}}」「{{price}}」，活潑清晰、無錯字。
+【質感關鍵字】premium travel magazine collage, layered polaroid cards, ticket stubs and stamps, bright natural light, editorial layout
+【比例】${r}
+【避免】照片變形、假地標、擁擠失焦。`
+});
+
+T.push({
+id:"onsen",industry:"旅遊觀光",name:"溫泉旅宿・和風夜色",tags:["日式旅宿","鳥居明月","湯煙裊裊"],desc:"溫泉飯店、日式旅宿、湯屋方案",
+vars:[{k:"hotel",label:"旅宿名稱",ph:"例：湯之宿 山霧"},{k:"plan",label:"方案名稱",ph:"例：一泊二食湯旅方案"},{k:"selling",label:"亮點",ph:"例：私人風呂・會席料理"},{k:"price",label:"價格",ph:"例：雙人 $6,800 起"}],
+preview:svgOpen+`
+<defs><linearGradient id="on-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1A2440"/><stop offset="1" stop-color="#2E3A5E"/></linearGradient></defs>
+<rect width="300" height="400" fill="url(#on-bg)"/>
+<circle cx="228" cy="76" r="30" fill="#F2E6C9"/>
+<polygon points="0,268 110,132 220,268" fill="#26304E"/>
+<polygon points="110,132 138,168 82,168" fill="#E8EEF4"/>
+<polygon points="150,268 240,168 330,268" fill="#1E2842"/>
+<g stroke="#C0392B" stroke-width="8" stroke-linecap="round"><line x1="96" y1="212" x2="96" y2="292"/><line x1="152" y1="212" x2="152" y2="292"/></g>
+<rect x="76" y="204" width="96" height="10" rx="4" fill="#C0392B"/>
+<rect x="86" y="226" width="76" height="7" fill="#C0392B"/>
+<rect x="70" y="196" width="108" height="8" rx="4" fill="#A82E20"/>
+<rect x="0" y="292" width="300" height="108" fill="#141C34"/>
+<ellipse cx="228" cy="330" rx="42" ry="12" fill="#26304E"/>
+<path d="M214 322 q5 -16 -2 -28 M228 322 q5 -18 -2 -32 M242 322 q5 -16 -2 -28" stroke="#8FA0C8" stroke-width="3.5" fill="none" stroke-linecap="round" opacity=".85"/>
+<text x="44" y="90" font-size="24" font-weight="900" fill="#F2E6C9" font-family="${SERIF}" writing-mode="tb" letter-spacing="7">湯之宿</text>
+<text x="150" y="342" font-size="14" font-weight="900" fill="#F2E6C9" text-anchor="middle">一泊二食湯旅方案</text>
+<text x="150" y="364" font-size="10" fill="#A8B4D4" text-anchor="middle">私人風呂・會席料理</text>
+<text x="150" y="386" font-size="11" font-weight="700" fill="#E8C56A" text-anchor="middle">雙人 $6,800 起・山霧</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張溫泉旅宿海報。
+
+【主題】「{{hotel}}」的「{{plan}}」，亮點「{{selling}}」，價格「{{price}}」。
+【視覺風格】和風夜色旅宿風，雪山、明月、朱紅鳥居與裊裊湯煙，靜謐療癒、想立刻出發。
+【配色】靛藍夜空漸層，米金明月與雪頂，朱紅鳥居為視覺亮點，湯池霧藍。
+【版面構圖】遠景是月下雪山剪影，中景朱紅鳥居佇立，近景溫泉池湯煙裊裊上升；旅宿名以直排襯線字體置於畫面一側；方案、亮點與價格依序收於下方深色區。
+【文字內容】需清楚出現：「{{hotel}}」「{{plan}}」「{{selling}}」「{{price}}」，典雅安靜、無錯字。
+【質感關鍵字】japanese onsen night scene, torii gate, rising steam, serene indigo palette, ryokan hospitality mood
+【比例】${r}
+【避免】人物入鏡尷尬、俗豔色彩、擁擠資訊。`
+});
+
+T.push({
+id:"camping",industry:"旅遊觀光",name:"露營山林・星空營火",tags:["森林夜色","帳篷暖光","星空感"],desc:"露營區、豪華露營、戶外用品活動",
+vars:[{k:"camp",label:"營區/品牌",ph:"例：森之丘營地"},{k:"plan",label:"方案/活動",ph:"例：秋季星空露營季"},{k:"selling",label:"亮點",ph:"例：免裝備豪華露營"},{k:"price",label:"價格",ph:"例：兩人成行 $3,200"}],
+preview:svgOpen+`
+<defs><linearGradient id="cp-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0E1E2A"/><stop offset="1" stop-color="#1E3A34"/></linearGradient>
+<radialGradient id="cp-glow" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#FFCB2E" stop-opacity=".9"/><stop offset="1" stop-color="#FFCB2E" stop-opacity="0"/></radialGradient></defs>
+<rect width="300" height="400" fill="url(#cp-bg)"/>
+<g fill="#E8EEF4"><circle cx="46" cy="56" r="2"/><circle cx="112" cy="40" r="1.6"/><circle cx="180" cy="60" r="2.2"/><circle cx="248" cy="44" r="1.8"/><circle cx="270" cy="92" r="1.5"/><circle cx="86" cy="92" r="1.5"/><circle cx="212" cy="104" r="1.6"/></g>
+<g fill="#132A26"><polygon points="10,240 44,168 78,240"/><polygon points="58,240 96,152 134,240"/><polygon points="216,240 252,160 288,240"/><polygon points="252,240 280,180 308,240"/></g>
+<rect x="0" y="238" width="300" height="162" fill="#0C1B18"/>
+<circle cx="150" cy="252" r="60" fill="url(#cp-glow)" opacity=".55"/>
+<polygon points="102,282 150,196 198,282" fill="#E8734A"/>
+<polygon points="150,196 150,282 198,282" fill="#C95A34"/>
+<polygon points="136,282 150,238 164,282" fill="#FFDE8A"/>
+<g transform="translate(234 300)"><line x1="-14" y1="12" x2="14" y2="4" stroke="#5A3A28" stroke-width="5" stroke-linecap="round"/><line x1="-14" y1="4" x2="14" y2="12" stroke="#6B4530" stroke-width="5" stroke-linecap="round"/><path d="M0 2 q-10 -12 0 -24 q3 8 8 10 q4 -6 2 -12 q12 10 4 26 q-6 8 -14 0 z" fill="#F2A93D"/><path d="M0 0 q-5 -8 0 -14 q4 6 6 12 q-2 6 -6 2 z" fill="#FFDE8A"/></g>
+<text x="150" y="330" font-size="20" font-weight="900" fill="#F2EAD8" text-anchor="middle">秋季星空露營季</text>
+<text x="150" y="354" font-size="11" fill="#9AB8A8" text-anchor="middle">免裝備豪華露營・兩人成行 $3,200</text>
+<text x="150" y="380" font-size="10" fill="#6A8A78" text-anchor="middle" letter-spacing="4">森之丘營地</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張露營活動海報。
+
+【主題】「{{camp}}」的「{{plan}}」，亮點「{{selling}}」，價格「{{price}}」。
+【視覺風格】山林星夜露營風，帳篷透出的暖光與營火是畫面靈魂，滿天星斗，嚮往感十足。
+【配色】深藍到墨綠的夜色漸層，帳篷橘與營火暖黃形成溫度對比，星點米白。
+【版面構圖】針葉林剪影環抱畫面，中央帳篷內透出溫暖燈光，一旁營火跳動、火星微揚，夜空灑滿星星；活動名稱以粗體置於下方，亮點與價格、營區名依序收尾。
+【文字內容】需清楚出現：「{{camp}}」「{{plan}}」「{{selling}}」「{{price}}」，溫暖清晰、無錯字。
+【質感關鍵字】starry night camping, glowing tent, campfire warmth, pine forest silhouette, wanderlust atmosphere
+【比例】${r}
+【避免】白天場景混淆、火勢危險畫面、灰暗無星。`
+});
+
+T.push({
+id:"island",industry:"旅遊觀光",name:"海島度假・熱帶假期",tags:["椰樹海灘","青綠海色","假期感"],desc:"海島行程、度假村、暑期旅展",
+vars:[{k:"org",label:"品牌/旅行社",ph:"例：陽光假期"},{k:"dest",label:"目的地",ph:"例：沖繩自由行4日"},{k:"selling",label:"亮點",ph:"例：直飛＋海景飯店"},{k:"price",label:"價格",ph:"例：$15,900起"}],
+preview:svgOpen+`
+<defs><linearGradient id="is-sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5BC8D8"/><stop offset="1" stop-color="#2E9AB8"/></linearGradient>
+<linearGradient id="is-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFE9F2"/><stop offset="1" stop-color="#8FD8E8"/></linearGradient></defs>
+<rect width="300" height="400" fill="url(#is-sky)"/>
+<circle cx="230" cy="80" r="30" fill="#FFDE8A"/>
+<rect x="0" y="216" width="300" height="184" fill="url(#is-sea)"/>
+<path d="M0 216 q38 -10 75 0 q37 10 75 0 q37 -10 75 0 q37 10 75 0" stroke="#EAF8FA" stroke-width="4" fill="none" opacity=".8"/>
+<path d="M0 340 q60 -20 300 -6 v66 h-300 z" fill="#F2E2B8"/>
+<path d="M74 336 q-6 -80 -14 -108" stroke="#8A6242" stroke-width="9" fill="none" stroke-linecap="round"/>
+<g fill="#3E8558"><path d="M60 228 q-36 -22 -52 -4 q22 20 52 4 z"/><path d="M60 228 q-8 -40 12 -54 q10 26 -12 54 z"/><path d="M60 228 q28 -30 52 -20 q-14 28 -52 20 z"/><path d="M60 228 q34 -6 46 16 q-28 10 -46 -16 z"/></g>
+<circle cx="66" cy="238" r="5" fill="#8A6242"/><circle cx="78" cy="242" r="5" fill="#8A6242"/>
+<path d="M196 176 q10 -8 20 0 q10 -8 20 0" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".9"/>
+<path d="M226 300 l14 -8 l2 16 z" fill="#fff"/><rect x="236" y="304" width="4" height="18" fill="#E8734A" transform="rotate(18 238 313)"/>
+<text x="150" y="54" font-size="12" letter-spacing="4" fill="#1E7A94" text-anchor="middle" font-weight="900">SUMMER ESCAPE</text>
+<text x="150" y="92" font-size="25" font-weight="900" fill="#134A60" text-anchor="middle">沖繩自由行 4 日</text>
+<text x="150" y="368" font-size="12" font-weight="900" fill="#6B4A22" text-anchor="middle">直飛＋海景飯店・$15,900 起</text>
+<text x="150" y="388" font-size="10" fill="#9a7a4a" text-anchor="middle" letter-spacing="3">陽光假期</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張海島度假行程海報。
+
+【主題】「{{org}}」的「{{dest}}」，亮點「{{selling}}」，價格「{{price}}」。
+【視覺風格】熱帶假期風，椰子樹、青綠海水與白沙灘的明快插畫或攝影，一看就想請假出發。
+【配色】天空淺藍、Tiffany 海水青綠、白沙米黃，太陽鵝黃與椰葉綠點綴。
+【版面構圖】斜倚的椰子樹從一側伸入畫面，層次海浪與白色浪花線，帆船或浮潛小元素點綴；行程名稱以清爽粗體置於天空處，亮點與價格收於下方沙灘區。
+【文字內容】需清楚出現：「{{org}}」「{{dest}}」「{{selling}}」「{{price}}」，明快清晰、無錯字。
+【質感關鍵字】tropical beach scene, palm tree, turquoise sea gradient, vacation vibes, bright cheerful layout
+【比例】${r}
+【避免】陰天灰海、擁擠人群、資訊蓋住風景。`
+});
+
+T.push({
+id:"citynight",industry:"旅遊觀光",name:"城市夜遊・霓虹倒影",tags:["霓虹夜景","城市天際線","都會感"],desc:"城市旅遊、夜間活動、飯店住房專案",
+vars:[{k:"org",label:"品牌/主辦",ph:"例：台北旅宿節"},{k:"event",label:"活動/專案",ph:"例：城市夜未眠住房專案"},{k:"selling",label:"亮點",ph:"例：高樓夜景房＋深夜酒吧券"},{k:"date",label:"檔期",ph:"例：即日起至12/31"}],
+preview:svgOpen+`
+<defs><linearGradient id="cn-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#141033"/><stop offset="1" stop-color="#2A1A4E"/></linearGradient></defs>
+<rect width="300" height="400" fill="url(#cn-bg)"/>
+<circle cx="60" cy="66" r="18" fill="#F2E6C9"/>
+<g fill="#221A44"><rect x="20" y="150" width="36" height="120"/><rect x="64" y="118" width="44" height="152"/><rect x="116" y="140" width="34" height="130"/><rect x="158" y="96" width="52" height="174"/><rect x="218" y="130" width="38" height="140"/><rect x="262" y="156" width="38" height="114"/></g>
+<g fill="#FF6EC7" opacity=".95"><rect x="72" y="128" width="6" height="6"/><rect x="86" y="128" width="6" height="6"/><rect x="72" y="144" width="6" height="6"/><rect x="166" y="106" width="6" height="6"/><rect x="180" y="106" width="6" height="6"/><rect x="194" y="106" width="6" height="6"/><rect x="166" y="122" width="6" height="6"/><rect x="194" y="122" width="6" height="6"/></g>
+<g fill="#5CE8E8" opacity=".95"><rect x="28" y="160" width="6" height="6"/><rect x="42" y="160" width="6" height="6"/><rect x="28" y="176" width="6" height="6"/><rect x="124" y="150" width="6" height="6"/><rect x="138" y="150" width="6" height="6"/><rect x="226" y="140" width="6" height="6"/><rect x="240" y="140" width="6" height="6"/><rect x="226" y="156" width="6" height="6"/><rect x="270" y="166" width="6" height="6"/></g>
+<rect x="0" y="270" width="300" height="130" fill="#0E0A24"/>
+<g opacity=".35" transform="scale(1 -1) translate(0 -540)"><g fill="#FF6EC7"><rect x="72" y="128" width="6" height="20"/><rect x="166" y="106" width="6" height="26"/><rect x="194" y="106" width="6" height="22"/></g><g fill="#5CE8E8"><rect x="28" y="160" width="6" height="18"/><rect x="124" y="150" width="6" height="20"/><rect x="226" y="140" width="6" height="24"/><rect x="270" y="166" width="6" height="16"/></g></g>
+<text x="150" y="322" font-size="21" font-weight="900" fill="#F2F0FF" text-anchor="middle">城市夜未眠住房專案</text>
+<text x="150" y="346" font-size="11" fill="#B0A8E0" text-anchor="middle">高樓夜景房＋深夜酒吧券</text>
+<text x="150" y="372" font-size="10" fill="#7a70a8" text-anchor="middle" letter-spacing="2">即日起至 12/31・台北旅宿節</text>
+<text x="150" y="52" font-size="11" letter-spacing="5" fill="#8F84D8" text-anchor="middle">CITY LIGHTS</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張城市夜遊主題海報。
+
+【主題】「{{org}}」的「{{event}}」，亮點「{{selling}}」，檔期「{{date}}」。
+【視覺風格】霓虹都會夜景風，城市天際線的粉紫青霓虹窗燈與水面倒影，時髦、微醺、有電影感。
+【配色】深紫夜空漸層，霓虹粉與電光青的窗燈，倒影朦朧，米金月亮。
+【版面構圖】城市高樓天際線橫貫畫面中段，窗燈以霓虹雙色點綴，下方水面映出模糊倒影；活動名稱以現代粗體置於倒影區上方，亮點與檔期依序收尾，「CITY LIGHTS」小標置頂。
+【文字內容】需清楚出現：「{{org}}」「{{event}}」「{{selling}}」「{{date}}」，時髦清晰、無錯字。
+【質感關鍵字】neon city skyline, water reflection, cinematic night mood, pink and cyan glow, urban travel aesthetic
+【比例】${r}
+【避免】天際線歪斜、霓虹過曝、真實地標錯置。`
+});
+
+/* ================= 企業徵才（5） ================= */
+T.push({
+id:"hiring",industry:"企業徵才",name:"企業徵才・幾何色塊",tags:["現代幾何","企業識別","年輕開放"],desc:"職缺招募、雇主品牌形象",
+vars:[{k:"company",label:"公司名稱",ph:"例：NOVA TECH"},{k:"jobs",label:"職缺列表",ph:"例：前端工程師、產品設計師"},{k:"perks",label:"亮點福利",ph:"例：彈性遠端、年終保障"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#FFFFFF"/>
+<circle cx="252" cy="36" r="66" fill="#FFCB2E"/>
+<rect x="196" y="96" width="58" height="58" fill="#2743F0" transform="rotate(15 225 125)"/>
+<polygon points="236,220 288,220 262,176" fill="#FF8A65"/>
+<circle cx="270" cy="270" r="9" fill="#16171B"/>
+<text x="34" y="66" font-size="13" font-weight="900" fill="#2743F0" letter-spacing="3" font-family="'Archivo Black',sans-serif">WE ARE HIRING</text>
+<text x="34" y="126" font-size="42" font-weight="900" fill="#16171B">找的</text>
+<text x="34" y="174" font-size="42" font-weight="900" fill="#16171B">就是你</text>
+<line x1="34" y1="212" x2="90" y2="212" stroke="#FFCB2E" stroke-width="5"/>
+<text x="34" y="262" font-size="13" fill="#555">前端工程師・產品設計師</text>
+<text x="34" y="286" font-size="13" fill="#555">行銷企劃・數據分析</text>
+<text x="34" y="330" font-size="11" fill="#8A8D94">薪資面議・彈性遠端</text>
+<rect x="34" y="348" width="118" height="30" rx="8" fill="#16171B"/>
+<text x="93" y="368" font-size="12" font-weight="900" fill="#fff" text-anchor="middle">NOVA TECH</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張企業徵才海報。
+
+【主題】「{{company}}」招募職缺「{{jobs}}」，亮點「{{perks}}」。
+【視覺風格】現代企業識別風，幾何色塊構成，年輕、開放、有設計品味的雇主品牌視覺。
+【配色】白底乾淨清爽，寶藍主色，亮黃與珊瑚橘幾何形點綴。
+【版面構圖】「WE ARE HIRING」小標與大標語置於左側；抽象幾何圖形（圓、方塊、三角）錯落右上構成活潑動勢；職缺清楚列表於中下方，福利與公司名收尾。
+【文字內容】需清楚出現：「{{company}}」「{{jobs}}」「{{perks}}」，層級分明、無錯字。
+【質感關鍵字】modern corporate identity, playful geometry, clean recruitment poster, bold sans-serif, professional yet friendly
+【比例】${r}
+【避免】呆板履歷感、老氣企業藍、資訊擁擠。`
+});
+
+T.push({
+id:"campus",industry:"企業徵才",name:"校園徵才・青春起飛",tags:["漸層天空","學士帽","青春感"],desc:"校園徵才、實習計畫、新鮮人計畫",
+vars:[{k:"company",label:"公司名稱",ph:"例：星圖集團"},{k:"program",label:"計畫名稱",ph:"例：2026 新星實習計畫"},{k:"who",label:"招募對象",ph:"例：大三大四・不限科系"},{k:"cta",label:"行動呼籲",ph:"例：4/30前線上投遞"}],
+preview:svgOpen+`
+<defs><linearGradient id="cs-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7FB8F0"/><stop offset="1" stop-color="#DCEBFB"/></linearGradient></defs>
+<rect width="300" height="400" fill="url(#cs-bg)"/>
+<circle cx="58" cy="70" r="22" fill="#fff" opacity=".8"/><ellipse cx="82" cy="76" rx="30" ry="16" fill="#fff" opacity=".8"/>
+<ellipse cx="232" cy="120" rx="26" ry="13" fill="#fff" opacity=".7"/>
+<g transform="rotate(-14 110 176)"><rect x="80" y="168" width="60" height="14" rx="3" fill="#16233E"/><polygon points="110,140 158,168 62,168" fill="#16233E"/><line x1="110" y1="154" x2="134" y2="186" stroke="#FFCB2E" stroke-width="3"/><circle cx="136" cy="190" r="5" fill="#FFCB2E"/></g>
+<g transform="rotate(10 216 208) scale(.72)"><rect x="230" y="270 " width="60" height="14" rx="3" fill="#26304E" y="270"/><polygon points="260,242 308,270 212,270" fill="#26304E"/></g>
+<g><rect x="60" y="248" width="10" height="20" fill="#FF8A65" transform="rotate(18 65 258)"/><rect x="128" y="236" width="10" height="20" fill="#FFCB2E" transform="rotate(-14 133 246)"/><rect x="196" y="252" width="10" height="20" fill="#6BB58E" transform="rotate(24 201 262)"/><rect x="246" y="240" width="10" height="20" fill="#2743F0" transform="rotate(-20 251 250)"/><circle cx="96" cy="276" r="5" fill="#2743F0"/><circle cx="170" cy="266" r="5" fill="#E85D3F"/><circle cx="226" cy="282" r="5" fill="#FFCB2E"/></g>
+<text x="150" y="330" font-size="23" font-weight="900" fill="#16233E" text-anchor="middle">2026 新星實習計畫</text>
+<text x="150" y="354" font-size="11" fill="#4A5E80" text-anchor="middle">大三大四・不限科系</text>
+<rect x="86" y="366" width="128" height="26" rx="13" fill="#16233E"/>
+<text x="150" y="384" font-size="11" font-weight="900" fill="#FFCB2E" text-anchor="middle">4/30 前線上投遞</text>
+<text x="150" y="48" font-size="11" letter-spacing="4" fill="#2A4A78" text-anchor="middle" font-weight="900">星圖集團 CAMPUS</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張校園徵才海報。
+
+【主題】「{{company}}」的「{{program}}」，對象「{{who}}」，行動呼籲「{{cta}}」。
+【視覺風格】青春起飛風，晴空下拋起的學士帽與彩色紙花，明亮、有希望、屬於新鮮人的興奮感。
+【配色】天空藍到淺白的清爽漸層，深藍學士帽，亮黃、珊瑚、草綠紙花繽紛點綴。
+【版面構圖】數頂學士帽拋向天空、彩色紙花飄揚，白雲點綴；計畫名稱以粗體置於下方，對象小字其下，行動呼籲做成深藍膠囊按鈕收尾，公司名小標置頂。
+【文字內容】需清楚出現：「{{company}}」「{{program}}」「{{who}}」「{{cta}}」，青春清晰、無錯字。
+【質感關鍵字】graduation caps tossed in sky, confetti celebration, fresh gradient sky, youthful energy, bright recruitment visual
+【比例】${r}
+【避免】沉重企業感、灰暗色調、資訊過載。`
+});
+
+T.push({
+id:"devjob",industry:"企業徵才",name:"工程師徵才・終端機",tags:["程式碼","終端機","極客幽默"],desc:"工程師、資料科學、技術職缺招募",
+vars:[{k:"company",label:"公司名稱",ph:"例：位元森林"},{k:"jobs",label:"職缺",ph:"例：後端工程師×3"},{k:"stack",label:"技術棧/亮點",ph:"例：Go／K8s／遠端友善"},{k:"cta",label:"行動呼籲",ph:"例：careers.bitforest.dev"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#0D1117"/>
+<rect x="28" y="56" width="244" height="230" rx="12" fill="#161B26" stroke="#2A3242" stroke-width="2"/>
+<rect x="28" y="56" width="244" height="30" rx="12" fill="#1E2532"/>
+<circle cx="48" cy="71" r="5" fill="#FF5F57"/><circle cx="66" cy="71" r="5" fill="#FFBD2E"/><circle cx="84" cy="71" r="5" fill="#28C840"/>
+<g font-family="monospace" font-size="12">
+<text x="44" y="116" fill="#7EE787">$ we.hire(</text>
+<text x="64" y="140" fill="#79C0FF">"backend_engineer"</text><text x="196" y="140" fill="#8B949E">,</text>
+<text x="64" y="164" fill="#79C0FF">"data_scientist"</text>
+<text x="44" y="188" fill="#7EE787">);</text>
+<text x="44" y="220" fill="#8B949E">// Go / K8s / remote-ok</text>
+<text x="44" y="252" fill="#FFA657">→ offer.sent ✓</text>
+</g>
+<rect x="44" y="262" width="10" height="16" fill="#7EE787"/>
+<text x="150" y="330" font-size="22" font-weight="900" fill="#E6EDF3" text-anchor="middle">後端工程師 ×3</text>
+<text x="150" y="356" font-size="11" fill="#8B949E" text-anchor="middle">Go／K8s／遠端友善・位元森林</text>
+<text x="150" y="382" font-size="11" font-weight="700" fill="#79C0FF" text-anchor="middle">careers.bitforest.dev</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張工程師徵才海報。
+
+【主題】「{{company}}」招募「{{jobs}}」，技術亮點「{{stack}}」，應徵方式「{{cta}}」。
+【視覺風格】終端機極客風，用一段有梗的程式碼講徵才這件事，工程師看了會心一笑。
+【配色】深灰黑編輯器底色，語法高亮的綠、藍、橘配色，紅黃綠視窗圓點。
+【版面構圖】畫面主體是一扇擬真的終端機／編輯器視窗，內有語法高亮的徵才程式碼（如 we.hire("backend_engineer")）與閃爍游標；職缺以粗體置於視窗下方，技術棧與應徵連結依序收尾。
+【文字內容】需清楚出現：「{{company}}」「{{jobs}}」「{{stack}}」「{{cta}}」，等寬字體精確、無錯字。
+【質感關鍵字】code editor window, syntax highlighting, terminal cursor, developer humor, dark IDE aesthetic
+【比例】${r}
+【避免】程式碼語法錯誤、駭客陰暗感、字太小難讀。`
+});
+
+T.push({
+id:"servicejob",industry:"企業徵才",name:"服務業夥伴・暖心招募",tags:["溫暖插畫","圍裙咖啡","夥伴感"],desc:"餐飲、門市、飯店服務人員招募",
+vars:[{k:"company",label:"店家/品牌",ph:"例：日常珈琲"},{k:"jobs",label:"職缺",ph:"例：正職夥伴／假日工讀"},{k:"perks",label:"福利亮點",ph:"例：供餐、排班彈性、員工價"},{k:"contact",label:"應徵方式",ph:"例：店內詢問或私訊IG"}],
+preview:svgOpen+`
+<rect width="300" height="400" fill="#FBF2E4"/>
+<circle cx="150" cy="150" r="84" fill="#F2DFC2"/>
+<path d="M112 122 h76 v10 q0 8 -8 8 h-60 q-8 0 -8 -8 z" fill="#5A7A5C"/>
+<path d="M118 140 h64 l-6 68 q-1 10 -11 10 h-30 q-10 0 -11 -10 z" fill="#6B8E6E"/>
+<path d="M132 140 v-14 q0 -6 6 -6 h24 q6 0 6 6 v14" stroke="#5A7A5C" stroke-width="5" fill="none"/>
+<rect x="136" y="158" width="28" height="22" rx="4" fill="#FBF2E4"/>
+<path d="M142 170 q8 8 16 0" stroke="#B86A42" stroke-width="3" fill="none" stroke-linecap="round"/>
+<circle cx="145" cy="164" r="2.5" fill="#B86A42"/><circle cx="155" cy="164" r="2.5" fill="#B86A42"/>
+<g transform="translate(216 196)"><rect x="-14" y="-10" width="28" height="22" rx="5" fill="#fff" stroke="#8A5A3A" stroke-width="3"/><path d="M14 -6 q12 2 0 14" stroke="#8A5A3A" stroke-width="3" fill="none"/><path d="M-6 -14 q3 -6 0 -10 M4 -14 q3 -6 0 -10" stroke="#B89A72" stroke-width="2.5" fill="none" stroke-linecap="round"/></g>
+<path d="M74 202 q8 -8 16 0 q8 -8 16 0 " stroke="#E8938A" stroke-width="4" fill="none" stroke-linecap="round" opacity="0"/>
+<path d="M72 192 q5 -7 10 -2 q5 -4 8 2 q2 7 -9 12 q-11 -5 -9 -12 z" fill="#E8938A"/>
+<text x="150" y="56 " font-size="25" font-weight="900" fill="#5A4430" text-anchor="middle" y="56">夥伴募集中</text>
+<text x="150" y="82" font-size="11" letter-spacing="3" fill="#B8905E" text-anchor="middle">JOIN OUR TEAM</text>
+<text x="150" y="292" font-size="14" font-weight="900" fill="#5A7A5C" text-anchor="middle">正職夥伴／假日工讀</text>
+<text x="150" y="318" font-size="11" fill="#8a7455" text-anchor="middle">供餐・排班彈性・員工價</text>
+<line x1="106" y1="338" x2="194" y2="338" stroke="#D8C4A0" stroke-width="1.5"/>
+<text x="150" y="362" font-size="11" fill="#9a7e58" text-anchor="middle">店內詢問或私訊 IG</text>
+<text x="150" y="384" font-size="10" fill="#b89a72" text-anchor="middle" letter-spacing="4">日常珈琲</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張服務業招募海報。
+
+【主題】「{{company}}」招募「{{jobs}}」，福利「{{perks}}」，應徵方式「{{contact}}」。
+【視覺風格】暖心插畫風，微笑的圍裙夥伴與咖啡香，強調「加入我們像回家」的夥伴感。
+【配色】奶茶米色暖底，抹茶綠圍裙，咖啡棕與珊瑚粉點綴，整體柔和親切。
+【版面構圖】中央圓形色塊內是穿著圍裙、面帶微笑的角色插畫，一旁飄著熱咖啡與小愛心；「夥伴募集中」以圓潤粗體置頂；職缺、福利以分隔線整齊排列於下方，應徵方式與店名收尾。
+【文字內容】需清楚出現：「{{company}}」「{{jobs}}」「{{perks}}」「{{contact}}」，親切清晰、無錯字。
+【質感關鍵字】cozy staff illustration, apron and coffee, warm welcoming palette, friendly recruitment, hand-crafted feel
+【比例】${r}
+【避免】血汗加班暗示、生硬制式感、詭異人物。`
+});
+
+T.push({
+id:"execjob",industry:"企業徵才",name:"高階獵才・黑金棋局",tags:["黑金質感","西洋棋","菁英格局"],desc:"高階主管、獵頭顧問、菁英計畫",
+vars:[{k:"company",label:"公司/顧問品牌",ph:"例：擎天獵才顧問"},{k:"position",label:"招募方向",ph:"例：科技業高階經理人"},{k:"slogan",label:"一句定位",ph:"例：下一步，決定格局"},{k:"contact",label:"聯繫方式",ph:"例：exec@skyreach.com"}],
+preview:svgOpen+`
+<defs><radialGradient id="ej-bg" cx="50%" cy="30%" r="80%"><stop offset="0" stop-color="#26221A"/><stop offset="1" stop-color="#0E0C08"/></radialGradient>
+<linearGradient id="ej-k" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EFDCA8"/><stop offset="1" stop-color="#C9A96A"/></linearGradient></defs>
+<rect width="300" height="400" fill="url(#ej-bg)"/>
+<g transform="translate(150 190)">
+<rect x="-8" y="-104" width="16" height="7" fill="url(#ej-k)"/>
+<rect x="-3.5" y="-113" width="7" height="25" fill="url(#ej-k)"/><rect x="-12" y="-104.5" width="24" height="7" fill="url(#ej-k)" transform="rotate(90)" opacity="0"/>
+<rect x="-11" y="-97" width="22" height="10" rx="3" fill="url(#ej-k)"/>
+<path d="M-14 -87 q14 10 28 0 l-6 46 h-16 z" fill="url(#ej-k)"/>
+<rect x="-16" y="-42" width="32" height="9" rx="3" fill="url(#ej-k)"/>
+<path d="M-20 -33 h40 l6 26 h-52 z" fill="url(#ej-k)"/>
+</g>
+<ellipse cx="150" cy="192" rx="58" ry="9" fill="#C9A96A" opacity=".22"/>
+<g opacity=".5"><rect x="52" y="230" width="24" height="24" fill="#1E1A12"/><rect x="100" y="230" width="24" height="24" fill="#2E2818"/><rect x="76" y="254" width="24" height="24" fill="#2E2818"/><rect x="52" y="254" width="24" height="24" fill="#141008" opacity="0"/><rect x="176" y="230" width="24" height="24" fill="#2E2818"/><rect x="224" y="230" width="24" height="24" fill="#1E1A12"/><rect x="200" y="254" width="24" height="24" fill="#1E1A12"/></g>
+<text x="150" y="60" font-size="10" letter-spacing="6" fill="#C9A96A" text-anchor="middle">EXECUTIVE SEARCH</text>
+<text x="150" y="318" font-size="23" font-weight="900" fill="#F2E6C9" text-anchor="middle" font-family="${SERIF}">下一步，決定格局</text>
+<text x="150" y="344" font-size="11" fill="#B8A276" text-anchor="middle">科技業高階經理人 徵尋中</text>
+<line x1="106" y1="360" x2="194" y2="360" stroke="#C9A96A" stroke-width="1"/>
+<text x="150" y="382" font-size="10" fill="#8a7a56" text-anchor="middle" letter-spacing="2">擎天獵才顧問・exec@skyreach.com</text>
+</svg>`,
+prompt:(v,r)=>`請設計一張高階獵才形象海報。
+
+【主題】「{{company}}」招募「{{position}}」，定位語「{{slogan}}」，聯繫「{{contact}}」。
+【視覺風格】黑金菁英風，一枚金色西洋棋國王立於棋盤，象徵關鍵一步與格局，沉穩、高端、有野心。
+【配色】深黑棕暗調背景，香檳金棋子為視覺中心，暗金棋盤格若隱若現。
+【版面構圖】金色國王棋子置於畫面中央、打上戲劇性頂光，底部棋盤格延伸；定位語以襯線大字置於下方，招募方向小字其下，金線分隔後收品牌與聯繫方式；「EXECUTIVE SEARCH」寬字距小標置頂。
+【文字內容】需清楚出現：「{{company}}」「{{position}}」「{{slogan}}」「{{contact}}」，沉穩精緻、無錯字。
+【質感關鍵字】golden chess king, dramatic top light, black and gold prestige, strategic metaphor, executive elegance
+【比例】${r}
+【避免】廉價金色、棋子變形、擁擠元素。`
+});
+
+/* ================= 狀態與渲染 ================= */
+let curInd="全部", curT=null, curRatio=RATIOS[0].v, curVals={};
+const grid=document.getElementById("grid");
+const filters=document.getElementById("filters");
+const countEl=document.getElementById("count");
+
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+
+function renderFilters(){
+  filters.innerHTML=INDUSTRIES.map(i=>{
+    const n=i==="全部"?T.length:T.filter(t=>t.industry===i).length;
+    return `<button class="chip${i===curInd?" on":""}" data-i="${i}">${i}<small>${n}</small></button>`;
+  }).join("");
+  filters.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{curInd=b.dataset.i;renderFilters();renderGrid();});
+}
+
+function renderGrid(){
+  const list=curInd==="全部"?T:T.filter(t=>t.industry===curInd);
+  countEl.textContent=curInd==="全部"?`全部 ${list.length} 款模板`:`${curInd}・${list.length} 款風格模板`;
+  grid.innerHTML=list.map(t=>`
+  <article class="card" tabindex="0" data-id="${t.id}" aria-label="${t.name}">
+    <div class="pvwrap"><div class="pv">${t.preview}</div></div>
+    <div class="meta">
+      <div class="ind">${t.industry}</div>
+      <h3>${t.name}</h3>
+      <div class="tags">${t.tags.map(x=>`<span>${x}</span>`).join("")}</div>
+      <div class="acts">
+        <button class="btn primary" data-act="edit">自訂並複製</button>
+        <button class="btn ghost" data-act="quick" title="直接複製（保留填空提示）">快速複製</button>
+      </div>
+    </div>
+  </article>`).join("");
+  grid.querySelectorAll(".card").forEach(c=>{
+    const t=T.find(x=>x.id===c.dataset.id);
+    c.querySelector('[data-act="edit"]').onclick=e=>{e.stopPropagation();openModal(t)};
+    c.querySelector('[data-act="quick"]').onclick=e=>{e.stopPropagation();copyText(buildPrompt(t,{},RATIOS[0].v).plain);};
+    c.onclick=()=>openModal(t);
+    c.onkeydown=e=>{if(e.key==="Enter")openModal(t)};
+  });
+}
+
+/* ================= 提示詞組裝 ================= */
+function buildPrompt(t,vals,ratio){
+  let raw=t.prompt(vals,ratio);
+  let plain=raw, html=esc(raw);
+  t.vars.forEach(v=>{
+    const token="{{"+v.k+"}}";
+    const val=(vals[v.k]||"").trim();
+    const fill=val||("【"+v.label+"】");
+    plain=plain.split(token).join(fill);
+    html=html.split(esc(token)).join(val?`<mark>${esc(val)}</mark>`:`【${esc(v.label)}】`);
+  });
+  return {plain,html};
+}
+
+/* ================= Modal ================= */
+const overlay=document.getElementById("overlay");
+function openModal(t){
+  curT=t;curVals={};curRatio=RATIOS[0].v;
+  document.getElementById("mInd").textContent=t.industry+"・"+t.desc;
+  document.getElementById("mTitle").textContent=t.name;
+  document.getElementById("mPreview").innerHTML=t.preview;
+  const f=document.getElementById("mFields");
+  f.innerHTML=t.vars.map(v=>`
+    <div class="field"><label for="f_${v.k}">${v.label}</label>
+    <input id="f_${v.k}" data-k="${v.k}" placeholder="${v.ph}" autocomplete="off"></div>`).join("");
+  f.querySelectorAll("input").forEach(inp=>inp.oninput=()=>{curVals[inp.dataset.k]=inp.value;renderPrompt();});
+  const rbox=document.getElementById("mRatios");
+  rbox.innerHTML=RATIOS.map((x,i)=>`<button class="ratio${i===0?" on":""}" data-v="${x.v}">${x.label}</button>`).join("");
+  rbox.querySelectorAll(".ratio").forEach(b=>b.onclick=()=>{
+    curRatio=b.dataset.v;
+    rbox.querySelectorAll(".ratio").forEach(x=>x.classList.remove("on"));
+    b.classList.add("on");renderPrompt();
+  });
+  renderPrompt();
+  overlay.classList.add("show");
+  document.body.style.overflow="hidden";
+  setTimeout(()=>{const first=f.querySelector("input");if(first)first.focus();},80);
+}
+function renderPrompt(){
+  document.getElementById("mPrompt").innerHTML=buildPrompt(curT,curVals,curRatio).html;
+}
+function closeModal(){overlay.classList.remove("show");document.body.style.overflow="";}
+document.getElementById("mClose").onclick=closeModal;
+overlay.onclick=e=>{if(e.target===overlay)closeModal()};
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
+document.getElementById("mCopy").onclick=()=>copyText(buildPrompt(curT,curVals,curRatio).plain);
+document.getElementById("mReset").onclick=()=>{
+  curVals={};document.querySelectorAll("#mFields input").forEach(i=>i.value="");renderPrompt();
+};
+
+/* ================= 複製 & Toast ================= */
+const toast=document.getElementById("toast");
+let toastTimer;
+function showToast(){
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>toast.classList.remove("show"),2200);
+}
+function copyText(txt){
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(showToast).catch(()=>fallbackCopy(txt));
+  }else fallbackCopy(txt);
+}
+function fallbackCopy(txt){
+  const ta=document.createElement("textarea");
+  ta.value=txt;ta.style.position="fixed";ta.style.opacity="0";
+  document.body.appendChild(ta);ta.select();
+  try{document.execCommand("copy");showToast();}catch(e){}
+  document.body.removeChild(ta);
+}
+
+/* ================= Hero 海報堆疊 ================= */
+(function heroStack(){
+  const picks=["techconf","cafe","musicfest"];
+  const el=document.getElementById("heroStack");
+  if(el) el.innerHTML=picks.map(id=>{
+    const t=T.find(x=>x.id===id);
+    return t?`<div class="mini pv">${t.preview}</div>`:"";
+  }).join("");
+})();
+
+renderFilters();
+renderGrid();
+
+</script>
+</body>
+</html>
