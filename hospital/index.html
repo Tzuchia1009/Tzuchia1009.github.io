@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tzuchia 醫療院所 AI 提示詞模板庫｜互動式檢索手冊</title>
+<meta name="description" content="由黃子嘉老師 Tzuchia 製作的醫療院所 AI 提示詞模板庫，提供醫療行政、門診、衛教、行銷與內部管理等情境的互動式檢索模板。">
+<meta name="author" content="Tzuchia Huang">
+<link rel="canonical" href="https://tzuchia1009.github.io/hospital/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tzuchia 醫療院所 AI 提示詞模板庫">
+<meta property="og:description" content="互動式檢索醫療院所可用的 AI 提示詞模板，適合演講、教學與現場操作使用。">
+<meta property="og:url" content="https://tzuchia1009.github.io/hospital/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F7F8; --paper:#FFFFFF; --ink:#16324A; --ink-soft:#4E6478; --line:#DCE4E9;
+  --accent:#0E7C7B; --accent-soft:#E3F1F0;
+  --cA:#1D6FB8; --cB:#C2417B; --cC:#0E8A6D; --cD:#7C4DBE; --cE:#A16207;
+  --cF:#D95D39; --cG:#0F7490; --cH:#5B5BD6; --cI:#64748B;
+  --radius:10px;
+  --sans:'Noto Sans TC',-apple-system,'PingFang TC','Microsoft JhengHei',sans-serif;
+  --serif:'Noto Serif TC','Noto Sans TC',serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.7;font-size:15px}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* ===== Header ===== */
+header{background:linear-gradient(135deg,#123A55 0%,#0E5D5C 100%);color:#fff;padding:34px 24px 26px}
+.hwrap{max-width:1180px;margin:0 auto}
+.eyebrow{font-size:12px;letter-spacing:.35em;text-transform:uppercase;color:#9FD4CF;font-weight:700;margin-bottom:10px}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(24px,4vw,38px);letter-spacing:.02em;line-height:1.3}
+.subtitle{margin-top:8px;color:#C9DEE3;font-size:14px;max-width:720px}
+.statrow{display:flex;gap:26px;margin-top:20px;flex-wrap:wrap}
+.stat{border-left:3px solid #9FD4CF;padding-left:12px}
+.stat b{display:block;font-size:22px;font-family:var(--serif);line-height:1.2}
+.stat span{font-size:12px;color:#AECDD3}
+
+/* ===== Nav tabs ===== */
+nav{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.navwrap{max-width:1180px;margin:0 auto;display:flex;gap:4px;overflow-x:auto;padding:0 16px}
+.tab{border:none;background:none;font-family:var(--sans);font-size:14px;font-weight:500;color:var(--ink-soft);
+  padding:14px 16px;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap}
+.tab:hover{color:var(--ink)}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:700}
+.tab:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+
+main{max-width:1180px;margin:0 auto;padding:24px 16px 80px}
+.view{display:none}
+.view.active{display:block;animation:fadein .25s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ===== Controls ===== */
+.controls{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin-bottom:20px}
+.searchrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+#search{flex:1;min-width:220px;padding:11px 14px;border:1.5px solid var(--line);border-radius:8px;font-size:15px;font-family:var(--sans)}
+#search:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.btn{padding:10px 16px;border-radius:8px;border:1.5px solid var(--line);background:var(--paper);
+  font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink-soft);cursor:pointer}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{background:#0A6362}
+.filterlabel{font-size:12px;font-weight:700;color:var(--ink-soft);letter-spacing:.1em;margin:14px 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--line);background:var(--paper);border-radius:999px;padding:6px 14px;
+  font-size:13px;font-family:var(--sans);cursor:pointer;color:var(--ink-soft);display:inline-flex;align-items:center;gap:7px}
+.chip .dot{width:9px;height:9px;border-radius:50%;background:var(--dotc,#999)}
+.chip:hover{border-color:var(--ink-soft)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:#fff;font-weight:500}
+.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.resultbar{display:flex;justify-content:space-between;align-items:center;margin:4px 2px 14px;flex-wrap:wrap;gap:8px}
+.count{font-size:13px;color:var(--ink-soft)}
+.count b{color:var(--accent);font-size:16px}
+
+/* ===== Cards (chart-folder style) ===== */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  display:flex;box-shadow:0 1px 2px rgba(22,50,74,.05)}
+.spine{width:44px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+  padding-top:14px;color:#fff;font-family:var(--serif);font-weight:900;font-size:17px;
+  background:var(--sc,#888);border-radius:var(--radius) 0 0 var(--radius)}
+.spine small{writing-mode:vertical-rl;font-family:var(--sans);font-weight:500;font-size:10.5px;
+  letter-spacing:.25em;margin-top:10px;opacity:.85}
+.cardbody{flex:1;padding:14px 16px;min-width:0}
+.cardtop{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.ctitle{font-weight:700;font-size:15.5px;line-height:1.45}
+.cid{font-size:11px;font-weight:700;color:var(--sc);border:1px solid currentColor;border-radius:5px;padding:1px 7px;flex-shrink:0}
+.cmeta{font-size:12.5px;color:var(--ink-soft);margin:6px 0 10px}
+.cmeta b{color:var(--ink)}
+.cardacts{display:flex;gap:8px}
+.mini{font-size:12.5px;padding:6px 12px;border-radius:7px;border:1.5px solid var(--line);background:var(--paper);
+  cursor:pointer;font-family:var(--sans);color:var(--ink-soft)}
+.mini:hover{border-color:var(--sc);color:var(--sc)}
+.mini:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mini.copied{background:var(--accent);border-color:var(--accent);color:#fff}
+.prompt{display:none;margin-top:12px;background:#F2F6F7;border:1px dashed #B9CCD4;border-radius:8px;
+  padding:13px 14px;font-size:13.5px;white-space:pre-wrap;color:#2A4256;max-height:420px;overflow-y:auto}
+.card.open .prompt{display:block}
+.note{display:none;margin-top:9px;font-size:12.5px;color:#8A5A0B;background:#FDF6E7;border-radius:7px;padding:8px 12px}
+.card.open .note.has{display:block}
+.empty{text-align:center;padding:60px 20px;color:var(--ink-soft)}
+.empty b{font-size:17px;display:block;margin-bottom:6px;color:var(--ink)}
+
+/* ===== Static content views ===== */
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px;margin-bottom:18px}
+.panel h2{font-family:var(--serif);font-size:21px;font-weight:900;margin-bottom:14px;color:var(--ink)}
+.panel h3{font-size:16px;font-weight:700;margin:20px 0 8px;color:var(--accent)}
+.panel p{margin-bottom:10px;color:#33506A}
+.panel ol,.panel ul{padding-left:22px;margin-bottom:10px;color:#33506A}
+.panel li{margin-bottom:7px}
+.rulecard{border-left:4px solid var(--accent);background:var(--accent-soft);border-radius:0 8px 8px 0;
+  padding:12px 16px;margin-bottom:10px}
+.rulecard b{display:block;margin-bottom:2px}
+.warn{border-left:4px solid #C0392B;background:#FBEEEC;border-radius:0 8px 8px 0;padding:14px 16px;margin:14px 0;font-size:14px;color:#7B2D22}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:10px 0}
+th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+th{background:#EEF3F5;font-weight:700}
+.codebox{background:#F2F6F7;border:1px dashed #B9CCD4;border-radius:8px;padding:14px 16px;
+  font-size:13.5px;white-space:pre-wrap;color:#2A4256;margin:10px 0}
+.check{list-style:none;padding-left:0}
+.check li{padding-left:30px;position:relative;margin-bottom:9px}
+.check li::before{content:"";position:absolute;left:2px;top:5px;width:15px;height:15px;
+  border:2px solid var(--accent);border-radius:4px}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0 18px}
+.ba div{border-radius:8px;padding:12px 14px;font-size:13.5px}
+.ba .bad{background:#FBEEEC;border:1px solid #E8C4BE;color:#7B2D22}
+.ba .good{background:#EAF5F0;border:1px solid #BEDFD2;color:#1D5C46}
+.ba b{display:block;margin-bottom:4px}
+footer{max-width:1180px;margin:0 auto;padding:18px 16px 40px;font-size:12.5px;color:var(--ink-soft);border-top:1px solid var(--line)}
+footer .credit{font-size:13.5px;font-weight:700;color:var(--ink);margin-bottom:6px}
+footer a{color:var(--accent);text-decoration:none}
+footer a:hover{text-decoration:underline}
+.chip .cnt{font-size:11px;opacity:.75;font-weight:400}
+.chip.zero{opacity:.4;cursor:not-allowed}
+.chip.zero:hover{border-color:var(--line)}
+.toast{position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--ink);
+  color:#fff;padding:11px 22px;border-radius:999px;font-size:13.5px;opacity:0;transition:.3s;z-index:99;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media (max-width:720px){
+  .grid{grid-template-columns:1fr}
+  .ba{grid-template-columns:1fr}
+  .panel{padding:20px 16px}
+}
+@media print{
+  nav,.controls,.cardacts,.toast{display:none}
+  .card .prompt{display:block!important;max-height:none}
+  .view{display:block!important}
+  header{background:#123A55}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hwrap">
+    <div class="eyebrow">Hospital AI Prompt Library</div>
+    <h1>醫療院所 AI 提示詞模板庫</h1>
+    <p class="subtitle">繁體中文版｜依職類與情境分類檢索，每個模板可一鍵複製使用。開始前請先閱讀「使用原則」。</p>
+    <div class="statrow">
+      <div class="stat"><b id="statTotal">50</b><span>個模板</span></div>
+      <div class="stat"><b>9</b><span>大系列 A–I</span></div>
+      <div class="stat"><b>7+</b><span>職類適用</span></div>
+      <div class="stat"><b>多模態</b><span>圖片・PDF・錄音・表格</span></div>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="navwrap" role="tablist">
+    <button class="tab active" data-view="library" role="tab">📁 模板庫</button>
+    <button class="tab" data-view="safety" role="tab">🛡️ 使用原則</button>
+    <button class="tab" data-view="framework" role="tab">🧩 設計框架</button>
+    <button class="tab" data-view="checklist" role="tab">✅ 檢核清單</button>
+  </div>
+</nav>
+
+<main>
+<!-- ================= 模板庫 ================= -->
+<section id="view-library" class="view active">
+  <div class="controls">
+    <div class="searchrow">
+      <input id="search" type="search" placeholder="搜尋關鍵字：例如 SBAR、衛教、去識別化、PDF、出院病摘…" aria-label="搜尋模板">
+      <button class="btn" id="btnExpand">展開全部</button>
+      <button class="btn" id="btnCollapse">收合全部</button>
+      <button class="btn primary" id="btnExport">⬇ 匯出全部為 Markdown</button>
+    </div>
+    <div class="filterlabel">依系列篩選（醫院分科色標）</div>
+    <div class="chips" id="seriesChips"></div>
+    <div class="filterlabel">依職類篩選</div>
+    <div class="chips" id="roleChips"></div>
+  </div>
+  <div class="resultbar">
+    <div class="count">顯示 <b id="countNum">50</b> 個模板</div>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><button class="btn" id="btnClear" style="display:none">✕ 清除所有篩選</button><div class="count">💡 點卡片「查看模板」展開全文，「複製」直接貼到 AI 對話框</div></div>
+  </div>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" style="display:none"><b>找不到符合的模板</b>目前的「系列＋職類」組合沒有交集——請按「✕ 清除所有篩選」或改選其他條件（各選項後方括號內為可得的模板數）。</div>
+</section>
+
+<!-- ================= 使用原則 ================= -->
+<section id="view-safety" class="view">
+  <div class="panel">
+    <h2>使用前必讀——安全與合規原則</h2>
+    <p>在醫療場域使用生成式 AI，「怎麼問」之前必須先懂「什麼不能放進去」。本頁是所有模板的前提。</p>
+    <h3>五大鐵律</h3>
+    <div class="rulecard"><b>1. 絕不輸入可識別病人身分的資料</b>姓名、病歷號、身分證字號、生日、電話、地址、照片中的臉部與病歷條碼，一律先去識別化（可用 I 系列模板協助）。</div>
+    <div class="rulecard"><b>2. AI 輸出僅供輔助，不得取代專業判斷</b>所有涉及臨床決策、病歷紀錄、用藥的內容，最終須由醫事人員確認並負責。</div>
+    <div class="rulecard"><b>3. AI 會「幻覺」</b>引用的文獻、數據、指引名稱都可能是編造的，凡引用必查證原始出處。</div>
+    <div class="rulecard"><b>4. 遵守院內政策與主管機關指引</b>衛福部已發布「醫療機構應用生成式人工智慧指引」，強調病人隱私、知情權與機構監測機制；各院亦可能有自己的 AI 使用規範。</div>
+    <div class="rulecard"><b>5. 對病人使用 AI 工具須揭露</b>若 AI 直接與病人互動、或診療過程有錄音錄影，應事先告知並尊重病人拒絕的權利。</div>
+    <h3>什麼資料可以放、什麼不行</h3>
+    <table>
+      <tr><th>類別</th><th>可以輸入</th><th>不可輸入（未經去識別化）</th></tr>
+      <tr><td>病人資料</td><td>年齡層、性別、去識別化後的病史摘要</td><td>姓名、病歷號、身分證、生日、聯絡方式</td></tr>
+      <tr><td>影像</td><td>已裁切／遮蔽個資的教學影像</td><td>含姓名條、病歷條碼、臉部的原始影像</td></tr>
+      <tr><td>文件</td><td>空白表單、公版文件、已去識別化紀錄</td><td>原始病歷、含個資的檢驗報告</td></tr>
+      <tr><td>院務</td><td>公開的流程、通則性問題</td><td>未公開的機密營運資料、資安細節</td></tr>
+    </table>
+    <div class="warn"><b>免責聲明：</b>本模板庫僅供提升工作效率之輔助用途。AI 生成內容不構成醫療診斷或處方建議；任何臨床應用皆須由具資格之醫事人員審核、修改並負完全責任。</div>
+  </div>
+</section>
+
+<!-- ================= 設計框架 ================= -->
+<section id="view-framework" class="view">
+  <div class="panel">
+    <h2>提示詞設計基本框架</h2>
+    <p>好的提示詞不是「魔法咒語」，而是<b>把交辦任務講清楚</b>。建議先理解框架，再套用模板。</p>
+    <h3>五要素框架：「角・任・景・格・限」</h3>
+    <table>
+      <tr><th>要素</th><th>說明</th><th>範例片段</th></tr>
+      <tr><td><b>角</b>色 Role</td><td>指定 AI 扮演的專業視角</td><td>「你是一位資深感染管制護理師」</td></tr>
+      <tr><td><b>任</b>務 Task</td><td>動詞開頭、明確可交付</td><td>「請將以下交班內容改寫為 SBAR 格式」</td></tr>
+      <tr><td>情<b>景</b> Context</td><td>背景、對象、目的</td><td>「對象是新進 N1 護理師，用於晨會教學」</td></tr>
+      <tr><td><b>格</b>式 Format</td><td>輸出的長度、結構、語言</td><td>「以繁體中文、條列式、不超過 300 字」</td></tr>
+      <tr><td><b>限</b>制 Constraints</td><td>禁止事項、注意範圍</td><td>「不得提供具體用藥劑量；不確定處請標註」</td></tr>
+    </table>
+    <h3>萬用骨架模板（所有模板的母版）</h3>
+    <div class="codebox">你是【角色，例如：具十年經驗的內科主治醫師／醫務行政主任】。
+我的任務是：【要 AI 做什麼】。
+背景資訊：【情境、對象、目的；已去識別化的必要資料】。
+請以【語言／格式／長度】輸出。
+限制與注意：
+1. 不確定或缺乏依據的內容，請明確標註「待查證」。
+2. 不得虛構文獻、數據或指引名稱。
+3. 【其他限制，例如：不得提供個別化用藥劑量】。</div>
+    <h3>使用模板三步驟：選、填、審</h3>
+    <ol>
+      <li><b>選</b>：在「模板庫」用搜尋或篩選找到最接近情境的模板。</li>
+      <li><b>填</b>：將【】內的占位文字換成實際內容（記得去識別化）。</li>
+      <li><b>審</b>：用「檢核清單」審視 AI 輸出，修改後才使用。</li>
+    </ol>
+    <h3>進階技巧——讓 AI 回答更好的五個方法</h3>
+    <ol>
+      <li><b>給範例（Few-shot）</b>：與其描述格式，不如直接示範一筆。「請照以下範例的格式整理：範例輸入⋯⋯→範例輸出⋯⋯」</li>
+      <li><b>要求先思考再回答</b>：「請先列出你的分析步驟與依據，再給出結論。」適用鑑別診斷討論、數據解讀、RCA。</li>
+      <li><b>先確認理解，再動工</b>：「開始之前，請先用三句話複述你對這個任務的理解，並提出需要我補充的問題。」</li>
+      <li><b>迭代修改，不要重來</b>：具體指出要改哪裡——「第二段太學術，改成家屬聽得懂的說法」。</li>
+      <li><b>要求標註信心與出處</b>：「每項結論標註：高信心／低信心／待查證，並說明依據來源。」這是醫療場域對抗 AI 幻覺最重要的習慣。</li>
+    </ol>
+  </div>
+  <div class="panel">
+    <h2>常見錯誤示範（Before / After）</h2>
+    <div class="ba"><div class="bad"><b>❌ 太模糊</b>「幫我寫衛教單」</div>
+    <div class="good"><b>✅ 改寫</b>「你是衛教師。請為 65 歲以上初診斷糖尿病病人寫一張 400 字的飲食衛教單，國中程度用字，含 3 個要做、3 個不要做、何時回診。」</div></div>
+    <div class="ba"><div class="bad"><b>❌ 讓 AI 決定高風險內容</b>「這個病人該用什麼藥、劑量多少？」</div>
+    <div class="good"><b>✅ 改寫</b>「以下是教學討論用的去識別化個案，請列出治療上通常會考慮的『藥物類別』與各自的考量點，具體處方由醫師決定。」</div></div>
+    <div class="ba"><div class="bad"><b>❌ 不給格式</b>「整理一下這份會議紀錄」</div>
+    <div class="good"><b>✅ 改寫</b>「整理為：決議事項（含負責單位與期限）、追蹤事項、臨時動議三段，決議只能來自原文。」</div></div>
+    <div class="ba"><div class="bad"><b>❌ 直接複製使用</b>生成出院病摘 → 直接貼進病歷</div>
+    <div class="good"><b>✅ 正確流程</b>生成草稿 → 逐句核對原始紀錄 → 補【待補】欄位 → 醫師確認簽名</div></div>
+  </div>
+</section>
+
+<!-- ================= 檢核清單 ================= -->
+<section id="view-checklist" class="view">
+  <div class="panel">
+    <h2>輸出品質檢核清單</h2>
+    <p>AI 輸出後、正式使用前，逐項確認：</p>
+    <h3>正確性</h3>
+    <ul class="check">
+      <li>所有事實、數據、名詞是否與原始資料一致？</li>
+      <li>引用的文獻、指引是否真實存在且為適用版本？（抽查原始出處）</li>
+      <li>AI 是否「腦補」了我沒提供的內容？</li>
+    </ul>
+    <h3>安全性</h3>
+    <ul class="check">
+      <li>內容不含可識別的病人／同仁個資？</li>
+      <li>涉及診斷、用藥、處置的內容已由具資格醫事人員審核？</li>
+      <li>高風險欄位（劑量、日期、金額）已由人工確認填寫？</li>
+    </ul>
+    <h3>適切性</h3>
+    <ul class="check">
+      <li>語言與難度符合目標對象？</li>
+      <li>語氣符合場合（正式公文／衛教／學術）？</li>
+      <li>符合院內格式規範與最新政策？</li>
+    </ul>
+    <h3>問責</h3>
+    <ul class="check">
+      <li>我可以為這份內容的每一句話負責嗎？</li>
+      <li>依院內規範需要揭露「由 AI 輔助產生」時，是否已標註？</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="credit">Tzuchia｜© 淡江大學 黃子嘉老師 製作｜聯繫方式：<a href="mailto:fifigirl3@gmail.com">fifigirl3@gmail.com</a></div>
+  <div>本模板庫供院內同仁日常使用（v1.0，2026 年 7 月），歡迎標註出處後分享與修改。使用生成式 AI 時，請以各院最新政策及衛福部「醫療機構應用生成式人工智慧指引」為準。</div>
+</footer>
+<div class="toast" id="toast">已複製到剪貼簿</div>
+
+<script>
+/* ================= 資料 ================= */
+const SERIES = {
+  A:{name:"醫師臨床", color:"var(--cA)"},
+  B:{name:"護理工作", color:"var(--cB)"},
+  C:{name:"藥事工作", color:"var(--cC)"},
+  D:{name:"醫技・檢驗・影像", color:"var(--cD)"},
+  E:{name:"行政・管理・品質", color:"var(--cE)"},
+  F:{name:"醫病溝通與衛教", color:"var(--cF)"},
+  G:{name:"教學與研究", color:"var(--cG)"},
+  H:{name:"多模態應用", color:"var(--cH)"},
+  I:{name:"資料處理與去識別化", color:"var(--cI)"}
+};
+
+const T = [
+{id:"A1",s:"A",role:"醫師",title:"鑑別診斷思考輔助",scene:"晨會教學、臨床推理練習、避免思考盲點",note:"把 AI 的清單當「防漏檢查表」，而非答案卷；與您的實際判斷比對差異最有價值。",
+p:`你是一位重視臨床推理教學的資深內科醫師。
+以下是一位已去識別化的病人摘要：
+【年齡層／性別／主訴／病程／重要理學發現／已有的檢驗結果】
+
+請以教學角度：
+1. 列出至少 5 個應考慮的鑑別診斷，依可能性排序，並說明支持與不支持的理由。
+2. 指出「不能漏掉」的危險診斷（red flags）。
+3. 建議下一步最有鑑別價值的 3 項檢查，並說明理由。
+
+限制：這是教學討論，不是醫療決策；不確定處請標註；不得虛構檢驗數值或文獻。`},
+{id:"A2",s:"A",role:"醫師",title:"病歷摘要與出院病摘草稿",scene:"住院文書作業",note:"「絕不自行編造、缺漏標示【待補】」是這類模板的關鍵限制，修改時請保留。",
+p:`你是熟悉台灣病歷書寫規範的醫療文書助理。
+請將以下去識別化的住院經過整理為出院病摘草稿，包含：
+入院診斷、出院診斷、住院經過（依時間序）、重要檢查結果、
+治療摘要、出院時狀況、出院醫囑與返診計畫。
+
+原始資料：【貼上去識別化的病程紀錄片段】
+
+格式要求：繁體中文為主、專有名詞保留英文、條理分明。
+限制：只能使用我提供的資訊，缺漏處以【待補】標示，絕不自行編造。`},
+{id:"A3",s:"A",role:"醫師",title:"SOAP 紀錄結構化",scene:"門診／住院紀錄整理",
+p:`請將以下口語化的看診紀錄，重新整理為 SOAP 格式（Subjective / Objective / Assessment / Plan）。
+保留所有原始資訊、不新增任何我沒有提供的內容，無法歸類的資訊放在「備註」。
+
+原始紀錄：【貼上去識別化內容】`},
+{id:"A4",s:"A",role:"醫師",title:"臨床指引快速比較",scene:"實證查詢、科內讀書會",note:"指引更新快，AI 掌握的版本可能過時——引用前務必查證原始出處與最新版本。",
+p:`你是實證醫學助教。
+請比較【疾病／主題，例如：成人社區型肺炎】在【指引A，例如：IDSA】與
+【指引B，例如：台灣感染症醫學會】建議上的主要異同，以表格呈現：
+比較項目｜指引A｜指引B｜臨床意涵。
+
+限制：
+1. 請標註各建議所屬指引的年份；不確定是否為最新版時，明確說明「請查證最新版本」。
+2. 不得虛構建議內容；沒有把握的欄位寫「待查證」。
+3. 結尾提醒我以原始指引全文為準。`},
+{id:"A5",s:"A",role:"醫師",title:"病例討論會（Case Conference）準備",scene:"教學會議報告準備",
+p:`你是住院醫師教學總醫師。
+我要在病例討論會報告以下去識別化個案：【個案摘要】。
+請幫我：
+1. 規劃 15 分鐘報告的架構（含每段建議時間）。
+2. 列出台下主治醫師最可能提問的 8 個問題，並附上回答思路（非標準答案）。
+3. 建議 3 個值得延伸討論的教學點。`},
+{id:"A6",s:"A",role:"醫師",title:"會診單／轉診摘要撰寫",scene:"跨科溝通",
+p:`請將以下資訊整理成一份清楚、禮貌、重點明確的會診單內容：
+會診科別：【科別】
+會診目的：【想請對方協助的具體問題】
+病人摘要：【去識別化摘要】
+目前處置：【已做的處理】
+
+格式：問題導向（consultation question 放最前面）、300 字內、繁體中文夾專有名詞英文。`},
+{id:"A7",s:"A",role:"醫師",title:"值班交班摘要（I-PASS）",scene:"值班交接、假日交班",note:"交班遺漏是病安高風險點；「應變預案」一欄請務必人工確認。",
+p:`你是重視病人安全的總醫師。
+請將以下去識別化的值班交班筆記，整理為 I-PASS 格式：
+I（Illness severity 病情嚴重度：穩定／觀察／不穩定）
+P（Patient summary 病人摘要）
+A（Action list 待辦事項：含時間點與負責事項）
+S（Situation awareness 應變預案：若發生X，先做Y）
+S（Synthesis 重點複誦：一句話總結）
+
+原始筆記：【貼上去識別化內容】
+
+限制：只重組我提供的資訊；待辦事項若無明確時間，標註【時間待確認】；
+應變預案不得自行編造，僅整理筆記中已有的指示。`},
+{id:"B1",s:"B",role:"護理",title:"SBAR 交班報告",scene:"交班、狀況通報",
+p:`你是資深臨床護理教師。
+請將以下零散的交班內容整理為 SBAR 格式：
+S（Situation 現況）、B（Background 背景）、A（Assessment 評估）、R（Recommendation 建議）。
+
+原始內容：【貼上去識別化的交班筆記】
+
+要求：只重組、不添加；每項用 2-3 句話；需要交班者特別注意的事項用粗體標示。`},
+{id:"B2",s:"B",role:"護理",title:"護理紀錄潤飾與結構化（DAR）",scene:"護理文書作業",
+p:`請協助將以下護理紀錄草稿潤飾為專業、客觀、符合焦點紀錄（Focus Charting，DAR）格式的版本：
+D（Data 資料）、A（Action 措施）、R（Response 反應）。
+
+草稿：【去識別化草稿】
+
+限制：使用客觀描述性語言、避免主觀評價字眼（如「病人很難搞」）、
+不得新增我未提供的觀察或數據。`},
+{id:"B3",s:"B",role:"護理",title:"護理衛教重點卡",scene:"床邊衛教",
+p:`你是擅長把專業內容講得簡單的衛教護理師。
+請為【主題，例如：糖尿病足部照護】製作一張床邊衛教重點卡：
+1. 標題一句話（病人聽得懂的說法）
+2. 3-5 個「要做」與 3 個「不要做」
+3. 什麼情況要立刻通知護理站（警示徵象）
+4. 一句鼓勵的話
+
+對象：【例如：65 歲以上長者及家屬】，用字請控制在國中程度、繁體中文。`},
+{id:"B4",s:"B",role:"護理",title:"跌倒／壓傷風險評估說明",scene:"病安溝通、家屬說明",
+p:`請幫我準備一段向病人家屬解釋【跌倒風險／壓傷風險】的說明話術：
+1. 為什麼病人被評為高風險（用一般人聽得懂的方式）
+2. 醫院會做哪些預防措施
+3. 家屬可以怎麼配合
+4. 語氣要安撫但不淡化風險，長度約 200 字，繁體中文口語。
+
+病人風險因子（去識別化）：【例如：高齡、使用鎮靜藥物、下肢無力】`},
+{id:"B5",s:"B",role:"護理",title:"新進人員教學情境演練",scene:"教育訓練、角色扮演",note:"適合自我演練溝通與評估技巧；演練中可隨時輸入「暫停」請 AI 跳出角色給予講評。",
+p:`你現在扮演一位【情境角色，例如：術後第一天主訴傷口劇痛的病人】。
+我是新進護理師，正在練習【練習目標，例如：疼痛評估與回報】。
+規則：
+1. 你只以病人身分回應，一次一句，等我回應後再繼續。
+2. 演練結束時（我說「演練結束」），請跳出角色，
+   給我 3 點做得好的地方與 3 點具體改進建議。`},
+{id:"B6",s:"B",role:"護理",title:"出院準備服務計畫草稿",scene:"出院準備、個案管理",
+p:`你是出院準備服務個案管理師。
+以下是去識別化的病人狀況：【疾病概況、自理能力、家庭支持、居住環境、經濟概況】。
+
+請草擬出院準備計畫架構：
+1. 出院後照護需求評估（分為：醫療、護理、復能、生活支持四面向）。
+2. 可能需要連結的資源清單（例如：居家護理、長照服務、輔具、社福補助——
+   實際資格與申請方式標註【由社工／個管師確認】）。
+3. 家屬返家前需學會的照護技能清單。
+4. 返家後的警訊徵象與回診提醒。
+
+限制：資源的申請資格、補助金額一律留【待確認】，不得自行生成。`},
+{id:"C1",s:"C",role:"藥師",title:"藥物交互作用查詢輔助",scene:"處方審核前初步篩檢",note:"藥物資訊變動快且攸關病安，AI 輸出一律須以官方仿單、藥品資料庫與院內藥品手冊複核。",
+p:`你是臨床藥學助教。以下是一位病人（去識別化）的用藥清單：
+【藥品學名列表】
+
+請以教學角度：
+1. 列出理論上需留意的交互作用組合，說明機轉與臨床意義（分為：嚴重／中度／輕微）。
+2. 標明哪些屬於「常見且臨床上須調整」的組合。
+3. 結尾明確提醒：以上僅供初步篩檢，須以院內審核系統與官方資料庫確認。
+
+限制：不確定的交互作用請標註「待查證」，不得編造機轉或數據。`},
+{id:"C2",s:"C",role:"藥師",title:"用藥指導單張生成",scene:"病人用藥衛教",note:"「劑量留空」是刻意設計——把高風險欄位鎖住，讓 AI 只做低風險的文字工作，請勿要求 AI 自行填入數字。",
+p:`請為藥品【學名／商品名】撰寫病人用藥指導單張，對象是【族群，例如：初次使用的年長病人】：
+1. 這個藥是做什麼的（一句白話）
+2. 怎麼吃（時間、與食物關係）——以【】留空由藥師填入實際醫囑
+3. 常見副作用與處理
+4. 什麼情況要立刻回診或就醫
+5. 保存方式
+
+格式：繁體中文、國中程度用字、A5 單張可容納的長度。
+限制：劑量與頻次一律留空【由藥師填寫】，不得自行生成數字。`},
+{id:"C3",s:"C",role:"藥師",title:"藥品異動公告撰寫",scene:"院內溝通",
+p:`請撰寫一則院內藥品異動公告：
+異動類型：【缺藥／換廠牌／新進品項／退出處方集】
+藥品：【品項資訊】
+替代方案：【若有】
+生效日期：【日期】
+
+格式：標題一行、內文 150 字內、重點粗體、語氣專業中性，
+結尾附「疑問請洽藥劑部分機XXXX」。`},
+{id:"C4",s:"C",role:"藥師",title:"處方疑義照會草稿",scene:"醫藥溝通",
+p:`請幫我草擬一則向醫師照會處方疑義的訊息，要求：專業、客觀、不帶指責、提供建議選項。
+疑義內容：【例如：劑量高於常用上限／與現用藥有交互作用】
+建議方案：【例如：調整劑量或改用替代藥品】
+格式：100 字內，以「想與您確認」的合作語氣開頭。`},
+{id:"C5",s:"C",role:"藥師",title:"高警訊藥品安全重點卡",scene:"高警訊藥品（HAM）給藥安全",
+p:`你是用藥安全藥師。
+請為高警訊藥品【藥品類別，例如：胰島素／抗凝血劑／高濃度電解質】
+製作一張給臨床同仁的安全重點卡：
+1. 為什麼被列為高警訊藥品（主要風險一句話）。
+2. 給藥前必查的 3-5 個確認點（Double check 項目）。
+3. 最常見的錯誤情境與預防方式。
+4. 發生疑似給藥錯誤時的立即處理原則【依院內流程，細節留白待填】。
+
+格式：一頁重點卡、條列式、繁體中文。
+限制：具體劑量、輸注速率等數值一律留【依醫囑與院內規範】，不得自行生成。`},
+{id:"D1",s:"D",role:"醫技",title:"檢驗報告白話解說（衛教用）",scene:"病人溝通",
+p:`你是擅長衛教的醫檢師。
+請將以下檢驗項目與結果（去識別化）翻譯成一般民眾聽得懂的說明：
+【項目、數值、參考區間】
+
+要求：
+1. 每項用「這是在看什麼＋這次結果的意義」兩句話解釋。
+2. 不做診斷、不預測疾病，異常項目一律加上「實際意義請由醫師綜合判斷」。
+3. 繁體中文、避免嚇人的措辭。`},
+{id:"D2",s:"D",role:"醫技",title:"影像報告草稿結構化",scene:"報告文書輔助",note:"AI 只能做「文字整理」，不能替醫師「判讀」——使用時請維持這條界線。",
+p:`請將以下影像判讀口述筆記整理為結構化報告草稿：
+【檢查類型】：例如 Chest X-ray / CT
+段落：Examination、Comparison、Findings（依系統或部位分項）、Impression（依重要性編號）。
+
+口述筆記：【去識別化內容】
+
+限制：只重組我提供的內容，不得新增任何影像發現；
+專有名詞維持英文；Impression 不得出現筆記中沒有的結論。`},
+{id:"D3",s:"D",role:"醫技",title:"檢查前準備說明生成",scene:"病人檢查指引",
+p:`請為【檢查名稱，例如：大腸鏡】撰寫檢查前準備說明：
+1. 檢查目的（兩句話）
+2. 檢查前幾天到當天的準備事項（時間軸呈現）
+3. 常見疑問 3 題（例如：可以喝水嗎？藥要停嗎？——答案留【由醫護人員確認】的彈性）
+4. 當天攜帶物品與報到流程【由單位填寫細節】
+
+對象：一般民眾，繁體中文，國中程度用字。`},
+{id:"E1",s:"E",role:"行政/主管",title:"公文與簽呈草稿",scene:"公文作業",
+p:`你是熟悉台灣公文格式的醫院行政秘書。
+請草擬一份【簽呈／函／公告】：
+主旨：【一句話】
+背景說明：【原因與依據】
+擬辦事項：【希望核准或執行的內容】
+
+格式：主旨、說明（分點）、擬辦三段式；語氣正式；
+金額、日期、法規引用處以【】標示，由承辦人確認後填入。`},
+{id:"E2",s:"E",role:"行政/主管",title:"會議紀錄整理",scene:"會議管理",
+p:`請將以下會議逐字稿／筆記整理為正式會議紀錄：
+1. 會議資訊（時間、地點、主席、出席——以【】留空待填）
+2. 決議事項（每項含：決議內容、負責單位、完成期限）
+3. 追蹤事項（上次會議延續）
+4. 臨時動議
+
+原始內容：【貼上內容】
+限制：決議事項只能來自原文，語意不明處標註【請確認】。`},
+{id:"E3",s:"E",role:"品管/病安",title:"品質指標數據解讀",scene:"QI 分析、品質月報",
+p:`你是醫品病安數據分析顧問。
+以下是本單位【指標名稱，例如：跌倒發生率】近【期間】的數據：
+【貼上去識別化的統計數據】
+
+請：
+1. 描述趨勢（改善／惡化／持平），指出特別值得注意的時間點。
+2. 提出 3-5 個可能的解釋假設（標明是假設，需現場查證）。
+3. 建議可進一步蒐集的資料與分析方式。
+4. 用一段 100 字的文字，寫成適合放進品質月報的摘要。
+
+限制：不得對數據下因果結論，只能提出待驗證的假設。`},
+{id:"E4",s:"E",role:"行政/主管",title:"排班與人力配置腦力激盪",scene:"管理決策",
+p:`你是護理人力管理顧問。
+本單位狀況：【床數、護理人力數、班別制度、目前遇到的困難——皆為通則性描述，不含個人資料】。
+請提出 3 種可行的排班調整方案，每種包含：做法、優點、風險、適合的前提條件。
+限制：方案需符合台灣勞基法的一般原則，但具體合法性請標明「須由人資與法遵確認」。`},
+{id:"E5",s:"E",role:"品管/病安",title:"異常事件根本原因分析（RCA）引導",scene:"病安作業",
+p:`你是病人安全 RCA 引導師。
+以下是一起去識別化的異常事件描述：【事件經過，不含任何人名與可識別資訊】。
+
+請引導我完成分析：
+1. 依時間軸重建事件（缺漏的環節請列出「需要釐清的問題」）。
+2. 用「人、機、料、法、環」或魚骨圖架構列出可能的促成因素。
+3. 針對每個因素追問「為什麼」（5 Whys），區分近端原因與系統性原因。
+4. 提出以系統改善為主（而非究責個人）的改善方向。
+
+原則：全程使用不究責（Just Culture）的語言。`},
+{id:"E6",s:"E",role:"行政/主管",title:"評鑑文件準備輔助",scene:"醫院評鑑",
+p:`請協助整理醫院評鑑【條文編號與內容】的佐證資料架構：
+1. 解析此條文的評核重點與常見委員提問。
+2. 列出建議準備的佐證文件清單（分為：制度面、執行面、成效面）。
+3. 草擬一段 200 字的自評說明文字，重點與數據以【】留空由承辦單位填入。
+
+限制：評鑑基準可能改版，請提醒我以最新公告版本為準。`},
+{id:"E7",s:"E",role:"品管/病安",title:"感染管制公告與應變說明",scene:"感管公告、疫情應變溝通",
+p:`你是感染管制中心的溝通專員。
+請就【事件，例如：單位出現群聚事件／流感季防護升級】撰寫兩個版本的訊息：
+版本一：給院內同仁的公告（150 字內：現況、即刻配合事項、後續通知方式）。
+版本二：給病人與家屬的說明（語氣安定、不引起恐慌、說明醫院已採取的措施與探病配合事項）。
+
+限制：
+1. 疫情數字、日期、適用單位以【】留空，由感管師確認後填入。
+2. 防護措施等級與細節標註【依感管中心最新規定】，不得自行生成標準。
+3. 兩個版本結尾都提供「疑問請洽」的聯絡窗口欄位【待填】。`},
+{id:"F1",s:"F",role:"全院通用",title:"衛教單張（分眾版本）",scene:"病人衛教",
+p:`你是資深衛教師。請就【主題，例如：高血壓的日常照護】撰寫三個版本的衛教內容：
+版本一：一般成人版（國中程度用字、500 字）
+版本二：長者版（字句更短、加入生活化比喻、400 字）
+版本三：青少年／家長版（依主題調整、口語親切）
+
+每個版本都包含：這是什麼、為什麼重要、日常怎麼做（3-5 點）、何時該就醫。
+限制：不涉及個別化用藥建議；結尾加註「實際照護方式請與您的醫療團隊討論」。`},
+{id:"F2",s:"F",role:"全院通用",title:"醫療術語白話翻譯",scene:"醫病溝通",
+p:`請將以下醫療說明翻譯成一般民眾（無醫療背景）聽得懂的版本：
+【貼上原文】
+
+要求：
+1. 保留原意、不簡化到失真。
+2. 專有名詞第一次出現時用「白話（原文）」格式，例如「心臟的血管（冠狀動脈）」。
+3. 語氣溫和、不製造恐慌，也不過度安慰。`},
+{id:"F3",s:"F",role:"全院通用",title:"多語言衛教翻譯",scene:"外籍病人服務",
+p:`請將以下繁體中文衛教內容翻譯為【語言：英文／越南文／印尼文／泰文／日文】：
+【貼上內容】
+
+要求：
+1. 醫療用語準確、語氣自然（非逐字直譯）。
+2. 保留段落結構，中文原文與譯文對照呈現。
+3. 文化上可能造成誤解之處，另外提出說明。
+4. 結尾提醒：正式文件建議由專業醫療翻譯複核。`},
+{id:"F4",s:"F",role:"醫師",title:"困難對話演練（壞消息告知）",scene:"SPIKES 溝通訓練",
+p:`你是醫病溝通訓練的標準化病人與講評老師。
+情境：我要練習以 SPIKES 架構告知【去識別化情境，例如：家屬病人病情惡化】。
+規則：
+1. 你扮演【病人／家屬】，情緒反應要真實（可能沉默、哭泣、質疑、憤怒）。
+2. 一次只回應一句，等我接話。
+3. 我說「暫停」時，你跳出角色，指出我剛才哪句話的效果好／不好，然後繼續。
+4. 結束後依 SPIKES 六步驟逐項給我回饋。`},
+{id:"F5",s:"F",role:"全院通用",title:"病人常見問題 FAQ 生成",scene:"服務台、官網、App",
+p:`請為【單位／服務，例如：門診報到流程】撰寫 10 題病人最常問的 FAQ：
+1. 問題用病人的口語寫（例如：「我可以先領藥再看報告嗎？」）。
+2. 答案 3 句話內，具體流程與電話分機以【】留空由單位填寫。
+3. 依主題分類（掛號、報到、批價、領藥⋯⋯）。`},
+{id:"F6",s:"F",role:"全院通用",title:"病人意見與客訴回覆草稿",scene:"意見信箱、滿意度回覆",note:"先同理、再說明、後改善承諾——順序不能反；涉及醫療爭議的個案請交由專責單位處理，勿自行回覆。",
+p:`你是醫院病人關係專員，擅長有溫度且不推諉的回覆。
+以下是一則病人意見（去識別化）：【貼上意見內容】。
+
+請草擬回覆信：
+1. 開頭：具體回應對方的感受（不用罐頭句「造成不便敬請見諒」開場）。
+2. 中段：說明我們了解到的情況與原因（若尚在了解中，誠實說明處理進度）。
+3. 結尾：具體的改善做法或後續聯繫方式【由承辦單位確認後填入】。
+
+語氣：誠懇、負責、不卸責也不過度承諾；200-300 字；繁體中文。
+限制：不得對醫療處置是否適當表示意見；涉及賠償、法律責任的字句一律不出現。`},
+{id:"G1",s:"G",role:"教研/教學",title:"文獻摘要與批判性閱讀",scene:"期刊研讀、讀書會",
+p:`你是實證醫學讀書會的導讀老師。
+我會提供一篇論文的【摘要／PDF／全文】：【貼上或附檔】。
+
+請：
+1. 用 PICO 架構整理研究問題。
+2. 摘要研究設計、樣本、主要結果（含效果量與信賴區間，若原文有）。
+3. 以批判性閱讀角度指出 3 個以上的方法學限制或偏誤風險。
+4. 說明「這篇結果可以與不可以推論到什麼」。
+5. 提出 3 個適合讀書會討論的問題。
+
+限制：只能根據我提供的內容，不得補充原文沒有的數據。`},
+{id:"G2",s:"G",role:"教研/教學",title:"研究統計方法諮詢",scene:"研究設計",
+p:`你是生物統計顧問。
+我的研究：【研究目的、設計、變項類型、樣本數規劃】。
+請：
+1. 建議合適的統計方法並說明理由與前提假設。
+2. 指出此設計常見的統計陷阱。
+3. 用白話解釋為什麼這個方法適合（我要寫進計畫書）。
+4. 提供對應的【R／SPSS／Python】操作方向。
+限制：這是方法諮詢，正式分析請提醒我與院內統計師確認。`},
+{id:"G3",s:"G",role:"教研/教學",title:"IRB 文件草稿輔助",scene:"倫理審查",
+p:`請協助草擬人體研究倫理審查（IRB）文件中的【受試者同意書／研究計畫摘要】段落：
+研究資訊：【目的、方法、對象、風險、資料處理方式】。
+要求：
+1. 使用受試者看得懂的白話（同意書部分）。
+2. 涵蓋：研究目的、程序、風險與不適、利益、隱私保護、自願參與與退出權利。
+3. 以【】標示需由計畫主持人確認的關鍵內容（如補償金額、聯絡方式）。
+4. 提醒：格式須符合本院 IRB 最新範本，本草稿僅供起稿。`},
+{id:"G4",s:"G",role:"教研/教學",title:"教案與課程設計",scene:"教育訓練",
+p:`你是醫學教育課程設計專家。
+請為【對象，例如：PGY 學員】設計一堂【時長】的課程：【主題】。
+產出：
+1. 課程目標（用可評量的行為動詞，對應 Bloom 分類）
+2. 時間軸教案（每段活動、方式、教材）
+3. 兩個互動活動設計（含操作說明）
+4. 課後評量方式與 3 題範例題目
+5. 給講師的教學提醒`},
+{id:"G5",s:"G",role:"教研/教學",title:"考題出題與題庫建置",scene:"教學評量",
+p:`你是醫學教育測驗專家。
+請依據以下教材內容出【題數】題【單選題／情境題】：
+【貼上教材範圍或重點】
+
+每題包含：題幹（臨床情境化）、四個選項、正確答案、
+每個選項的解析（為什麼對／為什麼錯）、難易度標記、對應學習目標。
+限制：題目只能出自我提供的教材範圍；情境須去識別化、虛構化。`},
+{id:"G6",s:"G",role:"教研/教學",title:"期刊投稿信與回覆審查意見",scene:"學術投稿",
+p:`你是資深學術寫作顧問。
+任務一（投稿信）：根據我的摘要【貼上】草擬 cover letter，突顯研究貢獻與適合該期刊的理由。
+任務二（回覆審查）：以下是審查意見【貼上】，請幫我：
+1. 將意見逐條拆解、判斷類型（要求補充／方法質疑／文字修改）。
+2. 為每條草擬「有禮貌、直接回應、註明修改位置」的回覆架構。
+3. 對於我不同意的意見【說明立場】，草擬堅定但尊重的學術性回覆。
+語言：【英文／中文】。`},
+{id:"G7",s:"G",role:"教研/教學",title:"學術海報與簡報大綱設計",scene:"學會發表、院內成果展",
+p:`你是學術視覺傳達顧問。
+我要將以下研究／改善案做成【學會海報／10 分鐘簡報】：
+【貼上摘要或重點：背景、方法、結果、結論】。
+
+請：
+1. 規劃版面區塊配置（海報：由左至右的閱讀動線；簡報：每頁一重點的頁序）。
+2. 為每個區塊寫出精簡標題與 2-3 點內容（結果數字以【】保留由我填入）。
+3. 建議 2-3 種適合呈現主要結果的圖表形式，並說明理由。
+4. 給我一句能吸引評審駐足的「重點訊息句」（take-home message）。
+
+限制：內容只能來自我提供的資料，不得補充或美化數據。`},
+{id:"H1",s:"H",role:"全院通用",title:"圖片：醫療流程圖解讀",scene:"多模態：上傳流程圖圖片",
+p:`（附上流程圖圖片）
+請解讀這張流程圖：
+1. 用文字完整描述流程的步驟與分支邏輯。
+2. 指出可能造成執行混淆的地方（例如分支條件不明確）。
+3. 建議 3 個讓流程圖更清楚的修改方向。
+4. 將整個流程改寫成「新進人員一看就懂」的文字版 SOP 草稿。`},
+{id:"H2",s:"H",role:"教研/教學",title:"圖片：教學影像描述練習",scene:"多模態：去識別化教學影像",note:"最後一句「發現個資請停止」是好習慣——把安全檢查直接寫進提示詞裡。",
+p:`（附上已完全去識別化的教學影像，例如：皮膚病灶示意圖、模型照片）
+你是臨床教師。請針對這張教學用影像：
+1. 以標準醫學描述用語（部位、大小、形態、顏色、分布）示範如何描述。
+2. 出 3 題「看圖描述」的練習題給學生。
+限制：這是教學素材演練，請勿給出診斷結論；
+若影像中出現任何可能識別個人之資訊，請立即告訴我並停止分析。`},
+{id:"H3",s:"H",role:"全院通用",title:"PDF：長文件重點萃取",scene:"多模態：上傳指引、公文、契約 PDF",
+p:`（附上 PDF，例如：新版指引、政府公文、契約草稿）
+請閱讀這份文件並完成：
+1. 用 10 點以內摘要全文重點（每點附頁碼）。
+2. 列出「與醫院實務直接相關」的條文或段落，說明影響。
+3. 整理成一頁給主管看的簡報大綱（標題＋三個重點區塊）。
+4. 列出文件中模糊或需要進一步釐清的地方。
+限制：所有摘要必須附上原文頁碼以便查證；不得推論文件未寫的內容。`},
+{id:"H4",s:"H",role:"全院通用",title:"錄音逐字稿：會議／教學摘要",scene:"多模態：逐字稿處理",
+p:`（附上會議或課程的逐字稿——請先確認逐字稿中的人名與病人資訊已移除或代號化）
+請將這份逐字稿整理為：
+1. 會議紀錄版：決議事項（含負責人代號與期限）、待辦清單、爭點與保留意見。
+2. 快報版：給未出席同仁看的 5 點摘要。
+3. 若為教學錄音：改為「課程筆記＋重點整理＋3 題自我測驗」。
+限制：發言歸屬若不確定，標註【發言者待確認】，不得張冠李戴。`},
+{id:"H5",s:"H",role:"行政/主管",title:"表格：Excel 數據分析指令",scene:"多模態：上傳去識別化 Excel/CSV",
+p:`（附上去識別化的 Excel／CSV 檔案）
+你是數據分析助理。這份資料是【資料說明，例如：本科三年門診量月報表】。
+請：
+1. 先描述資料結構（欄位、期間、筆數），確認你理解正確。
+2. 分析【想知道的問題，例如：季節性趨勢、成長率、異常月份】。
+3. 產出適合放進報告的圖表建議（說明每張圖回答什麼問題）。
+4. 用 150 字寫成給主管的摘要。
+限制：發現資料有缺漏或異常值時先告訴我，不要默默處理。`},
+{id:"H6",s:"H",role:"行政/主管",title:"手寫文件辨識與整理",scene:"多模態：手寫文件照片",
+p:`（附上手寫文件照片——確認不含病人個資）
+請將這份手寫內容辨識並轉為文字：
+1. 逐行轉錄，無法辨識的字以【？】標示，不要用猜的。
+2. 轉錄完成後，整理為結構化格式：【例如：條列筆記／表格】。
+限制：辨識不確定的內容一律標示，寧可留空也不要腦補。`},
+{id:"I1",s:"I",role:"全院通用",title:"文字去識別化",scene:"所有模板的前置工具",note:"最佳做法仍是在院內核可的環境進行，或先以人工完成初步去識別化。",
+p:`請協助我對以下文字進行去識別化處理：
+1. 將姓名替換為【病人A】【家屬B】【醫師C】等代號。
+2. 移除或概化：病歷號、身分證字號、電話、地址、出生日期
+  （日期改為相對描述，如「入院第3天」；年齡改為年齡層，如「60多歲」）。
+3. 移除罕見特徵組合（如特殊職業＋罕見疾病並存時，予以概化）。
+4. 處理完成後，列出你替換與移除了哪些項目，讓我複核。
+
+原文：【貼上文字】`},
+{id:"I2",s:"I",role:"全院通用",title:"資料結構化（自由文字轉表格）",scene:"資料前處理",
+p:`請將以下自由文字內容轉換為結構化表格：
+欄位：【自訂，例如：日期｜事件｜處置｜負責單位】
+原文：【貼上內容】
+限制：只擷取原文明確提到的資訊；推論而得的欄位加上「(推測)」標記；空缺欄位留白。`},
+{id:"I3",s:"I",role:"全院通用",title:"敏感內容自我檢查（送出前把關）",scene:"送出前最後防線",
+p:`在我把以下內容送給 AI 或對外分享之前，請幫我檢查：
+1. 是否含有可識別個人身分的資訊（直接或間接）？逐項列出。
+2. 是否含有院內機密（未公開數據、資安細節、合約條件）？
+3. 給我一個「可安全送出的修改版」。
+
+內容：【貼上內容】`}
+];
+
+/* ================= 邏輯 ================= */
+const state = {q:"", series:new Set(), roles:new Set()};
+const grid = document.getElementById("grid");
+const emptyEl = document.getElementById("empty");
+const countNum = document.getElementById("countNum");
+document.getElementById("statTotal").textContent = T.length;
+
+/* 篩選 chips */
+const seriesChips = document.getElementById("seriesChips");
+const seriesBtns = {};
+Object.entries(SERIES).forEach(([k,v])=>{
+  const b = document.createElement("button");
+  b.className="chip"; b.dataset.series=k;
+  b.innerHTML = `<span class="dot" style="--dotc:${v.color}"></span>${k}・${v.name} <span class="cnt"></span>`;
+  b.onclick = ()=>{
+    if(b.classList.contains("zero") && !state.series.has(k)) return;
+    toggleSet(state.series,k); b.classList.toggle("on"); render();
+  };
+  seriesChips.appendChild(b); seriesBtns[k]=b;
+});
+const ROLES = [...new Set(T.map(t=>t.role))];
+const roleChips = document.getElementById("roleChips");
+const roleBtns = {};
+ROLES.forEach(r=>{
+  const b = document.createElement("button");
+  b.className="chip";
+  b.innerHTML = `${r} <span class="cnt"></span>`;
+  b.onclick = ()=>{
+    if(b.classList.contains("zero") && !state.roles.has(r)) return;
+    toggleSet(state.roles,r); b.classList.toggle("on"); render();
+  };
+  roleChips.appendChild(b); roleBtns[r]=b;
+});
+function toggleSet(s,v){ s.has(v)? s.delete(v): s.add(v); }
+
+/* 依「其他條件」計算各 chip 可得的結果數，為 0 者反灰避免按了沒東西 */
+function matchesExcept(t, skip){
+  if(skip!=="series" && state.series.size && !state.series.has(t.s)) return false;
+  if(skip!=="roles" && state.roles.size && !state.roles.has(t.role)) return false;
+  if(state.q){
+    const hay = (t.id+t.title+t.role+t.scene+t.p+(t.note||"")+SERIES[t.s].name).toLowerCase();
+    if(!state.q.split(/\s+/).every(w=>hay.includes(w))) return false;
+  }
+  return true;
+}
+function updateChips(){
+  Object.entries(seriesBtns).forEach(([k,b])=>{
+    const n = T.filter(t=>t.s===k && matchesExcept(t,"series")).length;
+    b.querySelector(".cnt").textContent = "("+n+")";
+    b.classList.toggle("zero", n===0 && !state.series.has(k));
+  });
+  Object.entries(roleBtns).forEach(([r,b])=>{
+    const n = T.filter(t=>t.role===r && matchesExcept(t,"roles")).length;
+    b.querySelector(".cnt").textContent = "("+n+")";
+    b.classList.toggle("zero", n===0 && !state.roles.has(r));
+  });
+  const active = state.series.size || state.roles.size || state.q;
+  document.getElementById("btnClear").style.display = active ? "inline-block" : "none";
+}
+
+/* 搜尋 */
+document.getElementById("search").addEventListener("input", e=>{
+  state.q = e.target.value.trim().toLowerCase(); render();
+});
+
+/* 卡片渲染 */
+function cardHTML(t){
+  const c = SERIES[t.s].color;
+  return `<article class="card" data-id="${t.id}" style="--sc:${c}">
+    <div class="spine">${t.s}<small>${SERIES[t.s].name}</small></div>
+    <div class="cardbody">
+      <div class="cardtop"><div class="ctitle">${t.title}</div><div class="cid">${t.id}</div></div>
+      <div class="cmeta"><b>適用：</b>${t.role}｜<b>情境：</b>${t.scene}</div>
+      <div class="cardacts">
+        <button class="mini actToggle">查看模板</button>
+        <button class="mini actCopy">📋 複製</button>
+      </div>
+      <pre class="prompt">${escapeHtml(t.p)}</pre>
+      <div class="note ${t.note?'has':''}">${t.note? "💡 使用提醒："+escapeHtml(t.note):""}</div>
+    </div></article>`;
+}
+function escapeHtml(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+
+function matches(t){
+  if(state.series.size && !state.series.has(t.s)) return false;
+  if(state.roles.size && !state.roles.has(t.role)) return false;
+  if(state.q){
+    const hay = (t.id+t.title+t.role+t.scene+t.p+(t.note||"")+SERIES[t.s].name).toLowerCase();
+    return state.q.split(/\s+/).every(w=>hay.includes(w));
+  }
+  return true;
+}
+function render(){
+  const list = T.filter(matches);
+  grid.innerHTML = list.map(cardHTML).join("");
+  countNum.textContent = list.length;
+  emptyEl.style.display = list.length? "none":"block";
+  updateChips();
+}
+document.getElementById("btnClear").onclick = ()=>{
+  state.series.clear(); state.roles.clear(); state.q="";
+  document.getElementById("search").value="";
+  document.querySelectorAll(".chip").forEach(c=>c.classList.remove("on"));
+  render();
+};
+render();
+
+/* 事件委派：展開／複製 */
+grid.addEventListener("click", e=>{
+  const card = e.target.closest(".card"); if(!card) return;
+  const t = T.find(x=>x.id===card.dataset.id);
+  if(e.target.classList.contains("actToggle")){
+    card.classList.toggle("open");
+    e.target.textContent = card.classList.contains("open")? "收合":"查看模板";
+  }
+  if(e.target.classList.contains("actCopy")) copyText(t.p, e.target);
+});
+function copyText(text, btn){
+  const done = ()=>{
+    showToast("已複製「"+(btn.closest(".card").querySelector(".ctitle").textContent)+"」模板");
+    if(btn){btn.classList.add("copied"); btn.textContent="✓ 已複製";
+      setTimeout(()=>{btn.classList.remove("copied"); btn.textContent="📋 複製";},1600);}
+  };
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(text).then(done).catch(()=>fallbackCopy(text,done));
+  } else fallbackCopy(text,done);
+}
+function fallbackCopy(text,done){
+  const ta=document.createElement("textarea"); ta.value=text;
+  ta.style.position="fixed"; ta.style.opacity="0";
+  document.body.appendChild(ta); ta.select();
+  try{document.execCommand("copy"); done();}catch(e){alert("複製失敗，請手動選取文字");}
+  document.body.removeChild(ta);
+}
+let toastTimer;
+function showToast(msg){
+  const t=document.getElementById("toast"); t.textContent=msg; t.classList.add("show");
+  clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove("show"),1800);
+}
+
+/* 展開／收合全部 */
+document.getElementById("btnExpand").onclick=()=>{
+  document.querySelectorAll(".card").forEach(c=>{c.classList.add("open");
+    c.querySelector(".actToggle").textContent="收合";});
+};
+document.getElementById("btnCollapse").onclick=()=>{
+  document.querySelectorAll(".card").forEach(c=>{c.classList.remove("open");
+    c.querySelector(".actToggle").textContent="查看模板";});
+};
+
+/* 匯出 Markdown（僅匯出目前篩選結果） */
+document.getElementById("btnExport").onclick=()=>{
+  const list = T.filter(matches);
+  let md = "# 醫療院所 AI 提示詞模板庫（匯出）\n\n> v1.0｜AI 輸出僅供輔助，須由醫事人員審核負責；輸入前請完成去識別化。\n\n";
+  let cur="";
+  list.forEach(t=>{
+    if(t.s!==cur){cur=t.s; md+=`\n## ${t.s} 系列：${SERIES[t.s].name}\n`;}
+    md+=`\n### ${t.id}｜${t.title}\n**適用**：${t.role}｜**情境**：${t.scene}\n\n\u0060\u0060\u0060\n${t.p}\n\u0060\u0060\u0060\n`;
+    if(t.note) md+=`> 💡 使用提醒：${t.note}\n`;
+  });
+  const blob = new Blob([md], {type:"text/markdown;charset=utf-8"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "醫療AI提示詞模板庫.md";
+  a.click(); URL.revokeObjectURL(a.href);
+  showToast("已下載 "+list.length+" 個模板的 Markdown 檔");
+};
+
+/* 分頁切換 */
+document.querySelectorAll(".tab").forEach(tab=>{
+  tab.onclick=()=>{
+    document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+    document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
+    tab.classList.add("active");
+    document.getElementById("view-"+tab.dataset.view).classList.add("active");
+    window.scrollTo({top:0});
+  };
+});
+</script>
+</body>
+</html>
