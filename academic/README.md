@@ -1,21 +1,28 @@
 # Tzu-Chia Huang — Academic website
 
-中英文靜態學術網站。中文首頁為 `index.html`，英文首頁為 `en/index.html`。不需安裝套件或建置，即可部署至 GitHub Pages；亦支援儲存庫子路徑。
+黃子嘉的中英文學術網站，2026 年 9 月重新設計。正式網站：https://tzuchia1009.github.io/academic/ ，英文版為 /academic/en/。
 
-## 本機預覽
+## 網站結構
 
-在此目錄啟動任意靜態網頁伺服器；也可直接開啟 index.html。中英文內容已寫入 HTML，停用 JavaScript 時仍可閱讀全部內容。JavaScript 僅負責著作與演講分類篩選。
+兩種語言各有五個獨立頁面：探索（index.html）、研究（research.html）、著作（publications.html）、交流（engagement.html）、關於（about.html）。語言切換保留目前頁面。舊版首頁的研究、著作、教學與關於錨點會轉往對應新頁面。
 
-## GitHub Pages
+首頁包含可切換主題、游標互動與播放／暫停的研究概念視覺；此視覺不是實驗數據。著作支援關鍵字、年份與類別篩選及引用複製；交流頁提供活動分類與照片放大。遵循系統減少動態偏好，支援鍵盤操作。主要文字直接儲存於 HTML。
 
-將此目錄的檔案（包含 assets、en 與 .nojekyll）提交到指定儲存庫。於 Settings → Pages 選擇 Deploy from a branch、main 與 / (root)。若使用個人首頁，儲存庫可命名為 Tzuchia1009.github.io。GitHub Pages 啟用需要該儲存庫管理權限。
+## 維護與部署
 
-## 更新
+不需安裝套件或建置，可用任意靜態伺服器預覽。新版樣式及程式位於 assets/v2/site.css 與 assets/v2/site.js。中文頁位於此目錄，英文頁位於 en/；更新時應同步維護兩種語言。著作的 data-kind 與年份供篩選使用。
 
-中英文 HTML 應同步維護。樣式位於 assets/style.css，篩選位於 assets/app.js。新增著作需保留 data-kind 分類；新增演講需保留日期、單位與主題。所有檔案皆使用相對路徑。
+僅更新 Tzuchia1009/Tzuchia1009.github.io 儲存庫中的 academic/ 目錄。既有根目錄網站、hospital/ 與 ppt/ 有其他用途。GitHub Pages 使用 main 分支根目錄發布。變更正式網址時需同步調整各頁 canonical、hreflang 與社群預覽網址。
 
-內容依截至 2026-09-12 的本人提供資料整理。16 篇精選著作含一篇已接受待出版文章；12 場演講選自 83 場已完成紀錄。英文演講名稱及中文論文英譯為網站編譯，論文原題保留。候選人身分依指定簡報及 CV。公開聯絡 Email 依既有 GitHub Pages 網站與論文署名聯絡資料。
+## 內容與圖像
 
-本版發布於 `https://tzuchia1009.github.io/academic/`；英文版為 `/academic/en/`。既有海報工坊、hospital 與 ppt 目錄保留。Canonical 與社群預覽網址已採用此位置；改網址時需同步更新兩份 HTML 的相關 meta 與 link。
+內容依本人提供的履歷、簡報及演講紀錄整理，截至 2026-09-12。16 篇精選著作包含 1 篇已接受待出版文章；12 場精選演講選自 83 場已完成紀錄。英文演講名稱與中文論文英譯為網站編譯，論文原題保留。學術身分依指定簡報及 CV。獎項明確標示共同作者、第一作者或指導老師角色。
 
-未包含原始簡報、資格審查文件、證明文件、聯絡資料清單及私人資料。肖像使用本人提供之原圖，以 CSS 調整顯示範圍。Google Fonts 不可用時自動改用系統字型。
+聯絡 Email：tchuang1009@gmail.com。ORCID：https://orcid.org/0009-0001-7370-0046。依本人指示更新。
+
+- assets/portrait.png：本人提供的頭貼原圖，以 CSS 控制顯示尺寸。
+- assets/v2/teaching.jpg：本人資料夾中的高教深耕教學照片。
+- assets/v2/ai-team.png、research-community.png：擷取自本人個人介紹簡報，分別為 2024 AI 應用鬥智賽及 2025 崇越行銷大賞團隊照片。
+- assets/v2/ocean.jpg：NASA / Norman Kuring, MODIS Ocean Color Team。北海道附近海流與浮游植物的衛星影像，拍攝於 2009-05-21，僅作海洋脈絡圖像，非本人研究成果。來源：https://science.nasa.gov/earth/earth-observatory/spring-bloom-colors-the-pacific-near-hokkaido-38917/ 。使用規範：https://www.nasa.gov/nasa-brand-center/images-and-media/ 。頁面已附圖說與來源連結。
+
+不含原始簡報、資格審查文件、證明文件或私人聯絡清單。Google Fonts 無法使用時會改用系統字型。
