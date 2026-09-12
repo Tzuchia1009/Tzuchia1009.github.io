@@ -9,11 +9,12 @@ document.querySelectorAll('.cite').forEach(b=>b.addEventListener('click',()=>{co
 if(document.body.dataset.page==='index'){const legacy={teaching:'engagement.html',about:'about.html',publications:'publications.html',research:'research.html'};if(legacy[location.hash.slice(1)])location.replace(legacy[location.hash.slice(1)])}
 document.querySelectorAll('.filter-bar').forEach(bar=>{
  const list=document.getElementById(bar.dataset.target),buttons=[...bar.querySelectorAll('[data-filter]')],result=bar.querySelector('.results');
- const search=bar.dataset.target==='paper-list'?document.getElementById('paper-search'):null,year=search?document.getElementById('paper-year'):null;
+ const stem=bar.dataset.target.replace('-list',''),search=document.getElementById(`${stem}-search`),year=document.getElementById(`${stem}-year`);
  let category='all';const params=new URLSearchParams(location.search);
  if(search){search.value=params.get('q')||'';if(buttons.some(b=>b.dataset.filter===params.get('category')))category=params.get('category')}
- function apply(){let count=0;const q=(search?.value||'').trim().toLocaleLowerCase();[...list.children].forEach(item=>{const y=item.querySelector('.paper-year')?.firstChild.textContent.trim();item.hidden=(category!=='all'&&item.dataset.kind!==category)||(q&&!item.textContent.toLocaleLowerCase().includes(q))||(year&&year.value!=='all'&&y!==year.value);if(!item.hidden)count++});buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===category)));result.textContent=`${count} ${result.dataset.unit}`;if(search){document.querySelector('.empty').hidden=count!==0}}
+ function apply(){let count=0;const q=(search?.value||'').trim().toLocaleLowerCase();[...list.children].forEach(item=>{const kinds=(item.dataset.kind||'').split(/\s+/),y=item.dataset.year||item.querySelector('.paper-year')?.firstChild.textContent.trim();item.hidden=(category!=='all'&&!kinds.includes(category))||(q&&!item.textContent.toLocaleLowerCase().includes(q))||(year&&year.value!=='all'&&y!==year.value);if(!item.hidden)count++});buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filter===category)));result.textContent=`${count} ${result.dataset.unit}`;bar.closest('section')?.querySelector('.empty')?.toggleAttribute('hidden',count!==0)}
  buttons.forEach(b=>b.addEventListener('click',()=>{category=b.dataset.filter;apply()}));search?.addEventListener('input',apply);year?.addEventListener('change',apply);document.getElementById('clear-filters')?.addEventListener('click',()=>{category='all';search.value='';year.value='all';apply();search.focus()});apply();
+ document.getElementById(`clear-${stem}-filters`)?.addEventListener('click',()=>{category='all';if(search)search.value='';if(year)year.value='all';apply();search?.focus()});
 });
 const dialog=document.querySelector('.lightbox');
 if(dialog){
