@@ -62,9 +62,12 @@ body{font-size:17px;line-height:1.85}h1,h2,h3,h4{font-weight:600;letter-spacing:
 .talk-archive .section-top>p,.recognition .section-top>p{max-width:440px;text-align:right}
 .talk{grid-template-columns:110px minmax(0,1fr) 86px}
 .talk time{font-family:var(--mono);letter-spacing:.02em;color:#7a8498}
+.talk-dates{display:flex;flex-direction:column;gap:4px}
+.talk-dates time{font-size:13px;line-height:1.75}
+.talk-dates span{font-size:12px;color:var(--blue)}
 .award-work{margin-top:8px;color:var(--ink)}
 .award>span{display:block;margin-top:10px;color:#7a8498}
 .recognition .awards{gap:34px 56px}
 .empty{padding:34px 0}
 .empty button{margin-top:12px;border:1px solid var(--line);background:#fff;color:var(--blue);padding:8px 14px;min-height:44px}
-@media(max-width:760px){.talk-archive{padding-top:42px}.talk-archive .section-top,.recognition .section-top{align-items:start}.talk-archive .section-top>p,.recognition .section-top>p{text-align:left}.filters{gap:7px}.paper{grid-template-columns:minmax(0,1fr) 46px}.paper-year{grid-column:1/-1;display:flex;gap:9px;align-items:baseline}.paper>div:nth-child(2){grid-column:1}.paper .paper-link{grid-column:1}.paper .cite{grid-column:2;grid-row:2/5;align-self:start}.talk{grid-template-columns:minmax(0,1fr) 70px}.talk time{grid-column:1/-1}.talk>div{grid-column:1}.talk-category{grid-column:2;grid-row:2}.archive-search{margin-bottom:17px}}
+@media(max-width:760px){.talk-archive{padding-top:42px}.talk-archive .section-top,.recognition .section-top{align-items:start}.talk-archive .section-top>p,.recognition .section-top>p{text-align:left}.filters{gap:7px}.paper{grid-template-columns:minmax(0,1fr) 46px}.paper-year{grid-column:1/-1;display:flex;gap:9px;align-items:baseline}.paper>div:nth-child(2){grid-column:1}.paper .paper-link{grid-column:1}.paper .cite{grid-column:2;grid-row:2/5;align-self:start}.talk{grid-template-columns:minmax(0,1fr) 70px}.talk-dates{grid-column:1/-1;flex-direction:row;align-items:baseline;gap:10px}.talk>div:nth-child(2){grid-column:1}.talk-category{grid-column:2;grid-row:2}.archive-search{margin-bottom:17px}}
