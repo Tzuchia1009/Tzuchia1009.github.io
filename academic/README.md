@@ -1,4 +1,4 @@
-# Tzu Chia Huang — Academic website
+# Tzu-Chia Huang — Academic website
 
 黃子嘉中英文學術網站，2026-09-12 更新。中文：https://tzuchia1009.github.io/academic/ ，英文：https://tzuchia1009.github.io/academic/en/ 。
 
